@@ -1,3 +1,9 @@
-<resources>
+<resources tools:ignore="ExtraTranslation" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Android APP</string>
+    <string name="easy_mode">简单模式</string>
+    <string name="normal_mode">普通模式</string>
+    <string name="hard_mode">困难模式</string>
+    <string name="help"></string>
+    <string name="settings"></string>
+
 </resources>
