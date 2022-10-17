@@ -13,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
+import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.LinkGame.LinkModel.SealLinkInfo;
 import com.example.androidapp.LinkGame.Utils.ScreenUtil;
 import com.example.androidapp.R;
 import com.example.androidapp.manager.GameManager;
 import com.example.androidapp.view.ImgView;
+
+import java.util.List;
 
 import tyrantgit.explosionfield.ExplosionField;
 
@@ -29,7 +32,7 @@ public class LinkActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level);
+        setContentView(R.layout.activity_link);
         //屏幕宽度,高度
         int screenWidth;
         int screenHeight;

@@ -185,8 +185,6 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
                             //播放点击音效
                             SoundPlayUtil.getInstance(getBaseContext()).play(3);
 
-                            Log.d(Constant.TAG,"关卡"+v.getId());
-
                             //判断是否可以进入该关卡
                             if (LevelState.getState(levels.get(v.getId()).getL_new()) != LevelState.LEVEL_STATE_NO){
                                 jumpToLinkActivity(levels.get(v.getId()));
