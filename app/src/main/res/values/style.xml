@@ -53,4 +53,76 @@
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_marginTop">50dp</item>
     </style>
+
+    <!--金币的字体样式-->
+    <style name="link_money_text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#FEFDA8</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <!--游戏界面关卡字体样式-->
+    <style name="link_level">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <!--游戏界面具体关卡信息字体样式-->
+    <style name="link_level_message">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!--控制道具大小的样式-->
+    <style name="link_props">
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="imgResource">@drawable/img_shape</item>
+    </style>
+
+    <!--包裹道具的布局样式-->
+    <style name="link_prop_relative">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">45dp</item>
+    </style>
+
+    <!--商店界面后买金币字体的样式-->
+    <style name="ShowMoneyText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <!--金币展示-->
+    <style name="ShowMoneyNumText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#6E748F</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+    </style>
+
+    <!--单个商品价格展示-->
+    <style name="ShowSimpleMoneyNumText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+    </style>
+
+    <!--单个商品名称文本样式-->
+    <style name="ShowSimplePropTitleText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#C5DFFC</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <!--单个商品描述文本样式-->
+    <style name="ShowSimplePropDesText">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

@@ -27,6 +27,7 @@ import com.example.androidapp.Fragment.SettingFragment;
 import com.example.androidapp.R;
 import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.Music.BackgroundMusicManager;
+import com.example.androidapp.Fragment.StoreFragment;
 
 import org.litepal.LitePal;
 
@@ -39,7 +40,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     Button normal_mode;
     Button hard_mode;
     Button setting;
-    Button help;
+    Button score;
+    Button store;
     Button root_main;
     private BroadcastReceiver mBroadcastReceiver;
     @Override
@@ -218,8 +220,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         hard_mode.setOnClickListener(this);
         setting = findViewById(R.id.main_setting);
         setting.setOnClickListener(this);
-        help = findViewById(R.id.score);
-        help.setOnClickListener(this);
+        score = findViewById(R.id.main_score);
+        score.setOnClickListener(this);
+        store = findViewById(R.id.main_store);
+        store.setOnClickListener(this);
         //root_main = findViewById(R.id.root_main);
     }
 
@@ -336,24 +340,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 transaction.commit();
 
                 break;
-//            case R.id.main_help:
-//                Log.d(Constant.TAG,"帮助按钮");
-//
-//                //添加一个fragment
-//                final HelpFragment help = new HelpFragment();
-//                transaction.replace(R.id.root_main,help,"help");
-//                transaction.commit();
-//
-//                break;
+            case R.id.main_store:
+                Log.d(Constant.TAG,",排行榜按钮");
+
+                //添加一个fragment
+                final StoreFragment store = new StoreFragment();
+                transaction.replace(R.id.root_main,store,"store");
+                transaction.commit();
+
+                break;
         }
     }
 
-//        @Override
-//        protected void onDestroy() {
-//            super.onDestroy();
-//
-//            unregisterReceiver(mBroadcastReceiver);
-//        }
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+
+            unregisterReceiver(mBroadcastReceiver);
+        }
     }
 
 

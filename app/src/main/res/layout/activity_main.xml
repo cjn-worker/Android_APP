@@ -91,11 +91,19 @@
                 style="@style/main_bg"
                 android:background="@drawable/main_setting"
                 android:layout_gravity="bottom"
-                android:layout_marginEnd="200dp"/>
+                android:layout_marginEnd="50dp"/>
+
+            <!--商店-->
+            <Button
+                android:id="@+id/main_store"
+                style="@style/main_bg"
+                android:background="@drawable/main_store"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="50dp"/>
 
             <!--排行榜-->
             <Button
-                android:id="@+id/score"
+                android:id="@+id/main_score"
                 style="@style/main_bg"
                 android:background="@drawable/score"
                 android:layout_gravity="bottom"/>
