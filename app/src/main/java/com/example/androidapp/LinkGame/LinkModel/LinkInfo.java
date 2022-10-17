@@ -9,7 +9,10 @@ import java.util.List;
 public class LinkInfo {
     private List<Point> points = new ArrayList<>();
 
-    public LinkInfo(){}
+    public LinkInfo(List<Point> p)
+    {
+        points = p;
+    }
 
     public LinkInfo(Point src, Point des)
     {

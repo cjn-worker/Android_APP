@@ -6,6 +6,7 @@ import android.widget.RelativeLayout;
 
 import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
+import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.LinkGame.Utils.PxUtil;
 import com.example.androidapp.R;
 import com.example.androidapp.view.ImgView;
@@ -24,6 +25,16 @@ public class GameManager
     private Context mContext;
 
 
+    //单例模式
+    private static GameManager instance;
+    public static synchronized GameManager getManager(){
+        if (instance == null){
+            instance = new GameManager();
+        }
+        return instance;
+    }
+
+
     //水平方向偏移间距
     private int padding_hor;
 
@@ -36,14 +47,15 @@ public class GameManager
         this.mContext = context;
         clearLastGame();
         //产生二维数组布局模板
-        //setBoard(LinkUtils.generateBoard_dynamically(1));
-        int[][] a = {
-                {-1, -1, -1, -1},
-                {-1, 1, 1, -1},
-                {-1, 1, 1, -1},
-                {-1, -1, -1, -1}};
+        setBoard(LinkUtils.generateBoard_dynamically(1));
+//        int[][] a = {
+//                {-1, -1, -1, -1},
+//                {-1, 1, 1, -1},
+//                {-1, 1, 1, -1},
+//                {-1, -1, -1, -1}};
+//        setBoard(a);
+
         //界面布局
-        setBoard(a);
         addViewToLayout(context, layout, width, height);
 
     }
@@ -60,7 +72,7 @@ public class GameManager
     }
     private void addViewToLayout(Context context, RelativeLayout layout, int width, int height){
         //随机加载AnimalView的显示图片
-//        List<Integer> resources = LinkUtils.loadPictureResourceWithBoard(getBoard());
+        List<Integer> resources = LinkUtils.loadPictureResourceWithBoard(getBoard());
 
         //横竖方向的个数
         int row_animal_num = getBoard().length;
@@ -100,8 +112,8 @@ public class GameManager
                     //创建一个AnimalView
                     imgView = new ImgView(
                             context,
-                            R.drawable.score,
-//                            resources.get(LinkConstant.ANIMAL_WOOD),//((getBoard()[i][j] > 0) ? LinkConstant.ANIMAL_RESOURCE[resources.get(getBoard()[i][j]-1)] : LinkConstant.ANIMAL_WOOD),
+                            //R.drawable.score,
+                            LinkConstant.RESOURCE[getBoard()[i][j]],
                             getBoard()[i][j],
                             new Point(i, j)
                     );
@@ -124,22 +136,12 @@ public class GameManager
                 );
 //                //添加视图
                 layout.addView(imgView,layoutParams);
-                if (imgView.getFlag() != 0){
+                if (imgView.getFlag() != -1){
                     imgViews.add(imgView);
                 }
             }
         }
 
-    }
-
-    public Context getmContext()
-    {
-        return mContext;
-    }
-
-    public int getSize()
-    {
-        return size;
     }
 
     public List<ImgView> getImgViews()
@@ -163,5 +165,20 @@ public class GameManager
 
     public void setBoard(int[][] board) {
         this.board = board;
+    }
+
+    public int getPadding_hor()
+    {
+        return padding_hor;
+    }
+
+    public int getPadding_ver()
+    {
+        return padding_ver;
+    }
+
+    public int getSize()
+    {
+        return size;
     }
 }

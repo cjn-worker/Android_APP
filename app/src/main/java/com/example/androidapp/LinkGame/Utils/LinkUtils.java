@@ -6,7 +6,12 @@ import java.util.Random;
 
 import static com.example.androidapp.LinkGame.LinkModel.Kernel.UNBLOCKED;
 
+import android.content.Context;
+import android.util.Log;
+
 import com.example.androidapp.Constant.LinkConstant;
+import com.example.androidapp.LinkGame.LinkModel.Point;
+import com.example.androidapp.manager.GameManager;
 
 
 public class LinkUtils {
@@ -39,15 +44,15 @@ public class LinkUtils {
         switch (level)
         {
             case 1:
-                line=10;
+                line=7;
                 sourceNum=line-2;
                 break;
             case 2:
-                line=14;
+                line=9;
                 sourceNum=line-2;
                 break;
             case 3:
-                line=18;
+                line=11;
                 sourceNum=line-2;
                 break;
         }
@@ -90,6 +95,7 @@ public class LinkUtils {
         }
         return cloneBoard;
     }
+
     public static List<Integer> loadPictureResourceWithBoard(int[][] board){
         //初始化存储集合
         List<Integer> list = new ArrayList<>();
@@ -190,5 +196,13 @@ public class LinkUtils {
 
         //将临时数组的值赋值到原数组
         if (temp.length >= 0) System.arraycopy(temp, 0, nums, start, temp.length);
+    }
+
+    public static Point getRealAnimalPoint(Point point, Context context){
+        GameManager manager = GameManager.getManager();
+        return new Point(
+                manager.getPadding_hor() + PxUtil.dpToPx(manager.getSize(),context) / 2 + point.getY()  * PxUtil.dpToPx(manager.getSize(),context),
+                manager.getPadding_ver() + PxUtil.dpToPx(manager.getSize(),context) / 2 + point.getX()  * PxUtil.dpToPx(manager.getSize(),context)
+        );
     }
 }

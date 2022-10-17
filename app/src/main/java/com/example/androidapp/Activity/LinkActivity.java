@@ -5,20 +5,29 @@ import android.annotation.SuppressLint;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
+import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.LinkGame.LinkModel.SealLinkInfo;
 import com.example.androidapp.LinkGame.Utils.ScreenUtil;
+import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.R;
 import com.example.androidapp.manager.GameManager;
 import com.example.androidapp.view.ImgView;
+import com.example.androidapp.view.XLRelativeLayout;
 
 import java.util.List;
 
@@ -27,7 +36,7 @@ import tyrantgit.explosionfield.ExplosionField;
 public class LinkActivity extends AppCompatActivity
 {
     private ExplosionField explosionField;
-    GameManager manager = new GameManager();
+    GameManager manager = GameManager.getManager();
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,19 +45,15 @@ public class LinkActivity extends AppCompatActivity
         //屏幕宽度,高度
         int screenWidth;
         int screenHeight;
-        RelativeLayout layout = new RelativeLayout(this);
+        XLRelativeLayout layout = new XLRelativeLayout(this);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         layout.setLayoutParams(layoutParams);
         screenWidth = ScreenUtil.getScreenWidth(getApplicationContext());
         screenHeight = ScreenUtil.getScreenHeight(getApplicationContext());
         explosionField = ExplosionField.attach2Window(this);
-        manager.startGame(this,
-                layout,
-                screenWidth,
-                screenHeight -500- ScreenUtil.getNavigationBarHeight(getApplicationContext())
-        );
+
         layout.setAlpha(1.0f);
-        ConstraintLayout link_layout=findViewById(R.id.link_layout);
+        RelativeLayout link_layout=findViewById(R.id.root_link);
         layout.setOnTouchListener(new View.OnTouchListener()
         {
             @SuppressLint("ClickableViewAccessibility")
@@ -80,24 +85,31 @@ public class LinkActivity extends AppCompatActivity
                             //如果不是第一次触摸 且 触摸的不是同一个点
                             if (lastView != null && lastView != imgView)
                             {
+                                SealLinkInfo sealLinkInfo=new SealLinkInfo();
                                 //如果两者的图片相同，且两者可以连接
                                 if (imgView.getFlag() == lastView.getFlag() &&
                                         Kernel.findLink(
                                                 manager.getBoard(),
                                                 lastView.getPoint(),
                                                 imgView.getPoint(),
-                                                new SealLinkInfo()
+                                                sealLinkInfo
                                         ))
                                 {
+                                    animationOnSelectAnimal(imgView);
+                                    layout.setLinkInfo(new LinkInfo(sealLinkInfo.getLink().get(0)));
+                                    //设置所有的宝可梦不可以点击
+                                    layout.setEnabled(false);
+
                                     new Handler().postDelayed(new Runnable()
                                     {
                                         @Override
                                         public void run()
                                         {
 
+                                            SoundPlayUtil.getInstance(getBaseContext()).play(4);
                                             //修改模板
-                                            manager.getBoard()[lastView.getPoint().getX()][lastView.getPoint().getY()] = 0;
-                                            manager.getBoard()[imgView.getPoint().getX()][imgView.getPoint().getY()] = 0;
+                                            manager.getBoard()[lastView.getPoint().getX()][lastView.getPoint().getY()] = -1;
+                                            manager.getBoard()[imgView.getPoint().getX()][imgView.getPoint().getY()] = -1;
 
                                             //粉碎
                                             explosionField.explode(lastView);
@@ -108,20 +120,23 @@ public class LinkActivity extends AppCompatActivity
                                             lastView.clearAnimation();
                                             imgView.setVisibility(View.INVISIBLE);
                                             imgView.clearAnimation();
-
+                                            manager.setLastView(null);
+                                            layout.setLinkInfo(null);
+                                            layout.setEnabled(true);
 
                                         }
-                                    }, 100);
-                                    manager.setLastView(null);
+                                    }, 500);
                                 }
                                 else
                                 {
+                                    SoundPlayUtil.getInstance(getBaseContext()).play(3);
                                     manager.setLastView(null);
                                 }
                             }
                             else if (lastView == null)
                             {
-
+                                animationOnSelectAnimal(imgView);
+                                SoundPlayUtil.getInstance(getBaseContext()).play(3);
                                 manager.setLastView(imgView);
                                 break;
                             }
@@ -137,5 +152,48 @@ public class LinkActivity extends AppCompatActivity
             }
         });
         link_layout.addView(layout);
+        manager.startGame(this,
+                layout,
+                screenWidth,
+                screenHeight -500- ScreenUtil.getNavigationBarHeight(getApplicationContext())
+        );
+    }
+    private void animationOnSelectAnimal(ImgView animal){
+        //缩放动画
+        ScaleAnimation scaleAnimation = new ScaleAnimation(
+                1.0f, 1.05f,
+                1.0f, 1.05f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f
+        );
+        scaleAnimation.setDuration(100);
+        scaleAnimation.setRepeatCount(0);
+        scaleAnimation.setFillAfter(true);
+
+        //旋转动画
+        RotateAnimation rotateAnimation = new RotateAnimation(
+                -20f,
+                20f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f
+        );
+        rotateAnimation.setDuration(500);
+        rotateAnimation.setStartOffset(100);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        rotateAnimation.setRepeatMode(Animation.REVERSE);
+        rotateAnimation.setInterpolator(new BounceInterpolator());
+
+        //组合动画
+        AnimationSet animationSet = new AnimationSet(true);
+        animationSet.addAnimation(scaleAnimation);
+        animationSet.addAnimation(rotateAnimation);
+
+        //开启动画
+        animal.startAnimation(animationSet);
+        animationSet.startNow();
     }
 }

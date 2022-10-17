@@ -57,7 +57,7 @@ public class Kernel {
         int row = LinkBoard.length;
         int col = LinkBoard[0].length;
 //        boolean link
-        for (int i = 1; i < col - 1; i++)//垂直方向
+        for (int i = 0; i < col; i++)//垂直方向
         {
             Point tmp1 = new Point(src.getX(), i);
             Point tmp2 = new Point(des.getX(), i);
@@ -68,7 +68,7 @@ public class Kernel {
                 return true;
             };
         }
-        for (int j = 1; j < row - 1; j++)//水平方向
+        for (int j = 0; j < row ; j++)//水平方向
         {
             Point tmp1 = new Point(j, src.getY());
             Point tmp2 = new Point(j, des.getY());
@@ -91,7 +91,7 @@ public class Kernel {
         return isLinked&&isUnblocked;
     }
 
-    public static boolean findLink(int[][] LinkBoard, Point src, Point des, SealLinkInfo SealedLinkInfo)
+    public static boolean findLink(int[][] LinkBoard, Point src, Point des, SealLinkInfo sealLinkInfo)
     {
         int x_s = src.getX();int y_s = src.getY();
         int x_d = des.getX();int y_d = des.getY();
@@ -99,9 +99,9 @@ public class Kernel {
         boolean NUnblocked= !(LinkBoard[x_s][y_s]==UNBLOCKED ||LinkBoard[x_d][y_d]==UNBLOCKED);
         if(Same&&NUnblocked)
         {
-            return directLink(LinkBoard,src,des,SealedLinkInfo)||
-                    oneBendLink(LinkBoard,src,des,SealedLinkInfo)||
-                    twoBendsLink(LinkBoard,src,des,SealedLinkInfo);
+            return directLink(LinkBoard,src,des,sealLinkInfo)||
+                    oneBendLink(LinkBoard,src,des,sealLinkInfo)||
+                    twoBendsLink(LinkBoard,src,des,sealLinkInfo);
         }
         return false;
     }

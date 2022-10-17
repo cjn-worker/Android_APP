@@ -17,19 +17,17 @@ public interface LinkConstant
     /**
      * 连连看图标
      */
-//    int[] ANIMAL_RESOURCE = {
-//            R.drawable.animal_0, R.drawable.animal_1,
-//            R.drawable.animal_2, R.drawable.animal_3,
-//            R.drawable.animal_4, R.drawable.animal_5,
-//            R.drawable.animal_6, R.drawable.animal_7,
-//            R.drawable.animal_8, R.drawable.animal_9,
-//            R.drawable.animal_10, R.drawable.animal_11,
-//            R.drawable.animal_12, R.drawable.animal_13,
-//            R.drawable.animal_14, R.drawable.animal_15,
-//            R.drawable.animal_16
-//    };
-    //木头图标
-    int ANIMAL_WOOD = R.drawable.score;
+    int[] RESOURCE = {
+            R.drawable.emoji1,
+            R.drawable.emoji2,
+            R.drawable.emoji3,
+            R.drawable.emoji4,
+            R.drawable.emoji5,
+            R.drawable.emoji6,
+            R.drawable.emoji7,
+
+    };
+
 
     /**
      * 连连看图标背景
