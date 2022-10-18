@@ -43,7 +43,6 @@
                     android:foregroundGravity="center_vertical|center" />
 
                 <SeekBar
-                    android:id="@+id/seekBar2"
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -178,6 +177,7 @@
                 android:layout_marginEnd="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_weight="1"
+                app:imgResource="@drawable/store_prop_bg_shape"
                 app:srcResource="@drawable/link_prop_tip" />
 
             <swu.xl.numberitem.NumberOfItem
@@ -185,14 +185,16 @@
                 android:layout_height="70dp"
                 android:layout_marginEnd="25dp"
                 android:layout_weight="1"
-                app:srcResource="@drawable/link_prop_refresh" />
+                app:imgResource="@drawable/store_prop_bg_shape"
+                app:srcResource="@drawable/dizzy" />
 
             <swu.xl.numberitem.NumberOfItem
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginEnd="25dp"
                 android:layout_weight="1"
-                app:srcResource="@drawable/link_prop_bomb1" />
+                app:imgResource="@drawable/store_prop_bg_shape"
+                app:srcResource="@drawable/bomb" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

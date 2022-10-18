@@ -163,12 +163,11 @@
 
                 <!--道具图标-->
                 <swu.xl.numberitem.NumberOfItem
-                    android:id="@+id/prop_bomb"
                     android:layout_width="65dp"
                     android:layout_height="65dp"
                     android:paddingBottom="2dp"
-                    app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/link_prop_bomb1" />
+                    app:srcResource="@drawable/bomb"
+                    app:imgResource="@drawable/store_prop_bg_shape" />
 
                 <!--道具文本说明-->
                 <LinearLayout
@@ -247,7 +246,7 @@
                     android:layout_height="65dp"
                     android:paddingBottom="2dp"
                     app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/link_prop_refresh" />
+                    app:srcResource="@drawable/dizzy" />
 
                 <!--道具文本说明-->
                 <LinearLayout
@@ -329,7 +328,7 @@
         android:layout_marginEnd="146dp"
         android:layout_marginStart="145dp"
         android:layout_marginTop="112dp"
-        android:src="@drawable/loiioop" />
+        android:src="@drawable/candy" />
 
     <ImageView
         android:id="@+id/store_delete"

@@ -4,13 +4,23 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <!--设置背景颜色-->
-    <gradient
-        android:angle="270"
-        android:startColor="#A26BFB"
-        android:centerColor="#8C61FF"
-        android:endColor="#FA759E"/>
     <!--设置角为半圆  radius 半径-->
-    <corners android:radius="20dp"/>
+    <gradient
+        android:angle="90"
+        android:startColor="#7FB3F5"
+        android:centerColor="#C4ABE6"
+        android:endColor="#D69BAD"/>
+    <corners android:radius="30dp"/>
+    <stroke
+        android:width="3dp"
+        android:color="#8000B0FF"
+        />
+    <padding
+        android:bottom="1dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp"
+        />
     <!--bottom 下 top 上 left左 right右-->
     <padding
         android:bottom="10dp"

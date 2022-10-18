@@ -12,5 +12,5 @@
     <string name="Prop_Bomb_Des">消除某个种类\n所有的emoji</string>
     <string name="Prop_Refresh_Text">重排</string>
     <string name="Prop_Refresh_Des">重新排列页面\n内的所有emoji</string>
-    <string name="ShowMoney">购买金币</string>
+    <string name="ShowMoney">持有金币</string>
 </resources>
