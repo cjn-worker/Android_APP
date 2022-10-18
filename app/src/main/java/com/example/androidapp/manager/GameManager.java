@@ -8,7 +8,6 @@ import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.LinkGame.Utils.PxUtil;
-import com.example.androidapp.R;
 import com.example.androidapp.view.ImgView;
 
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class GameManager
         this.mContext = context;
         clearLastGame();
         //产生二维数组布局模板
-        setBoard(LinkUtils.generateBoard_dynamically(1));
+        setBoard(LinkUtils.generateBoard(3));
 //        int[][] a = {
 //                {-1, -1, -1, -1},
 //                {-1, 1, 1, -1},

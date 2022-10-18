@@ -229,18 +229,14 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
             //如果当前向右滑动 且 滑动后处于最后一页
             //右边的按钮设置不可用
             pager_down.setEnabled(false);
-            pager_down.setBackgroundResource(R.drawable.level_page_down_enable);
         }else if(direction == -1 && offset == screenWidth){
             //如果当前向左滑动 且 滑动后处于第一页
             //左边的按钮设置不可用
             pager_up.setEnabled(false);
-            pager_up.setBackgroundResource(R.drawable.level_page_up_enable);
         }else{
             //恢复
             pager_up.setEnabled(true);
-            pager_up.setBackgroundResource(R.drawable.level_page_up);
             pager_down.setEnabled(true);
-            pager_down.setBackgroundResource(R.drawable.level_page_down);
         }
 
         //滑动视图

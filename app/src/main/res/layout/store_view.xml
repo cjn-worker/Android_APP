@@ -38,7 +38,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/view_store_show_money_bg"
+                android:background="@drawable/view_store_show_simple_money_bg"
                 android:padding="5dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -49,7 +49,7 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:src="@drawable/link_coin"
+                    android:src="@drawable/coin"
                     />
 
                 <!--持有的数目-->
@@ -89,7 +89,7 @@
                     android:layout_height="65dp"
                     android:paddingBottom="2dp"
                     app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/link_prop_fight" />
+                    app:srcResource="@drawable/link_prop_tip" />
 
                 <!--道具文本说明-->
                 <LinearLayout
@@ -105,7 +105,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="@string/Prop_Fight_Text" />
+                        android:textColor="@color/black"
+                        android:text="提示" />
 
                     <!--描述-->
                     <com.example.androidapp.SelfView.XLTextView
@@ -113,6 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:textColor="#A31F86"
                         android:text="@string/Prop_Fight_Des" />
 
 
@@ -135,7 +137,7 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/link_coin" />
+                        android:src="@drawable/coin" />
 
                     <!--持有的数目-->
                     <com.example.androidapp.SelfView.XLTextView
@@ -166,7 +168,7 @@
                     android:layout_height="65dp"
                     android:paddingBottom="2dp"
                     app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/link_prop_bomb" />
+                    app:srcResource="@drawable/link_prop_bomb1" />
 
                 <!--道具文本说明-->
                 <LinearLayout
@@ -182,6 +184,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:text="@string/Prop_Bomb_Text" />
 
                     <!--描述-->
@@ -190,6 +193,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:textColor="#A31F86"
                         android:text="@string/Prop_Bomb_Des" />
 
 
@@ -212,7 +216,7 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/link_coin" />
+                        android:src="@drawable/coin" />
 
                     <!--持有的数目-->
                     <com.example.androidapp.SelfView.XLTextView
@@ -243,7 +247,7 @@
                     android:layout_height="65dp"
                     android:paddingBottom="2dp"
                     app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/link_prop_resort" />
+                    app:srcResource="@drawable/link_prop_refresh" />
 
                 <!--道具文本说明-->
                 <LinearLayout
@@ -259,6 +263,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:textColor="@color/black"
                         android:text="@string/Prop_Refresh_Text" />
 
                     <!--描述-->
@@ -267,6 +272,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:textColor="#A31F86"
                         android:text="@string/Prop_Refresh_Des" />
 
 
@@ -289,7 +295,7 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/link_coin" />
+                        android:src="@drawable/coin" />
 
                     <!--持有的数目-->
                     <com.example.androidapp.SelfView.XLTextView
@@ -309,25 +315,30 @@
     </RelativeLayout>
 
     <!--商店牌子-->
+
+    <!--关闭按钮-->
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/view_store_banner"
         android:layout_above="@+id/view_store"
-        android:layout_marginBottom="-60dp"
-        />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="-45dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/loiioop" />
 
-    <!--关闭按钮-->
     <ImageView
         android:id="@+id/store_delete"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/view_store_delete"
         android:layout_alignEnd="@id/view_store"
-        android:layout_marginEnd="0dp"
         android:layout_alignTop="@id/view_store"
+        android:layout_marginEnd="0dp"
         android:layout_marginTop="0dp"
-        />
+        android:src="@drawable/view_store_delete" />
 
 </RelativeLayout>

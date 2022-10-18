@@ -20,7 +20,7 @@ public class LinkUtils {
      * @param LinkBoard
      * @return
      */
-    public static boolean isBoardCleared(int[][] LinkBoard)
+    public static boolean isCleared(int[][] LinkBoard)
     {
         int col = LinkBoard[0].length;
         for (int[] ints : LinkBoard) {
@@ -36,27 +36,30 @@ public class LinkUtils {
      * @param level
      *
      */
-    public static int[][] generateBoard_dynamically(int level)
+    public static int[][] generateBoard(int level)
     {
         int sourceNum=0;
-        int line=0;
-//        int col=0;
+        int row=0;
+        int col=0;
         switch (level)
         {
             case 1:
-                line=7;
-                sourceNum=line-2;
+                row=6;
+                col=6;
+                sourceNum=col-2;
                 break;
             case 2:
-                line=9;
-                sourceNum=line-2;
+                row=10;
+                col=8;
+                sourceNum=col-2;
                 break;
             case 3:
-                line=11;
-                sourceNum=line-2;
+                row=12;
+                col=8;
+                sourceNum=col-2;
                 break;
         }
-        int [][]LinkBoard=new int[line][line];
+        int [][]LinkBoard=new int[row][col];
         for(int i=0;i<LinkBoard.length;i++)
             LinkBoard[i][0]=LinkBoard[i][LinkBoard[0].length-1]=UNBLOCKED;
         for(int j=0;j<LinkBoard[0].length;j++)

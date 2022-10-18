@@ -2,81 +2,110 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MainActivity"
 
-    android:background="@mipmap/background"
-    android:id="@+id/root_main">
+    android:background="@mipmap/backg12"
+    tools:context=".Activity.MainActivity">
 
     <!--包裹布局-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <!--标题部分-->
-        <LinearLayout
+
+        <!--模式部分-->
+
+        <!--相关设置-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="31dp"
-            android:layout_weight="4"
-            android:orientation="vertical">
+            android:layout_weight="4">
 
 
             <!--success_banner-->
             <ImageView
                 android:id="@+id/main_banner"
-                android:layout_width="268dp"
-                android:layout_height="678dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_width="277dp"
+                android:layout_height="237dp"
+                android:layout_marginEnd="63dp"
+                android:layout_marginStart="63dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/title" />
+                android:src="@drawable/title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--模式部分-->
-
-        <!--相关设置-->
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
-            android:layout_height="329dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="390dp"
+            android:gravity="center_horizontal">
 
             //简单模式
 
-            <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/start_easy"
-                style="@style/mode_btn"
-                android:text="@string/easy_mode"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="28sp" />
-
             //普通模式
-
-            <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/start_normal"
-                style="@style/mode_btn"
-                android:text="@string/normal_mode"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="28sp" />
 
 
             //困难模式
 
             <com.example.androidapp.SelfView.XLButton
+                android:id="@+id/start_easy"
+                style="@style/mode_btn"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="64dp"
+                android:background="@drawable/start_button_easy_shape"
+                android:text="@string/easy_mode"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.androidapp.SelfView.XLButton
+                android:id="@+id/start_normal"
+                style="@style/mode_btn"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="64dp"
+                android:background="@drawable/start_button_normal_shape"
+                android:text="@string/normal_mode"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="@+id/start_easy"
+                app:layout_constraintStart_toStartOf="@+id/start_easy"
+                app:layout_constraintTop_toBottomOf="@+id/start_easy" />
+
+            <com.example.androidapp.SelfView.XLButton
                 android:id="@+id/start_hard"
                 style="@style/mode_btn"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:background="@drawable/start_button_hard_shape"
                 android:text="@string/hard_mode"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="28sp" />
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/start_normal"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/start_normal"
+                app:layout_constraintTop_toBottomOf="@+id/start_normal"
+                app:layout_constraintVertical_bias="0.487" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,24 +118,24 @@
             <Button
                 android:id="@+id/main_setting"
                 style="@style/main_bg"
-                android:background="@drawable/main_setting"
                 android:layout_gravity="bottom"
-                android:layout_marginEnd="50dp"/>
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/gear" />
 
             <!--商店-->
             <Button
                 android:id="@+id/main_store"
                 style="@style/main_bg"
-                android:background="@drawable/main_store"
                 android:layout_gravity="bottom"
-                android:layout_marginEnd="50dp"/>
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/store" />
 
             <!--排行榜-->
             <Button
                 android:id="@+id/main_score"
                 style="@style/main_bg"
-                android:background="@drawable/score"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:background="@drawable/rocket" />
 
 
         </LinearLayout>
