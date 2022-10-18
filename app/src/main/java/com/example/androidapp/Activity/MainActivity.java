@@ -21,6 +21,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.androidapp.Model.XLLevel;
 import com.example.androidapp.Model.XLProp;
+import com.example.androidapp.Model.XLScore;
 import com.example.androidapp.Model.XLUser;
 import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.Fragment.SettingFragment;
@@ -111,7 +112,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //查找当前数据库的内容
         List<XLUser> users = LitePal.findAll(XLUser.class);
         List<XLLevel> levels = LitePal.findAll(XLLevel.class);
-        List<XLProp> props=LitePal.findAll(XLProp.class);
+        List<XLProp> props = LitePal.findAll(XLProp.class);
+        List<XLScore> scores = LitePal.findAll(XLScore.class);
 
         //如果用户数据为空，装入数据
         if (users.size() == 0){
@@ -205,6 +207,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             prop_refresh.setP_number(9);
             prop_refresh.setP_price(10);
             prop_refresh.save();
+        }
+
+        //如果分数数据为空，装入数据
+        if(scores.size() == 0){
+
+            XLScore score=new XLScore();
+            //1.装入得分
+            score.setScore(0);
+            score.save();
+
+            //2.装入通关数量
+            score.setDo_num(0);
+            score.save();
+
         }
     }
 
