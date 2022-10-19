@@ -19,8 +19,10 @@ import android.view.View;
 import android.widget.Button;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.androidapp.Fragment.RankingFragment;
 import com.example.androidapp.Model.XLLevel;
 import com.example.androidapp.Model.XLProp;
+import com.example.androidapp.Model.XLScore;
 import com.example.androidapp.Model.XLUser;
 import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.Fragment.SettingFragment;
@@ -111,7 +113,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //查找当前数据库的内容
         List<XLUser> users = LitePal.findAll(XLUser.class);
         List<XLLevel> levels = LitePal.findAll(XLLevel.class);
-        List<XLProp> props=LitePal.findAll(XLProp.class);
+        List<XLProp> props = LitePal.findAll(XLProp.class);
+        List<XLScore> scores = LitePal.findAll(XLScore.class);
 
         //如果用户数据为空，装入数据
         if (users.size() == 0){
@@ -206,6 +209,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             prop_refresh.setP_price(10);
             prop_refresh.save();
         }
+
+        //如果分数数据为空，装入数据
+        if(scores.size() == 0){
+
+            XLScore score=new XLScore();
+            //1.装入得分
+            score.setOne_score(0);
+            score.setTwo_score(0);
+            score.setThree_score(0);
+            score.setFour_score(0);
+            score.setFive_score(0);
+            score.save();
+
+            //2.装入通关数量
+            score.setDo_num(0);
+            score.save();
+
+        }
     }
 
     /**
@@ -220,7 +241,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         hard_mode.setOnClickListener(this);
         setting = findViewById(R.id.main_setting);
         setting.setOnClickListener(this);
-        score = findViewById(R.id.main_score);
+        score = findViewById(R.id.main_rank);
         score.setOnClickListener(this);
         store = findViewById(R.id.main_store);
         store.setOnClickListener(this);
@@ -341,11 +362,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
                 break;
             case R.id.main_store:
-                Log.d(Constant.TAG,",排行榜按钮");
+                Log.d(Constant.TAG,"商店按钮");
 
                 //添加一个fragment
                 final StoreFragment store = new StoreFragment();
                 transaction.replace(R.id.root_main,store,"store");
+                transaction.commit();
+
+                break;
+            case R.id.main_rank:
+                Log.d(Constant.TAG,",排行榜按钮");
+
+                //添加一个fragment
+                final RankingFragment rank = new RankingFragment();
+                transaction.replace(R.id.root_main,rank,"rank");
                 transaction.commit();
 
                 break;

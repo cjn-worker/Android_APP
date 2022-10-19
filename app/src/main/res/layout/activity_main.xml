@@ -132,7 +132,7 @@
 
             <!--排行榜-->
             <Button
-                android:id="@+id/main_score"
+                android:id="@+id/main_rank"
                 style="@style/main_bg"
                 android:layout_gravity="bottom"
                 android:background="@drawable/rocket" />

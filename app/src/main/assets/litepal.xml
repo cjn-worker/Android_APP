@@ -17,6 +17,7 @@
         <mapping class="com.example.androidapp.Model.XLUser"  />
         <mapping class="com.example.androidapp.Model.XLLevel" />
         <mapping class="com.example.androidapp.Model.XLProp"  />
+        <mapping class="com.example.androidapp.Model.XLScore" />
     </list>
 
 </litepal>
