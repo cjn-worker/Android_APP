@@ -15,16 +15,24 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
 import com.example.androidapp.LinkGame.LinkModel.SealLinkInfo;
+import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.LinkGame.Utils.ScreenUtil;
 import com.example.androidapp.Model.XLLevel;
+import com.example.androidapp.Model.XLUser;
 import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.R;
+import com.example.androidapp.SelfView.XLButton;
+import com.example.androidapp.SelfView.XLTextView;
 import com.example.androidapp.manager.GameManager;
 import com.example.androidapp.view.ImgView;
 import com.example.androidapp.view.XLRelativeLayout;
@@ -32,6 +40,7 @@ import com.example.androidapp.view.XLRelativeLayout;
 import org.litepal.LitePal;
 
 import java.util.List;
+import java.util.TimerTask;
 
 import tyrantgit.explosionfield.ExplosionField;
 
@@ -45,7 +54,19 @@ public class LinkActivity extends AppCompatActivity
     //游戏的布局，存放imgviews
     private XLRelativeLayout layout;
     private XLLevel level;
-
+    private XLUser user;
+    //记录金币的变量
+    int money;
+    private SeekBar time_bar;
+    TimerTask timer_task;
+    private boolean isPause=false;
+    //显示关卡的文本
+    private XLTextView level_text;
+    //显示金币的文本
+    private XLTextView money_text;
+    private XLTextView score_text;
+    private XLButton pause;
+    private int score;
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -54,7 +75,6 @@ public class LinkActivity extends AppCompatActivity
         initData();
         initView();
 
-
         manager.startGame(this,
                 layout,
                 screenWidth,
@@ -62,6 +82,7 @@ public class LinkActivity extends AppCompatActivity
                 level.getL_id(),
                 level.getL_mode()
         );
+        manager.setListener(LinkActivity.this);
     }
 
     private void initData() {
@@ -74,10 +95,18 @@ public class LinkActivity extends AppCompatActivity
 //        Log.d(Constant.TAG,"--------");
 //        Log.d(Constant.TAG, String.valueOf(level));
 //
-//        //查询用户数据
-//        List<XLUser> users = LitePal.findAll(XLUser.class);
-//        user = users.get(0);
-//        money = user.getU_money();
+        //查询用户数据
+        List<XLUser> users = LitePal.findAll(XLUser.class);
+        user = users.get(0);
+        money = user.getU_money();
+
+        level_text = findViewById(R.id.link_level_text);
+        level_text.setText(String.valueOf(level.getL_id()));
+        money_text = findViewById(R.id.link_money_text);
+        money_text.setText(String.valueOf(money));
+        score_text =findViewById(R.id.link_score);
+        score_text.setText("0");
+        score=0;
 //
 //        //查询道具数据
 //        props = LitePal.findAll(XLProp.class);
@@ -98,8 +127,16 @@ public class LinkActivity extends AppCompatActivity
 //        }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     private void initView()
+    {
+        initLayout();
+        initPauseButton();
+        time_bar=findViewById(R.id.time_bar);
+
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void initLayout()
     {
         layout = new XLRelativeLayout(this);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -162,6 +199,10 @@ public class LinkActivity extends AppCompatActivity
                                     //粉碎
                                     explosionField.explode(lastView);
                                     explosionField.explode(imgView);
+                                    money += 1;
+                                    money_text.setText(String.valueOf(money));
+                                    score+=2;
+                                    score_text.setText(String.valueOf(score));
                                     new Handler().postDelayed(new Runnable()
                                     {
                                         @Override
@@ -210,6 +251,30 @@ public class LinkActivity extends AppCompatActivity
         link_layout.addView(layout);
     }
 
+    private void initPauseButton()
+    {
+        pause=findViewById(R.id.pause);
+        pause.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (!isPause)
+                {
+                    manager.pauseGame();
+                    layout.setEnabled(false);
+                    isPause=!isPause;
+                }
+                else
+                {
+                    manager.pauseGame();
+                    layout.setEnabled(true);
+                    isPause=!isPause;
+                }
+            }
+        });
+    }
+
     private void startViewAnimation(ImgView imgView){
         //缩放动画
         ScaleAnimation scaleAnimation = new ScaleAnimation(
@@ -248,4 +313,60 @@ public class LinkActivity extends AppCompatActivity
         imgView.startAnimation(animationSet);
         animationSet.startNow();
     }
+
+
+    //时间发生改变的时间
+    public void onTimeChanged(float time) {
+        //如果时间小于0
+        if (time <= 0.0){
+            manager.pauseGame();
+            manager.endGame(this,level,time);
+        }else {
+            //保留小数后一位
+            time_bar.setProgress((int)time);
+        }
+
+        //如果board全部清除了
+        if (LinkUtils.isCleared(manager.getBoard())){
+            //结束游戏
+            manager.pauseGame();
+            level.setL_time((int) (LinkConstant.TIME -time));
+            level.setL_new(LinkUtils.getStarByTime((int) time));
+            manager.endGame(this,level,time);
+
+            //关卡结算
+            level.update(level.getId());
+
+            //下一关判断
+            XLLevel next_level = LitePal.find(XLLevel.class, level.getId() + 1);
+            if (next_level.getL_new() == '0'){
+                next_level.setL_new('4');
+                next_level.update(level.getId()+1);
+            }
+
+            //金币道具清算
+            user.setU_money(money);
+            user.update(1);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        //暂停游戏
+        manager.pauseGame();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //开启游戏
+        if (manager.isPause()){
+            manager.pauseGame();
+        }
+    }
+
+
 }

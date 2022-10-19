@@ -163,11 +163,12 @@
 
                 <!--道具图标-->
                 <swu.xl.numberitem.NumberOfItem
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:paddingBottom="2dp"
-                    app:srcResource="@drawable/bomb"
-                    app:imgResource="@drawable/store_prop_bg_shape" />
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:paddingBottom="2dp"
+                        app:srcResource="@drawable/bomb"
+                        app:imgResource="@drawable/store_prop_bg_shape"
+                        android:id="@+id/prop_bomb" />
 
                 <!--道具文本说明-->
                 <LinearLayout

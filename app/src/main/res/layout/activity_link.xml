@@ -35,23 +35,25 @@
                 android:layout_height="52dp">
 
                 <com.example.androidapp.SelfView.XLButton
-                    android:layout_width="26dp"
-                    android:layout_height="43dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/pause"
-                    android:foregroundGravity="center_vertical|center" />
+                        android:layout_width="26dp"
+                        android:layout_height="43dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/pause"
+                        android:foregroundGravity="center_vertical|center"
+                        android:id="@+id/pause" />
 
                 <SeekBar
-                    android:layout_width="240dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="4"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressDrawable="@drawable/timer_seekbar"
-                    android:thumb="@drawable/apple"
-                    tools:ignore="MissingConstraints" />
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="4"
+                        android:max="90"
+                        android:progress="90"
+                        android:progressDrawable="@drawable/timer_seekbar"
+                        android:thumb="@drawable/apple"
+                        tools:ignore="MissingConstraints"
+                        android:id="@+id/time_bar" />
 
             </LinearLayout>
 
@@ -78,14 +80,15 @@
                         android:textSize="28sp" />
 
                     <com.example.androidapp.SelfView.XLTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="4"
-                        android:textColor="@color/white"
-                        android:textSize="28sp" />
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="4"
+                            android:textColor="@color/white"
+                            android:textSize="28sp"
+                            android:id="@+id/link_level_text" />
 
                 </LinearLayout>
 
@@ -121,13 +124,14 @@
                             android:background="@drawable/coin" />
 
                         <com.example.androidapp.SelfView.XLTextView
-                            android:layout_width="6dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="1000"
-                            android:textSize="15sp" />
+                                android:layout_width="6dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="1000"
+                                android:textSize="15sp"
+                                android:id="@+id/link_money_text" />
                     </com.example.androidapp.SelfView.XLLinearLayout>
 
                     <com.example.androidapp.SelfView.XLTextView
@@ -141,12 +145,13 @@
                         android:textSize="28sp" />
 
                     <com.example.androidapp.SelfView.XLTextView
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="1000"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="1000"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:id="@+id/link_score" />
 
                 </LinearLayout>
 

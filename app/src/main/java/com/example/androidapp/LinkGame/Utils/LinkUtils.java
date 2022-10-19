@@ -200,7 +200,7 @@ public class LinkUtils {
         }
 
         //将临时数组的值赋值到原数组
-        if (temp.length >= 0) System.arraycopy(temp, 0, nums, start, temp.length);
+        System.arraycopy(temp, 0, nums, start, temp.length);
     }
 
     public static Point getRealAnimalPoint(Point point, Context context){
@@ -213,26 +213,19 @@ public class LinkUtils {
 
     public static int[][] loadLevelWithIdAndMode(int level_id, char level_mode){
 
-        //1.先判断是什么类型的关卡
+        //判断是什么类型的关卡
         int [][][] BOARD;
-        //if (level_mode == LevelMode.LEVEL_MODE_EASY.getValue()){
+        if (level_mode == LevelMode.LEVEL_MODE_EASY.getValue()){
             BOARD = LinkConstant.BOARD_EASY;
-        //}//else if (level_mode == LevelMode.LEVEL_MODE_NORMAL.getValue()){
-//            BOARD = LinkConstant.BOARD_NORMAL;
-//        }else {
-//            BOARD = LinkConstant.BOARD_HARD;
-//        }
+        }else if (level_mode == LevelMode.LEVEL_MODE_NORMAL.getValue()){
+            BOARD = LinkConstant.BOARD_NORMAL;
+        }else
+        {
+            BOARD = LinkConstant.BOARD_HARD;
+        }
 
-//        //2.获取需要加载的资源数量
-//        int resourceID = new Random().nextInt(BOARD.length);
-//
-//        //3.获取随机产生的模板
-//        int[][] board = BOARD[resourceID];
-//        Log.d(Constant.TAG,"加载的board"+resourceID);
-
-        //4.拷贝模板
+        //拷贝模板
         int[][] board = BOARD[level_id];
-        Log.d("1",String.valueOf(level_id));
         int row = board.length;
         int col = board[0].length;
         int[][] clone = new int[row][col];
@@ -241,5 +234,16 @@ public class LinkUtils {
         }
 
         return clone;
+    }
+
+
+    public static char getStarByTime(int time){
+        if (time <= 40){
+            return '1';
+        }else if (time <= 60){
+            return '2';
+        }else {
+            return '3';
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.androidapp.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,6 +46,7 @@ public class StoreFragment extends Fragment {
 
         //拦截事件
         inflate.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return true;
@@ -80,7 +82,7 @@ public class StoreFragment extends Fragment {
         NumberOfItem prop_fight = inflate.findViewById(R.id.prop_fight);
         prop_fight.setCount(fight_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
-        prop_bomb.setCount(bomb_num);
+        //prop_bomb.setCount(bomb_num);
         NumberOfItem prop_refresh = inflate.findViewById(R.id.prop_refresh);
         prop_refresh.setCount(refresh_num);
 

@@ -38,7 +38,7 @@ public interface LinkConstant
     /**
      * 连连看默认的时间
      */
-    int TIME = 90;
+    int TIME = 15;
 
     /**
      * 基础分数
@@ -46,7 +46,7 @@ public interface LinkConstant
     int BASE_SCORE = 500;
 
 
-    int [][][] BOARD_EASY = {
+    int[][][] BOARD_EASY = {
             {{}},
             LinkBoard.board_easy_1,
             LinkBoard.board_easy_2,
@@ -61,5 +61,22 @@ public interface LinkConstant
             LinkBoard.board_easy_11,
             LinkBoard.board_easy_12,
             LinkBoard.board_easy_13,
+    };
+    int[][][] BOARD_NORMAL = {
+            {{}},
+            {{-1, -1, -1, -1},
+                    {-1, 1, 1, -1},
+                    {-1, 1, 1, -1},
+                    {-1, -1, -1, -1}}
+    };
+    int[][][] BOARD_HARD = {
+            {{}},
+            {
+                    {-1, -1, -1, -1},
+                    {-1, 1, 1, -1},
+                    {-1, 1, 1, -1},
+                    {-1, 1, 1, -1},
+                    {-1, -1, -1, -1}
+            }
     };
 }
