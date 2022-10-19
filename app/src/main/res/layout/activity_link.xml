@@ -55,6 +55,7 @@
 
             <!--道具-->
             <RelativeLayout
+
                 android:id="@+id/link_props"
                 style="@style/link_prop_relative">
 
@@ -83,6 +84,7 @@
                     android:layout_height="55dp"
                     android:src="@drawable/link_stop" />
 
+
             </RelativeLayout>
 
 
@@ -92,6 +94,7 @@
 
     <!--金币-->
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/message_show"
@@ -120,12 +123,14 @@
 
     <!--时间控制-->
     <swu.xl.circleprogress.CircleProgress
+
         android:id="@+id/time_show"
         android:layout_width="122dp"
         android:layout_height="120dp"
         app:textLeftPadding="20"
         app:textSize="17"
         app:textTopPadding="3" />
+
 
     <!--布局部分-->
 

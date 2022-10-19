@@ -22,10 +22,11 @@
         <entry key="..\:/AndroidAPP/app/src/main/res/layout/setting_view.xml" value="0.3333333333333333" />
         <entry key="..\:/AndroidAPP/app/src/main/res/layout/store_view.xml" value="0.33" />
         <entry key="..\:/AndroidAPP/app/src/main/res/xml/litepal.xml" value="0.215625" />
+        <entry key="..\:/java/final/app/src/main/res/layout/activity_link.xml" value="0.2682291666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
