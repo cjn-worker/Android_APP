@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#AA000000">
+
+    <!--排行榜具体内容-->
+    <RelativeLayout
+        android:id="@+id/view_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/view_store_bg"
+        android:layout_centerInParent="true"
+        android:padding="15dp"
+        >
+
+        <!--标题-->
+        <LinearLayout
+            android:id="@+id/money_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <com.example.androidapp.SelfView.XLTextView
+                style="@style/ShowMoneyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="排行榜" />
+
+
+        </LinearLayout>
+
+        <!--排名展示-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/money_show"
+            android:layout_centerInParent="true"
+            android:background="@drawable/view_store_show_prop_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <!--第一名-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_store_show_simple_prop_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!--图标-->
+                <ImageView
+                    android:id="@+id/number_one"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/level_did_one"
+                    android:paddingBottom="2dp" />
+
+                <!--得分-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="已获分数:" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--分数-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/one_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10000"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--第二名-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_store_show_simple_prop_bg"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <!--图标-->
+                <ImageView
+                    android:id="@+id/number_two"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/level_did_two"
+                    android:paddingBottom="2dp" />
+
+                <!--得分-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="已获分数:" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--分数-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/two_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10000"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--第三名-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_store_show_simple_prop_bg"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <!--图标-->
+                <ImageView
+                    android:id="@+id/number_three"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/level_did_three"
+                    android:paddingBottom="2dp" />
+
+                <!--得分-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="已获分数:" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--分数-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/three_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10000"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--第四名-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_store_show_simple_prop_bg"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <!--图标-->
+                <ImageView
+                    android:id="@+id/number_four"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/level_did_four"
+                    android:paddingBottom="2dp" />
+
+                <!--得分-->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="已获分数:" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--分数-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/four_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10000"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--第五名-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_store_show_simple_prop_bg"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <!--图标-->
+                <ImageView
+                    android:id="@+id/number_five"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/level_did_five"
+                    android:paddingBottom="2dp" />
+
+                <!--得分-->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="已获分数:" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--分数-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/five_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10000"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <!--关闭按钮-->
+    <ImageView
+        android:id="@+id/rank_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/view_store_delete"
+        android:layout_alignEnd="@id/view_store"
+        android:layout_marginEnd="0dp"
+        android:layout_alignTop="@id/view_store"
+        android:layout_marginTop="0dp"
+        />
+
+</RelativeLayout>
