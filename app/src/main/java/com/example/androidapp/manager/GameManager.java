@@ -8,7 +8,6 @@ import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.LinkGame.Utils.PxUtil;
-import com.example.androidapp.R;
 import com.example.androidapp.view.ImgView;
 
 import java.util.ArrayList;
@@ -79,7 +78,7 @@ public class GameManager
         int col_animal_num = getBoard()[0].length;
 
         //循环找到适合的大小
-        for (int size = LinkConstant.ANIMAL_SIZE; size >= 10; size--) {
+        for (int size = LinkConstant.IMAGE_SIZE; size >= 10; size--) {
 
             //如果宽度高度都满足条件
             if (size * col_animal_num < PxUtil.pxToDp(width,context) &&
@@ -129,10 +128,10 @@ public class GameManager
 
                 //设置内间距
                 imgView.setPadding(
-                        PxUtil.dpToPx(LinkConstant.ANIMAL_PADDING, context),
-                        PxUtil.dpToPx(LinkConstant.ANIMAL_PADDING, context),
-                        PxUtil.dpToPx(LinkConstant.ANIMAL_PADDING, context),
-                        PxUtil.dpToPx(LinkConstant.ANIMAL_PADDING, context)
+                        PxUtil.dpToPx(LinkConstant.IMAGE_PADDING, context),
+                        PxUtil.dpToPx(LinkConstant.IMAGE_PADDING, context),
+                        PxUtil.dpToPx(LinkConstant.IMAGE_PADDING, context),
+                        PxUtil.dpToPx(LinkConstant.IMAGE_PADDING, context)
                 );
 //                //添加视图
                 layout.addView(imgView,layoutParams);

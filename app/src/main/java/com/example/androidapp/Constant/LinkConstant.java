@@ -7,12 +7,12 @@ public interface LinkConstant
     /**
      * 连连看图标大小
      */
-    int ANIMAL_SIZE = 70;
+    int IMAGE_SIZE = 70;
 
     /**
      * 连连看AnimalView的内间距
      */
-    int ANIMAL_PADDING = 8;
+    int IMAGE_PADDING = 8;
 
     /**
      * 连连看图标
@@ -45,37 +45,7 @@ public interface LinkConstant
      */
     int BASE_SCORE = 500;
 
-    /**
-     * 连连看测试模板
-     * 0：空白
-     * 1~∞：神奇宝贝图片
-     */
-    int[][] board_test1 = {
-            {0, 0, 0, 0, 0, 0},
-            {0, 1, 2, 3, 4, 0},
-            {0, 2, 4, 1, 4, 0},
-            {0, 3, 1, 3, 2, 0},
-            {0, 1, 4, 2, 3, 0},
-            {0, 0, 0, 0, 0, 0}
-    };
 
-    int[][] board_test2 = {
-            {0, 0, 0, 0, 0, 0},
-            {0, 1, 0, 3, 4, 0},
-            {0, 2, 0, 1, 4, 0},
-            {0, 3, 1, 3, 2, 0},
-            {0, 1, 5, 2, 3, 0},
-            {0, 0, 0, 0, 0, 0}
-    };
-
-    int[][] board_test3 = {
-            {0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 3, 4, 0},
-            {0, 0, 4, 1, 4, 0},
-            {0, 3, 1, 3, 2, 0},
-            {0, 0, 4, 2, 3, 0},
-            {0, 0, 0, 0, 0, 0}
-    };
     int [][][] BOARD_EASY = {
             {{}},
             LinkBoard.board_easy_1,
