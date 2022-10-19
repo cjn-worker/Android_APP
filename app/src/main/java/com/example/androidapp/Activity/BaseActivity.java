@@ -29,6 +29,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onStop();
 
         //判断是否进入后台
+        //
         if (StateUtil.isBackground(this)) {
             Log.d(Constant.TAG,"后台");
 
