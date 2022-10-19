@@ -9,6 +9,8 @@ import static com.example.androidapp.LinkGame.LinkModel.Kernel.UNBLOCKED;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.androidapp.Constant.Constant;
+import com.example.androidapp.Constant.Enum.LevelMode;
 import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.manager.GameManager;
@@ -207,5 +209,37 @@ public class LinkUtils {
                 manager.getPadding_hor() + PxUtil.dpToPx(manager.getSize(),context) / 2 + point.getY()  * PxUtil.dpToPx(manager.getSize(),context),
                 manager.getPadding_ver() + PxUtil.dpToPx(manager.getSize(),context) / 2 + point.getX()  * PxUtil.dpToPx(manager.getSize(),context)
         );
+    }
+
+    public static int[][] loadLevelWithIdAndMode(int level_id, char level_mode){
+
+        //1.先判断是什么类型的关卡
+        int [][][] BOARD;
+        //if (level_mode == LevelMode.LEVEL_MODE_EASY.getValue()){
+            BOARD = LinkConstant.BOARD_EASY;
+        //}//else if (level_mode == LevelMode.LEVEL_MODE_NORMAL.getValue()){
+//            BOARD = LinkConstant.BOARD_NORMAL;
+//        }else {
+//            BOARD = LinkConstant.BOARD_HARD;
+//        }
+
+//        //2.获取需要加载的资源数量
+//        int resourceID = new Random().nextInt(BOARD.length);
+//
+//        //3.获取随机产生的模板
+//        int[][] board = BOARD[resourceID];
+//        Log.d(Constant.TAG,"加载的board"+resourceID);
+
+        //4.拷贝模板
+        int[][] board = BOARD[level_id];
+        Log.d("1",String.valueOf(level_id));
+        int row = board.length;
+        int col = board[0].length;
+        int[][] clone = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            System.arraycopy(board[i], 0, clone[i], 0, col);
+        }
+
+        return clone;
     }
 }

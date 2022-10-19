@@ -8,6 +8,7 @@ import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.LinkGame.Utils.PxUtil;
+import com.example.androidapp.R;
 import com.example.androidapp.view.ImgView;
 
 import java.util.ArrayList;
@@ -41,12 +42,12 @@ public class GameManager
     private int padding_ver;
 
     private ExplosionField explosionField;
-    public void startGame(Context context, RelativeLayout layout, int width, int height)
+    public void startGame(Context context, RelativeLayout layout, int width, int height,int level_id, char level_mode)
     {
         this.mContext = context;
         clearLastGame();
         //产生二维数组布局模板
-        setBoard(LinkUtils.generateBoard(3));
+        setBoard(LinkUtils.loadLevelWithIdAndMode(level_id,level_mode));
 //        int[][] a = {
 //                {-1, -1, -1, -1},
 //                {-1, 1, 1, -1},

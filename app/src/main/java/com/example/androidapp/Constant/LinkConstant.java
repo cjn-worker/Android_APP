@@ -76,5 +76,20 @@ public interface LinkConstant
             {0, 0, 4, 2, 3, 0},
             {0, 0, 0, 0, 0, 0}
     };
-
+    int [][][] BOARD_EASY = {
+            {{}},
+            LinkBoard.board_easy_1,
+            LinkBoard.board_easy_2,
+            LinkBoard.board_easy_3,
+            LinkBoard.board_easy_4,
+            LinkBoard.board_easy_5,
+            LinkBoard.board_easy_6,
+            LinkBoard.board_easy_7,
+            LinkBoard.board_easy_8,
+            LinkBoard.board_easy_9,
+            LinkBoard.board_easy_10,
+            LinkBoard.board_easy_11,
+            LinkBoard.board_easy_12,
+            LinkBoard.board_easy_13,
+    };
 }

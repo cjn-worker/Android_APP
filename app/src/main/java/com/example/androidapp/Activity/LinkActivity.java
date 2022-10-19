@@ -2,9 +2,11 @@ package com.example.androidapp.Activity;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,11 +22,16 @@ import com.example.androidapp.LinkGame.LinkModel.Kernel;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
 import com.example.androidapp.LinkGame.LinkModel.SealLinkInfo;
 import com.example.androidapp.LinkGame.Utils.ScreenUtil;
+import com.example.androidapp.Model.XLLevel;
 import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.R;
 import com.example.androidapp.manager.GameManager;
 import com.example.androidapp.view.ImgView;
 import com.example.androidapp.view.XLRelativeLayout;
+
+import org.litepal.LitePal;
+
+import java.util.List;
 
 import tyrantgit.explosionfield.ExplosionField;
 
@@ -36,23 +43,59 @@ public class LinkActivity extends AppCompatActivity
     private int screenWidth;
     private int screenHeight;
     //游戏的布局，存放imgviews
-    XLRelativeLayout layout;
-
+    private XLRelativeLayout layout;
+    private XLLevel level;
 
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link);
-
+        initData();
         initView();
 
 
         manager.startGame(this,
                 layout,
                 screenWidth,
-                screenHeight -500- ScreenUtil.getNavigationBarHeight(getApplicationContext())
+                screenHeight -500- ScreenUtil.getNavigationBarHeight(getApplicationContext()),
+                level.getL_id(),
+                level.getL_mode()
         );
+    }
+
+    private void initData() {
+        //获取数据
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+        assert bundle != null;
+        level = bundle.getParcelable("level");
+
+//        Log.d(Constant.TAG,"--------");
+//        Log.d(Constant.TAG, String.valueOf(level));
+//
+//        //查询用户数据
+//        List<XLUser> users = LitePal.findAll(XLUser.class);
+//        user = users.get(0);
+//        money = user.getU_money();
+//
+//        //查询道具数据
+//        props = LitePal.findAll(XLProp.class);
+//        for (XLProp prop : props) {
+//            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue()){
+//                //拳头道具
+//                fight_num = prop.getP_number();
+//                Log.d(Constant.TAG,"查询的消除道具数量："+fight_num);
+//            }else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue()){
+//                //炸弹道具
+//                bomb_num = prop.getP_number();
+//                Log.d(Constant.TAG,"查询的炸弹道具数量："+bomb_num);
+//            }else {
+//                //刷新道具
+//                refresh_num = prop.getP_number();
+//                Log.d(Constant.TAG,"查询的刷新道具数量："+refresh_num);
+//            }
+//        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
