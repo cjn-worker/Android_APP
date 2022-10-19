@@ -11,9 +11,9 @@ public class XLImageView extends androidx.appcompat.widget.AppCompatImageView {
     public static final int[] resources = {
             R.drawable.cloud,      //关卡没有被打开
             R.drawable.snowman1,   //关卡闯关成功 一星
-            R.drawable.snowman3,   //关卡闯关成功 二星
+            R.drawable.snowman2,   //关卡闯关成功 二星
             R.drawable.snowman3, //关卡闯关成功 三星
-            R.drawable.snowman3      //关卡正在被闯
+            R.drawable.snowman0      //关卡正在被闯
     };
 
     /**

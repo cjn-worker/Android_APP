@@ -23,8 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Activity.LevelActivity" />
         <activity android:name=".Activity.LinkActivity" />
+        <activity android:name=".Activity.BaseActivity"/>
     </application>
 
 </manifest>

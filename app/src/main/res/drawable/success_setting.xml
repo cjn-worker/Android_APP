@@ -7,13 +7,13 @@
     <!--设置角为半圆  radius 半径-->
     <gradient
         android:angle="90"
-        android:startColor="#7FB3F5"
-        android:centerColor="#C4ABE6"
-        android:endColor="#D69BAD"/>
+        android:startColor="#E6AC85E6"
+        android:centerColor="#E6FFA5D8"
+        android:endColor="#E6F8E076"/>
     <corners android:radius="30dp"/>
     <stroke
         android:width="3dp"
-        android:color="#8000B0FF"
+        android:color="#92E91E63"
         />
     <!--bottom 下 top 上 left左 right右-->
     <padding

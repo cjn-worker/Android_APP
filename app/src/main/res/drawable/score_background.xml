@@ -23,11 +23,11 @@
         android:top="2dp"
         />
     <!--bottom 下 top 上 left左 right右-->
-    <padding
-        android:bottom="10dp"
-        android:left="10dp"
-        android:right="10dp"
-        android:top="10dp"
-        />
+<!--    <padding-->
+<!--        android:bottom="10dp"-->
+<!--        android:left="10dp"-->
+<!--        android:right="10dp"-->
+<!--        android:top="10dp"-->
+<!--        />-->
 
 </shape>
