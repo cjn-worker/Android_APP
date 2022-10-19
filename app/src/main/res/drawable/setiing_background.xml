@@ -12,10 +12,10 @@
         android:endColor="#D69BAD"/>
     <corners android:radius="30dp"/>
     <stroke
-        android:width="3dp"
-        android:color="#8000B0FF"
+        android:width="0dp"
+        android:color="#80F4A5F3"
         />
-    <!--bottom 下 top 上 left左 right右-->
+    bottom 下 top 上 left左 right右
     <padding
         android:bottom="10dp"
         android:left="10dp"

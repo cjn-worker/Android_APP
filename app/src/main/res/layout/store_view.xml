@@ -26,12 +26,6 @@
             android:paddingBottom="20dp"
             android:paddingTop="20dp">
 
-            <com.example.androidapp.SelfView.XLTextView
-                style="@style/ShowMoneyText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ShowMoney" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,6 +51,12 @@
 
             </LinearLayout>
 
+            <com.example.androidapp.SelfView.XLTextView
+                style="@style/ShowMoneyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ShowMoney" />
+
             <!--显示持有的金币数目-->
         </LinearLayout>
 
@@ -79,6 +79,14 @@
                 android:orientation="horizontal">
 
                 <!--道具图标-->
+                <swu.xl.numberitem.NumberOfItem
+                    android:id="@+id/prop_fight"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:paddingBottom="2dp"
+                    app:imgResource="@drawable/store_prop_bg_shape"
+                    app:srcResource="@drawable/link_prop_tip" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,7 +115,6 @@
 
                 </LinearLayout>
 
-                <!--道具文本说明-->
                 <com.example.androidapp.SelfView.XLLinearLayout
                     android:id="@+id/store_fight"
                     android:layout_width="wrap_content"
@@ -138,14 +145,9 @@
 
                 </com.example.androidapp.SelfView.XLLinearLayout>
 
+                <!--道具文本说明-->
+
                 <!--价格-->
-                <swu.xl.numberitem.NumberOfItem
-                    android:id="@+id/prop_fight"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:paddingBottom="2dp"
-                    app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/link_prop_tip" />
             </LinearLayout>
 
             <!--炸弹道具-->
@@ -158,6 +160,14 @@
                 android:orientation="horizontal">
 
                 <!--道具图标-->
+                <swu.xl.numberitem.NumberOfItem
+                    android:id="@+id/prop_bomb"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:paddingBottom="2dp"
+                    app:imgResource="@drawable/store_prop_bg_shape"
+                    app:srcResource="@drawable/bomb" />
+
                 <LinearLayout
                     android:layout_width="108dp"
                     android:layout_height="wrap_content"
@@ -186,7 +196,6 @@
 
                 </LinearLayout>
 
-                <!--道具文本说明-->
                 <com.example.androidapp.SelfView.XLLinearLayout
                     android:id="@+id/store_bomb"
                     android:layout_width="wrap_content"
@@ -217,14 +226,9 @@
 
                 </com.example.androidapp.SelfView.XLLinearLayout>
 
+                <!--道具文本说明-->
+
                 <!--价格-->
-                <swu.xl.numberitem.NumberOfItem
-                    android:id="@+id/prop_bomb"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:paddingBottom="2dp"
-                    app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/bomb" />
             </LinearLayout>
 
             <!--刷新道具-->
@@ -237,6 +241,14 @@
                 android:orientation="horizontal">
 
                 <!--道具图标-->
+                <swu.xl.numberitem.NumberOfItem
+                    android:id="@+id/prop_refresh"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:paddingBottom="2dp"
+                    app:imgResource="@drawable/store_prop_bg_shape"
+                    app:srcResource="@drawable/dizzy" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -265,7 +277,6 @@
 
                 </LinearLayout>
 
-                <!--道具文本说明-->
                 <com.example.androidapp.SelfView.XLLinearLayout
                     android:id="@+id/store_refresh"
                     android:layout_width="wrap_content"
@@ -296,14 +307,9 @@
 
                 </com.example.androidapp.SelfView.XLLinearLayout>
 
+                <!--道具文本说明-->
+
                 <!--价格-->
-                <swu.xl.numberitem.NumberOfItem
-                    android:id="@+id/prop_refresh"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:paddingBottom="2dp"
-                    app:imgResource="@drawable/store_prop_bg_shape"
-                    app:srcResource="@drawable/dizzy" />
             </LinearLayout>
 
         </LinearLayout>
