@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 
 import com.example.androidapp.Activity.LinkActivity;
+import com.example.androidapp.Activity.SuccessActivity;
 import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
@@ -263,7 +264,7 @@ public class GameManager
         }else {
             Log.d(Constant.TAG, "成功啦");
 
-            Intent intent = new Intent(context, LinkActivity.class);
+            Intent intent = new Intent(context, SuccessActivity.class);
             Bundle bundle = new Bundle();
             bundle.putParcelable("level",level);
             //bundle.putInt("serial_click",LinkUtils.getSerialClick());
@@ -283,10 +284,6 @@ public class GameManager
             },5000);
         }
 
-        //自定义 从右向左滑动的效果
-        //((Activity)context).overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
-        // 自定义的淡入淡出动画效果
-        //((Activity)context).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
         //清除上一场游戏
         clearLastGame();

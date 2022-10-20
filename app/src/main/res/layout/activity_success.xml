@@ -94,7 +94,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/star2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -105,25 +105,25 @@
                 app:srcCompat="@drawable/crown" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/star3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintStart_toEndOf="@+id/star2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.405"
                 app:srcCompat="@drawable/crown" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/star1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginEnd="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                app:layout_constraintEnd_toStartOf="@+id/star2"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -131,16 +131,17 @@
                 app:srcCompat="@drawable/crown" />
 
             <com.example.androidapp.SelfView.XLTextView
-                android:layout_width="80dp"
-                android:layout_height="33dp"
-                android:layout_marginTop="8dp"
-                android:text="第N关"
-                android:textColor="@color/white"
-                android:textSize="28sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                    android:layout_width="80dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="8dp"
+                    android:text="第N关"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/star2"
+                    android:id="@+id/level_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -203,14 +204,14 @@
                     android:textSize="34sp" />
 
                 <com.example.androidapp.SelfView.XLTextView
-                    android:id="@+id/XLTextView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="60s"
-                    android:textColor="@color/white"
-                    android:textSize="34sp" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="60s"
+                        android:textColor="@color/white"
+                        android:textSize="34sp"
+                        android:id="@+id/time_text" />
 
                 <com.example.androidapp.SelfView.XLTextView
                     android:id="@+id/XLTextView9"
@@ -236,7 +237,7 @@
                 android:layout_weight="1" />
 
             <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/button3"
+                android:id="@+id/btn_menu"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -250,7 +251,7 @@
                 android:layout_weight="1" />
 
             <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/button2"
+                android:id="@+id/btn_refresh"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -263,7 +264,7 @@
                 android:layout_weight="1" />
 
             <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/button"
+                android:id="@+id/btn_next"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"

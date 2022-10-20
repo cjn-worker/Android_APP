@@ -66,19 +66,19 @@ public class RankingFragment extends Fragment {
 
 
         //找到显示道具价值的文本
-        TextView one_score_text = inflate.findViewById(R.id.one_score);
+        TextView one_score_text = inflate.findViewById(R.id.one_score6);
         one_score_text.setText(String.valueOf(one_score));
 
-        TextView two_score_text = inflate.findViewById(R.id.two_score);
+        TextView two_score_text = inflate.findViewById(R.id.one_score5);
         two_score_text.setText(String.valueOf(two_score));
 
-        TextView three_score_text = inflate.findViewById(R.id.three_score);
+        TextView three_score_text = inflate.findViewById(R.id.one_score4);
         three_score_text.setText(String.valueOf(three_score));
 
-        TextView four_score_text = inflate.findViewById(R.id.four_score);
+        TextView four_score_text = inflate.findViewById(R.id.one_score3);
         four_score_text.setText(String.valueOf(four_score));
 
-        TextView five_score_text = inflate.findViewById(R.id.five_score);
+        TextView five_score_text = inflate.findViewById(R.id.one_score2);
         five_score_text.setText(String.valueOf(five_score));
 
 

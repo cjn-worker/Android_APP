@@ -27,6 +27,7 @@
         <activity android:name=".Activity.LevelActivity" />
         <activity android:name=".Activity.LinkActivity" />
         <activity android:name=".Activity.BaseActivity"/>
+        <activity android:name=".Activity.SuccessActivity"/>
     </application>
 
 </manifest>
