@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
@@ -188,21 +189,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             //1.装入拳头道具
             XLProp prop_fight = new XLProp();
             prop_fight.setP_kind('1');
-            prop_fight.setP_number(9);
+            prop_fight.setP_number(5);
             prop_fight.setP_price(10);
             prop_fight.save();
 
             //2.装入炸弹道具
             XLProp prop_bomb = new XLProp();
             prop_bomb.setP_kind('2');
-            prop_bomb.setP_number(9);
+            prop_bomb.setP_number(5);
             prop_bomb.setP_price(10);
             prop_bomb.save();
 
             //3.装入刷新道具
             XLProp prop_refresh = new XLProp();
             prop_refresh.setP_kind('3');
-            prop_refresh.setP_number(9);
+            prop_refresh.setP_number(5);
             prop_refresh.setP_price(10);
             prop_refresh.save();
         }
@@ -263,6 +264,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(@NonNull View v) {
         //播放点击音效

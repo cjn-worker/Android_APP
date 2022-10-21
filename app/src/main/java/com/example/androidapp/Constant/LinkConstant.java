@@ -25,6 +25,16 @@ public interface LinkConstant
             R.drawable.emoji5,
             R.drawable.emoji6,
             R.drawable.emoji7,
+            R.drawable.emoji8,
+            R.drawable.leaf4,
+            R.drawable.left,
+            R.drawable.apple,
+            R.drawable.balloon1,
+            R.drawable.balloon,
+            R.drawable.bomb,
+            R.drawable.cherry,
+            R.drawable.candy,
+            R.drawable.cloud
 
     };
 
@@ -38,7 +48,7 @@ public interface LinkConstant
     /**
      * 连连看默认的时间
      */
-    int TIME = 15;
+    int TIME = 90;
 
     /**
      * 基础分数
@@ -64,19 +74,19 @@ public interface LinkConstant
     };
     int[][][] BOARD_NORMAL = {
             {{}},
-            {{-1, -1, -1, -1},
-                    {-1, 1, 1, -1},
-                    {-1, 1, 1, -1},
-                    {-1, -1, -1, -1}}
+            LinkBoard.board_normal_1,
+            LinkBoard.board_normal_2,
+            LinkBoard.board_normal_3,
+            LinkBoard.board_normal_4,
+            LinkBoard.board_normal_5,
+
     };
     int[][][] BOARD_HARD = {
             {{}},
-            {
-                    {-1, -1, -1, -1},
-                    {-1, 1, 1, -1},
-                    {-1, 1, 1, -1},
-                    {-1, 1, 1, -1},
-                    {-1, -1, -1, -1}
-            }
+            LinkBoard.board_hard_1,
+            LinkBoard.board_hard_2,
+            LinkBoard.board_hard_3,
+            LinkBoard.board_hard_4,
+            LinkBoard.board_hard_5,
     };
 }

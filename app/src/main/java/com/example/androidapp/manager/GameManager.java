@@ -51,8 +51,6 @@ public class GameManager
         public void handleMessage(@NonNull Message msg) {
             //判断消息来源
             if (msg.what == Constant.TIMER){
-                //Log.d(Constant.TAG,"测试处理");
-
                 //时间减少
                 time -= 0.1;
 
@@ -80,11 +78,6 @@ public class GameManager
 
     //竖直方向偏移间距
     private int padding_ver;
-
-    private ExplosionField explosionField;
-
-
-
 
 
     public void startGame(Context context, RelativeLayout layout, int width, int height,int level_id, char level_mode)
@@ -116,6 +109,7 @@ public class GameManager
         size = 0;
         isPause = false;
     }
+
     private void addViewToLayout(Context context, RelativeLayout layout, int width, int height){
         //随机加载AnimalView的显示图片
         List<Integer> resources = LinkUtils.loadPictureResourceWithBoard(getBoard());
@@ -158,7 +152,6 @@ public class GameManager
                     //创建一个AnimalView
                     imgView = new ImgView(
                             context,
-                            //R.drawable.score,
                             LinkConstant.RESOURCE[getBoard()[i][j]],
                             getBoard()[i][j],
                             new Point(i, j)
@@ -288,6 +281,128 @@ public class GameManager
         //清除上一场游戏
         clearLastGame();
     }
+
+    /**
+     * 拳头道具的功能实现
+     */
+//    public void fightGame(Activity link_activity) {
+//        //1.产生一对消除的点
+//        AnimalPoint[] doubleRemove = LinkUtil.getDoubleRemove();
+//        Log.d(Constant.TAG,"第一个点："+doubleRemove[0].x+" "+doubleRemove[0].y);
+//        Log.d(Constant.TAG,"第二个点："+doubleRemove[1].x+" "+doubleRemove[1].y);
+//
+//        //2.board修改
+//        board[doubleRemove[0].x][doubleRemove[0].y] = 0;
+//        board[doubleRemove[1].x][doubleRemove[1].y] = 0;
+//
+//        //3.播放消除音效以及粉碎
+//        SoundPlayUtil.getInstance(mContext).play(4);
+//        //粉碎、
+//        ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
+//
+//        //4.AnimalView隐藏
+//        for (AnimalView animal : animals) {
+//            if ((animal.getPoint().x == doubleRemove[0].x
+//                    && animal.getPoint().y == doubleRemove[0].y)
+//                    || animal.getPoint().x == doubleRemove[1].x
+//                    && animal.getPoint().y == doubleRemove[1].y){
+//                //恢复背景颜色和清除动画
+//                if (animal.getAnimation() != null){
+//                    animal.changeAnimalBackground(LinkConstant.ANIMAL_BG);
+//                    animal.clearAnimation();
+//                }
+//
+//                //粉碎
+//                explosionField.explode(animal);
+//
+//                //隐藏
+//                animal.setVisibility(View.INVISIBLE);
+//            }
+//        }
+//    }
+//
+//    /**
+//     * 炸弹道具的功能实现
+//     */
+//    public void bombGame(Activity link_activity) {
+//        //1.随机产生一个待消除的
+//        int random = LinkUtil.getExistAnimal();
+//        Log.d(Constant.TAG,"消除"+random);
+//
+//        //2.board修改
+//        for (int i = 0; i < board.length; i++) {
+//            for (int j = 0; j < board[0].length; j++) {
+//                if (board[i][j] == random){
+//                    board[i][j] = 0;
+//                }
+//            }
+//        }
+//
+//        //3.播放消除音效以及粉碎
+//        SoundPlayUtil.getInstance(mContext).play(4);
+//        //粉碎、
+//        ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
+//
+//        //4.AnimalView隐藏
+//        for (AnimalView animal : animals) {
+//            if (animal.getFlag() == random){
+//                //恢复背景颜色和清除动画
+//                if (animal.getAnimation() != null){
+//                    animal.changeAnimalBackground(LinkConstant.ANIMAL_BG);
+//                    animal.clearAnimation();
+//                }
+//
+//                //粉碎
+//                explosionField.explode(animal);
+//
+//                //隐藏
+//                animal.setVisibility(View.INVISIBLE);
+//            }
+//        }
+//    }
+//
+//    /**
+//     * 刷新道具的功能实现
+//     * @param context
+//     * @param layout
+//     * @param width
+//     * @param level_id
+//     * @param level_mode
+//     */
+//    public void refreshGame(final Context context, final RelativeLayout layout, final int width, final int height, final int level_id, final char level_mode, Activity link_activity){
+//        //0.播放消除音效以及粉碎
+//        SoundPlayUtil.getInstance(mContext).play(4);
+//        //粉碎、
+//        ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
+//
+//        //1.所以的AnimalView消失
+//        for (AnimalView animal : animals) {
+//            //恢复背景颜色和清除动画
+//            if (animal.getAnimation() != null){
+//                animal.changeAnimalBackground(LinkConstant.ANIMAL_BG);
+//                animal.clearAnimation();
+//            }
+//
+//            //粉碎
+//            explosionField.explode(animal);
+//
+//            //隐藏
+//            animal.setVisibility(View.INVISIBLE);
+//        }
+//
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                //2.移除所有的子视图
+//                layout.removeAllViews();
+//
+//                //3.重新开始游戏
+//                startGame(context,layout,width,height,level_id,level_mode);
+//            }
+//        },1500);
+//    }
+
+
 
     public interface LinkGame{
         //时间改变了

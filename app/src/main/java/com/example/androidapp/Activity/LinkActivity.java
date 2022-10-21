@@ -2,10 +2,12 @@ package com.example.androidapp.Activity;
 
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,9 +17,15 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.androidapp.Constant.Constant;
+import com.example.androidapp.Constant.Enum.PropMode;
 import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
@@ -25,6 +33,7 @@ import com.example.androidapp.LinkGame.LinkModel.SealLinkInfo;
 import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.LinkGame.Utils.ScreenUtil;
 import com.example.androidapp.Model.XLLevel;
+import com.example.androidapp.Model.XLProp;
 import com.example.androidapp.Model.XLUser;
 import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.R;
@@ -39,9 +48,10 @@ import org.litepal.LitePal;
 import java.util.List;
 import java.util.TimerTask;
 
+import swu.xl.numberitem.NumberOfItem;
 import tyrantgit.explosionfield.ExplosionField;
 
-public class LinkActivity extends AppCompatActivity
+public class LinkActivity extends BaseActivity implements View.OnClickListener
 {
     private ExplosionField explosionField;
     private GameManager manager = GameManager.getManager();
@@ -55,7 +65,6 @@ public class LinkActivity extends AppCompatActivity
     //记录金币的变量
     int money;
     private SeekBar time_bar;
-    TimerTask timer_task;
     private boolean isPause=false;
     //显示关卡的文本
     private XLTextView level_text;
@@ -64,6 +73,24 @@ public class LinkActivity extends AppCompatActivity
     private XLTextView score_text;
     private XLButton pause;
     private int score;
+
+    //拳头道具
+    NumberOfItem prop_fight;
+    //炸弹道具
+    NumberOfItem prop_bomb;
+    //刷新道具
+    NumberOfItem prop_refresh;
+
+    //记录拳头道具的数量
+    int fight_num;
+    //记录炸弹道具的数量
+    int bomb_num;
+    //记录刷新道具的数量
+    int refresh_num;
+
+    //道具
+    List<XLProp> props;
+
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -89,9 +116,6 @@ public class LinkActivity extends AppCompatActivity
         assert bundle != null;
         level = bundle.getParcelable("level");
 
-//        Log.d(Constant.TAG,"--------");
-//        Log.d(Constant.TAG, String.valueOf(level));
-//
         //查询用户数据
         List<XLUser> users = LitePal.findAll(XLUser.class);
         user = users.get(0);
@@ -101,34 +125,41 @@ public class LinkActivity extends AppCompatActivity
         level_text.setText(String.valueOf(level.getL_id()));
         money_text = findViewById(R.id.link_money_text);
         money_text.setText(String.valueOf(money));
-        score_text =findViewById(R.id.link_score_text);
+        score_text =findViewById(R.id.link_score);
         score_text.setText("0");
         score=0;
 //
-//        //查询道具数据
-//        props = LitePal.findAll(XLProp.class);
-//        for (XLProp prop : props) {
-//            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue()){
-//                //拳头道具
-//                fight_num = prop.getP_number();
-//                Log.d(Constant.TAG,"查询的消除道具数量："+fight_num);
-//            }else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue()){
-//                //炸弹道具
-//                bomb_num = prop.getP_number();
-//                Log.d(Constant.TAG,"查询的炸弹道具数量："+bomb_num);
-//            }else {
-//                //刷新道具
-//                refresh_num = prop.getP_number();
-//                Log.d(Constant.TAG,"查询的刷新道具数量："+refresh_num);
-//            }
-//        }
+        //查询道具数据
+        props = LitePal.findAll(XLProp.class);
+        for (XLProp prop : props) {
+            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue()){
+                //拳头道具
+                fight_num = prop.getP_number();
+                Log.d(Constant.TAG,"查询的消除道具数量："+fight_num);
+            }else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue()){
+                //炸弹道具
+                bomb_num = prop.getP_number();
+                Log.d(Constant.TAG,"查询的炸弹道具数量："+bomb_num);
+            }else {
+                //刷新道具
+                refresh_num = prop.getP_number();
+                Log.d(Constant.TAG,"查询的刷新道具数量："+refresh_num);
+            }
+        }
+
+        prop_fight = findViewById(R.id.prop_fight);
+        prop_fight.setOnClickListener(this);
+        prop_bomb = findViewById(R.id.prop_bomb);
+        prop_bomb.setOnClickListener(this);
+        prop_refresh = findViewById(R.id.prop_refresh);
+        prop_refresh.setOnClickListener(this);
     }
 
     private void initView()
     {
         initLayout();
         initPauseButton();
-        time_bar=findViewById(R.id.link_time_bar);
+        time_bar=findViewById(R.id.time_bar);
 
     }
 
@@ -250,7 +281,7 @@ public class LinkActivity extends AppCompatActivity
 
     private void initPauseButton()
     {
-        pause=findViewById(R.id.link_pause_btn);
+        pause=findViewById(R.id.pause);
         pause.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -268,7 +299,18 @@ public class LinkActivity extends AppCompatActivity
                     layout.setEnabled(true);
                     isPause=!isPause;
                 }
+//                manager.pauseGame();
+//
+//                //2.添加一个fragment
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                final PauseFragment pause = new PauseFragment();
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelable("level",level);
+//                pause.setArguments(bundle);
+//                transaction.replace(R.id.root_link,pause,"pause");
+//                transaction.commit();
             }
+
         });
     }
 
@@ -346,7 +388,82 @@ public class LinkActivity extends AppCompatActivity
             user.update(1);
         }
     }
+    public void onClick(View v) {
+        //播放点击音效
+        SoundPlayUtil.getInstance(getBaseContext()).play(3);
 
+        switch (v.getId()){
+            case R.id.prop_fight:
+                Log.d(Constant.TAG,"拳头道具");
+
+                if (fight_num > 0){
+                    //随机消除一对可以消除的AnimalView
+                    //manager.fightGame(LinkActivity.this);
+
+                    //数量减1
+                    fight_num--;
+                    prop_fight.setCount(fight_num);
+
+                    //数据库处理
+                    ContentValues values = new ContentValues();
+                    values.put("p_number",fight_num);
+                    LitePal.update(XLProp.class,values,1);
+                }else {
+                    Toast.makeText(this, "道具已经用完", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+            case R.id.prop_bomb:
+                Log.d(Constant.TAG,"炸弹道具");
+
+                if (bomb_num > 0){
+                    //随机消除某一种所有的AnimalView
+                    //manager.bombGame(LinkActivity.this);
+
+                    //数量减1
+                    bomb_num--;
+                    prop_bomb.setCount(bomb_num);
+                    Log.d(Constant.TAG,"数量："+bomb_num);
+
+                    //数据库处理
+                    ContentValues values = new ContentValues();
+                    values.put("p_number",bomb_num);
+                    LitePal.update(XLProp.class,values,2);
+                }else {
+                    Toast.makeText(this, "道具已经用完", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+            case R.id.prop_refresh:
+                Log.d(Constant.TAG,"刷新道具");
+
+                if (refresh_num > 0){
+                    //刷新游戏
+//                    manager.refreshGame(
+//                            getApplicationContext(),
+//                            link_layout,
+//                            screenWidth,
+//                            screenHeight-message_bottom-ScreenUtil.getNavigationBarHeight(getApplicationContext()),
+//                            level.getL_id(),
+//                            level.getL_mode(),
+//                            LinkActivity.this
+//                    );
+
+                    //数量减1
+                    refresh_num--;
+                    prop_refresh.setCount(refresh_num);
+
+                    //数据库处理
+                    ContentValues values = new ContentValues();
+                    values.put("p_number",refresh_num);
+                    LitePal.update(XLProp.class,values,3);
+                }else {
+                    Toast.makeText(this, "道具已经用完", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+        }
+    }
     @Override
     protected void onPause() {
         super.onPause();
