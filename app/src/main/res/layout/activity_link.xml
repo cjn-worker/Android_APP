@@ -177,29 +177,32 @@
             tools:layout_conversion_absoluteWidth="310dp">
 
             <swu.xl.numberitem.NumberOfItem
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
-                android:layout_weight="1"
-                app:imgResource="@drawable/store_prop_bg_shape"
-                app:srcResource="@drawable/link_prop_tip" />
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_weight="1"
+                    app:imgResource="@drawable/store_prop_bg_shape"
+                    app:srcResource="@drawable/link_prop_tip"
+                    android:id="@+id/prop_fight" />
 
             <swu.xl.numberitem.NumberOfItem
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginEnd="25dp"
-                android:layout_weight="1"
-                app:imgResource="@drawable/store_prop_bg_shape"
-                app:srcResource="@drawable/dizzy" />
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    app:imgResource="@drawable/store_prop_bg_shape"
+                    app:srcResource="@drawable/dizzy"
+                    android:id="@+id/prop_refresh" />
 
             <swu.xl.numberitem.NumberOfItem
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginEnd="25dp"
-                android:layout_weight="1"
-                app:imgResource="@drawable/store_prop_bg_shape"
-                app:srcResource="@drawable/bomb" />
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    app:imgResource="@drawable/store_prop_bg_shape"
+                    app:srcResource="@drawable/bomb"
+                    android:id="@+id/prop_bomb" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
