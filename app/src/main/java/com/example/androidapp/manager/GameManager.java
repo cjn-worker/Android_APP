@@ -112,7 +112,7 @@ public class GameManager
 
     private void addViewToLayout(Context context, RelativeLayout layout, int width, int height){
         //随机加载AnimalView的显示图片
-        List<Integer> resources = LinkUtils.loadPictureResourceWithBoard(getBoard());
+        //List<Integer> resources = LinkUtils.loadPictureResourceWithBoard(getBoard());
 
         //横竖方向的个数
         int row_animal_num = getBoard().length;

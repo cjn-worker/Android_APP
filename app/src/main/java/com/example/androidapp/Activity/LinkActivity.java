@@ -19,9 +19,12 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.Constant.Enum.PropMode;
 import com.example.androidapp.Constant.LinkConstant;
+import com.example.androidapp.Fragment.PauseFragment;
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
 import com.example.androidapp.LinkGame.LinkModel.SealLinkInfo;
@@ -96,7 +99,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         manager.startGame(this,
                 layout,
                 screenWidth,
-                screenHeight -500- ScreenUtil.getNavigationBarHeight(getApplicationContext()),
+                screenHeight -350- ScreenUtil.getNavigationBarHeight(getApplicationContext()),
                 level.getL_id(),
                 level.getL_mode()
         );
@@ -281,28 +284,28 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onClick(View view)
             {
-                if (!isPause)
-                {
-                    manager.pauseGame();
-                    layout.setEnabled(false);
-                    isPause=!isPause;
-                }
-                else
-                {
-                    manager.pauseGame();
-                    layout.setEnabled(true);
-                    isPause=!isPause;
-                }
-//                manager.pauseGame();
-//
-//                //2.添加一个fragment
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                final PauseFragment pause = new PauseFragment();
-//                Bundle bundle = new Bundle();
-//                bundle.putParcelable("level",level);
-//                pause.setArguments(bundle);
-//                transaction.replace(R.id.root_link,pause,"pause");
-//                transaction.commit();
+//                if (!isPause)
+//                {
+//                    manager.pauseGame();
+//                    layout.setEnabled(false);
+//                    isPause=!isPause;
+//                }
+//                else
+//                {
+//                    manager.pauseGame();
+//                    layout.setEnabled(true);
+//                    isPause=!isPause;
+//                }
+                manager.pauseGame();
+
+                //2.添加一个fragment
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                final PauseFragment pause = new PauseFragment();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("level",level);
+                pause.setArguments(bundle);
+                transaction.replace(R.id.root_link,pause,"pause");
+                transaction.commit();
             }
 
         });
