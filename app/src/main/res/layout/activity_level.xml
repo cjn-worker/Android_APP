@@ -88,8 +88,8 @@
             <com.example.androidapp.SelfView.XLTextView
                 android:id="@+id/pager_text"
                 style="@style/ShowPagerMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="36dp"
+                android:layout_height="31dp"
                 android:layout_gravity="center_vertical"
                 android:text="1/1" />
 
