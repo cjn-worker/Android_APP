@@ -26,16 +26,18 @@ public interface LinkConstant
             R.drawable.emoji6,
             R.drawable.emoji7,
             R.drawable.emoji8,
-            R.drawable.leaf4,
-            R.drawable.left,
-            R.drawable.apple,
-            R.drawable.balloon1,
-            R.drawable.balloon,
-            R.drawable.bomb,
-            R.drawable.cherry,
-            R.drawable.candy,
-            R.drawable.cloud
-
+            R.drawable.emoji9,
+            R.drawable.emoji10,
+            R.drawable.emoji11,
+            R.drawable.emoji12,
+            R.drawable.emoji13,
+            R.drawable.emoji14,
+            R.drawable.emoji15,
+            R.drawable.emoji16,
+            R.drawable.emoji17,
+            R.drawable.emoji18,
+            R.drawable.emoji19,
+            R.drawable.emoji20,
     };
 
 

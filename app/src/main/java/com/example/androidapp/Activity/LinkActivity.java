@@ -17,12 +17,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.RestrictTo;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.Constant.Enum.PropMode;
@@ -46,7 +41,6 @@ import com.example.androidapp.view.XLRelativeLayout;
 import org.litepal.LitePal;
 
 import java.util.List;
-import java.util.TimerTask;
 
 import swu.xl.numberitem.NumberOfItem;
 import tyrantgit.explosionfield.ExplosionField;
@@ -75,7 +69,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     private int score;
 
     //拳头道具
-    NumberOfItem prop_fight;
+    NumberOfItem prop_tip;
     //炸弹道具
     NumberOfItem prop_bomb;
     //刷新道具
@@ -125,7 +119,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         level_text.setText(String.valueOf(level.getL_id()));
         money_text = findViewById(R.id.link_money_text);
         money_text.setText(String.valueOf(money));
-        score_text =findViewById(R.id.link_score);
+        score_text =findViewById(R.id.link_score_text);
         score_text.setText("0");
         score=0;
 //
@@ -147,8 +141,8 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
             }
         }
 
-        prop_fight = findViewById(R.id.prop_fight);
-        prop_fight.setOnClickListener(this);
+        prop_tip = findViewById(R.id.prop_tip);
+        prop_tip.setOnClickListener(this);
         prop_bomb = findViewById(R.id.prop_bomb);
         prop_bomb.setOnClickListener(this);
         prop_refresh = findViewById(R.id.prop_refresh);
@@ -159,7 +153,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     {
         initLayout();
         initPauseButton();
-        time_bar=findViewById(R.id.time_bar);
+        time_bar=findViewById(R.id.link_time_bar);
 
     }
 
@@ -281,7 +275,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
     private void initPauseButton()
     {
-        pause=findViewById(R.id.pause);
+        pause=findViewById(R.id.link_pause_btn);
         pause.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -393,7 +387,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         SoundPlayUtil.getInstance(getBaseContext()).play(3);
 
         switch (v.getId()){
-            case R.id.prop_fight:
+            case R.id.prop_tip:
                 Log.d(Constant.TAG,"拳头道具");
 
                 if (fight_num > 0){
@@ -402,7 +396,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
                     //数量减1
                     fight_num--;
-                    prop_fight.setCount(fight_num);
+                    prop_tip.setCount(fight_num);
 
                     //数据库处理
                     ContentValues values = new ContentValues();
