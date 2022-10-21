@@ -19,13 +19,11 @@ import java.util.List;
 import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.Constant.Enum.LevelState;
 import com.example.androidapp.Model.XLLevel;
-import com.example.androidapp.Music.BackgroundMusicManager;
 import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.R;
 import com.example.androidapp.SelfView.XLImageView;
 import com.example.androidapp.Util.PxUtil;
 import com.example.androidapp.Util.ScreenUtil;
-import com.example.androidapp.Util.StateUtil;
 
 public class LevelActivity extends BaseActivity implements View.OnClickListener {
     //屏幕宽度
@@ -104,14 +102,14 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
         screenWidth = ScreenUtil.getScreenWidth(getApplicationContext());
         Log.d(Constant.TAG,"屏幕宽度："+screenWidth);
 
-        back = findViewById(R.id.pager_back);
+        back = findViewById(R.id.page_home);
         back.setOnClickListener(this);
-        pager_up = findViewById(R.id.pager_up);
+        pager_up = findViewById(R.id.page_left);
         pager_up.setOnClickListener(this);
-        pager_down = findViewById(R.id.pager_down);
+        pager_down = findViewById(R.id.page_right);
         pager_down.setOnClickListener(this);
 
-        pager_text = findViewById(R.id.pager_text);
+        pager_text = findViewById(R.id.page_text);
 
         level_pager = findViewById(R.id.level_pager);
         level_pager.setOnTouchListener(new View.OnTouchListener() {
@@ -264,7 +262,7 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
         SoundPlayUtil.getInstance(getBaseContext()).play(3);
 
         switch (v.getId()){
-            case R.id.pager_back:
+            case R.id.page_home:
                 Log.d(Constant.TAG,"返回按钮");
 
                 startActivity(new Intent(LevelActivity.this,MainActivity.class));
@@ -278,13 +276,13 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
                 //自定义动画
                 overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
                 break;
-            case R.id.pager_up:
+            case R.id.page_left:
                 Log.d(Constant.TAG,"上一页");
 
                 //左滑
                 scrollLevelsOfDirection(-1);
                 break;
-            case R.id.pager_down:
+            case R.id.page_right:
                 Log.d(Constant.TAG,"下一页");
 
                 //右滑

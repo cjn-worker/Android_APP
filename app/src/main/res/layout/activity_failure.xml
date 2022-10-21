@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="257dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="49dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="44dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/failure_bear_pic" />
+
+        <com.example.androidapp.SelfView.XLTextView
+            android:layout_width="wrap_content"
+            android:layout_height="107dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView10"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="-36dp"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="失败啦！再接再厉!"
+            android:textColor="@color/white"
+            android:textSize="42sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_failure_level"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/success_pause_failure_level_pic"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btn_failure_restart"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/success_pause_failure_restart_pic" />
+
+    </LinearLayout>
+
+</LinearLayout>

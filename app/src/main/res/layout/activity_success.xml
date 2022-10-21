@@ -5,7 +5,7 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/backg12"
+    android:background="@mipmap/background"
     android:orientation="vertical">
 
 
@@ -25,14 +25,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/success" />
+            app:srcCompat="@drawable/success_unicorn_pic" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="351dp"
             android:layout_height="75dp"
             android:layout_marginTop="212dp"
-            android:background="@drawable/success_setting"
+            android:background="@drawable/success_setting_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -43,14 +43,31 @@
                 android:layout_height="64dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/balloon1" />
+                app:srcCompat="@drawable/success_balloon_left_pic" />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="71dp"
                 android:layout_height="61dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/dizzy1" />
+                app:srcCompat="@drawable/success_dizzy_pic" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="71dp"
+                android:layout_height="61dp"
+                android:layout_gravity="center|center_horizontal"
+                android:layout_weight="1"
+                android:foregroundGravity="center"
+                app:srcCompat="@drawable/prop_refresh_pic" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="63dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/success_ballon_right_pic" />
 
             <com.example.androidapp.SelfView.XLTextView
                 android:layout_width="180dp"
@@ -61,23 +78,6 @@
                 android:text="恭喜通关!"
                 android:textColor="@color/white"
                 android:textSize="28sp" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="71dp"
-                android:layout_height="61dp"
-                android:layout_gravity="center|center_horizontal"
-                android:layout_weight="1"
-                android:foregroundGravity="center"
-                app:srcCompat="@drawable/dizzy" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="63dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/balloon" />
 
         </LinearLayout>
 
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/star2"
+                android:id="@+id/success_crown2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -102,46 +102,46 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.163"
-                app:srcCompat="@drawable/crown" />
+                app:srcCompat="@drawable/success_crown_pic" />
 
             <ImageView
-                android:id="@+id/star3"
+                android:id="@+id/success_crown3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/star2"
+                app:layout_constraintStart_toEndOf="@+id/success_crown2"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.405"
-                app:srcCompat="@drawable/crown" />
+                app:srcCompat="@drawable/success_crown_pic" />
 
             <ImageView
-                android:id="@+id/star1"
+                android:id="@+id/success_crown1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginEnd="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/star2"
+                app:layout_constraintEnd_toStartOf="@+id/success_crown2"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.405"
-                app:srcCompat="@drawable/crown" />
+                app:srcCompat="@drawable/success_crown_pic" />
 
             <com.example.androidapp.SelfView.XLTextView
-                    android:layout_width="80dp"
-                    android:layout_height="33dp"
-                    android:layout_marginTop="8dp"
-                    android:text="第N关"
-                    android:textColor="@color/white"
-                    android:textSize="28sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/star2"
-                    android:id="@+id/level_text" />
+                android:id="@+id/success_level_text"
+                android:layout_width="80dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="8dp"
+                android:text="第N关"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/success_crown2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -194,7 +194,7 @@
                 android:orientation="vertical">
 
                 <com.example.androidapp.SelfView.XLTextView
-                    android:id="@+id/XLTextView11"
+                    android:id="@+id/success_score"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -204,17 +204,17 @@
                     android:textSize="34sp" />
 
                 <com.example.androidapp.SelfView.XLTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:gravity="center"
-                        android:text="60s"
-                        android:textColor="@color/white"
-                        android:textSize="34sp"
-                        android:id="@+id/time_text" />
+                    android:id="@+id/success_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="60s"
+                    android:textColor="@color/white"
+                    android:textSize="34sp" />
 
                 <com.example.androidapp.SelfView.XLTextView
-                    android:id="@+id/XLTextView9"
+                    android:id="@+id/success_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -236,13 +236,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/btn_menu"
+            <Button
+                android:id="@+id/success_level_btn"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/snowman"
+                android:background="@drawable/success_pause_failure_level_pic"
                 android:gravity="center" />
 
             <Space
@@ -250,32 +250,33 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/btn_refresh"
+            <Button
+                android:id="@+id/success_restart_btn"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/glowing_star" />
+                android:background="@drawable/success_pause_failure_restart_pic" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/btn_next"
+            <Button
+                android:id="@+id/success_next_btn"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/horse_next" />
+                android:background="@drawable/success_pause_next_pic" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:id="@+id/root_link"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@mipmap/backg12"
+    android:background="@mipmap/background"
 
     android:clipChildren="false"
 
@@ -23,7 +23,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/score_background"
+            android:background="@drawable/link_base_bg"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -35,25 +35,25 @@
                 android:layout_height="52dp">
 
                 <com.example.androidapp.SelfView.XLButton
-                        android:layout_width="26dp"
-                        android:layout_height="43dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:background="@drawable/pause"
-                        android:foregroundGravity="center_vertical|center"
-                        android:id="@+id/pause" />
+                    android:id="@+id/link_pause_btn"
+                    android:layout_width="26dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/link_pause_pic"
+                    android:foregroundGravity="center_vertical|center" />
 
                 <SeekBar
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="4"
-                        android:max="90"
-                        android:progress="90"
-                        android:progressDrawable="@drawable/timer_seekbar"
-                        android:thumb="@drawable/apple"
-                        tools:ignore="MissingConstraints"
-                        android:id="@+id/time_bar" />
+                    android:id="@+id/link_time_bar"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:max="90"
+                    android:progress="90"
+                    android:progressDrawable="@drawable/link_timer_seekbar_bg"
+                    android:thumb="@drawable/link_apple_thumb_pic"
+                    tools:ignore="MissingConstraints" />
 
             </LinearLayout>
 
@@ -80,15 +80,15 @@
                         android:textSize="28sp" />
 
                     <com.example.androidapp.SelfView.XLTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="4"
-                            android:textColor="@color/white"
-                            android:textSize="28sp"
-                            android:id="@+id/link_level_text" />
+                        android:id="@+id/link_level_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="@color/white"
+                        android:textSize="28sp" />
 
                 </LinearLayout>
 
@@ -96,8 +96,33 @@
                     android:layout_width="330dp"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
-                    android:background="@drawable/prop_background"
+                    android:background="@drawable/prop_bg"
                     android:orientation="horizontal">
+
+                    <com.example.androidapp.SelfView.XLLinearLayout
+                        android:layout_width="17dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/store_show_money_bg">
+
+                        <ImageView
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/store_coin_pic" />
+
+                        <com.example.androidapp.SelfView.XLTextView
+                            android:id="@+id/link_money_text"
+                            android:layout_width="6dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="1000"
+                            android:textSize="15sp" />
+                    </com.example.androidapp.SelfView.XLLinearLayout>
 
                     <com.example.androidapp.SelfView.XLTextView
                         android:layout_width="20dp"
@@ -108,31 +133,6 @@
                         android:text="金币:"
                         android:textColor="#FFC107"
                         android:textSize="28sp" />
-
-                    <com.example.androidapp.SelfView.XLLinearLayout
-                        android:layout_width="17dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:background="@drawable/view_store_show_simple_money_bg">
-
-                        <ImageView
-                            android:layout_width="2dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@drawable/coin" />
-
-                        <com.example.androidapp.SelfView.XLTextView
-                                android:layout_width="6dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="1000"
-                                android:textSize="15sp"
-                                android:id="@+id/link_money_text" />
-                    </com.example.androidapp.SelfView.XLLinearLayout>
 
                     <com.example.androidapp.SelfView.XLTextView
                         android:layout_width="20dp"
@@ -145,13 +145,13 @@
                         android:textSize="28sp" />
 
                     <com.example.androidapp.SelfView.XLTextView
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="1000"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:id="@+id/link_score" />
+                        android:id="@+id/link_score_text"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1000"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -161,9 +161,9 @@
 
         <LinearLayout
             android:id="@+id/linearLayout6"
-            android:layout_width="344dp"
-            android:layout_height="83dp"
-            android:background="@drawable/prop_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/prop_bg"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingBottom="2dp"
@@ -177,29 +177,35 @@
             tools:layout_conversion_absoluteWidth="310dp">
 
             <swu.xl.numberitem.NumberOfItem
+                android:id="@+id/prop_tip"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginEnd="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_weight="1"
-                app:imgResource="@drawable/store_prop_bg_shape"
-                app:srcResource="@drawable/link_prop_tip" />
+                app:imgResource="@drawable/store_prop_bg"
+                app:srcResource="@drawable/prop_tip_pic">
+
+            </swu.xl.numberitem.NumberOfItem>
 
             <swu.xl.numberitem.NumberOfItem
+                android:id="@+id/prop_bomb"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginEnd="25dp"
                 android:layout_weight="1"
-                app:imgResource="@drawable/store_prop_bg_shape"
-                app:srcResource="@drawable/dizzy" />
+                app:imgResource="@drawable/store_prop_bg"
+                app:srcResource="@drawable/prop_bomb_pic" />
 
             <swu.xl.numberitem.NumberOfItem
+                android:id="@+id/prop_refresh"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginEnd="25dp"
                 android:layout_weight="1"
-                app:imgResource="@drawable/store_prop_bg_shape"
-                app:srcResource="@drawable/bomb" />
+                app:imgResource="@drawable/store_prop_bg"
+                app:srcResource="@drawable/prop_refresh_pic" />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

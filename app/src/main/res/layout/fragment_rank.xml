@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AA000000">
+
+    <!--排行榜具体内容-->
+
+
+    <!--关闭按钮-->
+
+    <RelativeLayout
+        android:id="@+id/view_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="200dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/rank_main_bg">
+
+        <!--标题-->
+
+
+        <!--排名展示-->
+
+        <ImageView
+            android:id="@+id/rank_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/store_rank_delete_pic" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rank_show_bg"
+            android:gravity="center"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/number_one6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rank_medal1_pic"
+                    android:paddingBottom="2dp" />
+
+                <ImageView
+                    android:id="@+id/number_one5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rank_medal2_pic"
+                    android:paddingBottom="2dp" />
+
+                <ImageView
+                    android:id="@+id/number_one4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rank_medal3_pic"
+                    android:paddingBottom="2dp" />
+
+                <ImageView
+                    android:id="@+id/number_one3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rank_fourth_pic"
+                    android:paddingBottom="2dp" />
+
+                <ImageView
+                    android:id="@+id/number_one2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rank_fifth_pic"
+                    android:paddingBottom="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/XLTextView12"
+                    style="@style/ShowSimplePropTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总分:"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/XLTextView7"
+                    style="@style/ShowSimplePropTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总分:"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/XLTextView4"
+                    style="@style/ShowSimplePropTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总分:"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/XLTextView3"
+                    style="@style/ShowSimplePropTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总分:"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/XLTextView2"
+                    style="@style/ShowSimplePropTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总分:"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/rank_first_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/rank_second_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/rank_third_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/rank_fourth_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/rank_fifth_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="112dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rank_trophy_pic" />
+
+</RelativeLayout>

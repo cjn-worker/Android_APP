@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@mipmap/backg12"
+    android:background="@mipmap/background"
     tools:context=".Activity.MainActivity">
 
     <!--包裹布局-->
@@ -35,7 +35,7 @@
                 android:layout_marginEnd="63dp"
                 android:layout_marginStart="63dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/title"
+                android:src="@drawable/main_title_pic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,12 +58,12 @@
             //困难模式
 
             <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/start_easy"
+                android:id="@+id/mode_easy_btn"
                 style="@style/mode_btn"
                 android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="64dp"
-                android:background="@drawable/start_button_easy_shape"
+                android:background="@drawable/main_mode_easy_bg"
                 android:text="@string/easy_mode"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -74,35 +74,35 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/start_normal"
+                android:id="@+id/mode_normal_btn"
                 style="@style/mode_btn"
                 android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="64dp"
-                android:background="@drawable/start_button_normal_shape"
+                android:background="@drawable/main_mode_hard_bg"
                 android:text="@string/normal_mode"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="28sp"
-                app:layout_constraintEnd_toEndOf="@+id/start_easy"
-                app:layout_constraintStart_toStartOf="@+id/start_easy"
-                app:layout_constraintTop_toBottomOf="@+id/start_easy" />
+                app:layout_constraintEnd_toEndOf="@+id/mode_easy_btn"
+                app:layout_constraintStart_toStartOf="@+id/mode_easy_btn"
+                app:layout_constraintTop_toBottomOf="@+id/mode_easy_btn" />
 
             <com.example.androidapp.SelfView.XLButton
-                android:id="@+id/start_hard"
+                android:id="@+id/mode_hard_btn"
                 style="@style/mode_btn"
                 android:layout_width="150dp"
                 android:layout_height="60dp"
-                android:background="@drawable/start_button_hard_shape"
+                android:background="@drawable/main_mode_normal_bg"
                 android:text="@string/hard_mode"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/start_normal"
+                app:layout_constraintEnd_toEndOf="@+id/mode_normal_btn"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/start_normal"
-                app:layout_constraintTop_toBottomOf="@+id/start_normal"
+                app:layout_constraintStart_toStartOf="@+id/mode_normal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/mode_normal_btn"
                 app:layout_constraintVertical_bias="0.487" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -116,26 +116,26 @@
 
             <!--设置-->
             <Button
-                android:id="@+id/main_setting"
+                android:id="@+id/main_setting_btn"
                 style="@style/main_bg"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="50dp"
-                android:background="@drawable/gear" />
+                android:background="@drawable/main_gear_pic" />
 
             <!--商店-->
             <Button
-                android:id="@+id/main_store"
+                android:id="@+id/main_store_btn"
                 style="@style/main_bg"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="50dp"
-                android:background="@drawable/store" />
+                android:background="@drawable/main_store_pic" />
 
             <!--排行榜-->
             <Button
-                android:id="@+id/main_rank"
+                android:id="@+id/main_rank_btn"
                 style="@style/main_bg"
                 android:layout_gravity="bottom"
-                android:background="@drawable/rocket" />
+                android:background="@drawable/main_rank_pic" />
 
 
         </LinearLayout>

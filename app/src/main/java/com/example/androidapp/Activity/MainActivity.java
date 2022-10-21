@@ -1,21 +1,18 @@
 package com.example.androidapp.Activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -233,17 +230,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
      * 数据的初始化
      */
     private void initView() {
-        easy_mode = findViewById(R.id.start_easy);
+        easy_mode = findViewById(R.id.mode_easy_btn);
         easy_mode.setOnClickListener(this);
-        normal_mode = findViewById(R.id.start_normal);
+        normal_mode = findViewById(R.id.mode_normal_btn);
         normal_mode.setOnClickListener(this);
-        hard_mode = findViewById(R.id.start_hard);
+        hard_mode = findViewById(R.id.mode_hard_btn);
         hard_mode.setOnClickListener(this);
-        setting = findViewById(R.id.main_setting);
+        setting = findViewById(R.id.main_setting_btn);
         setting.setOnClickListener(this);
-        score = findViewById(R.id.main_rank);
+        score = findViewById(R.id.main_rank_btn);
         score.setOnClickListener(this);
-        store = findViewById(R.id.main_store);
+        store = findViewById(R.id.main_store_btn);
         store.setOnClickListener(this);
         //root_main = findViewById(R.id.root_main);
     }
@@ -277,7 +274,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         //区分点击
         switch (v.getId()){
-            case R.id.start_easy:
+            case R.id.mode_easy_btn:
                 Log.d(Constant.TAG,"简单模式按钮");
 
                 //查询简单模式的数据
@@ -302,7 +299,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(intent_easy);
 
                 break;
-            case R.id.start_normal:
+            case R.id.mode_normal_btn:
                 Log.d(Constant.TAG,"普通模式按钮");
 
                 //查询简单模式的数据
@@ -327,7 +324,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(intent_normal);
 
                 break;
-            case R.id.start_hard:
+            case R.id.mode_hard_btn:
                 Log.d(Constant.TAG,"困难模式按钮");
 
                 //查询简单模式的数据
@@ -352,7 +349,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(intent_hard);
 
                 break;
-            case R.id.main_setting:
+            case R.id.main_setting_btn:
                 Log.d(Constant.TAG,"设置");
 
                 //添加一个fragment
@@ -361,7 +358,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 transaction.commit();
 
                 break;
-            case R.id.main_store:
+            case R.id.main_store_btn:
                 Log.d(Constant.TAG,"商店按钮");
 
                 //添加一个fragment
@@ -370,7 +367,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 transaction.commit();
 
                 break;
-            case R.id.main_rank:
+            case R.id.main_rank_btn:
                 Log.d(Constant.TAG,",排行榜按钮");
 
                 //添加一个fragment

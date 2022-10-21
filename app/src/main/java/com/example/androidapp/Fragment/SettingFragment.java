@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.SeekBar;
 
 import androidx.annotation.NonNull;
@@ -24,7 +23,7 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //加载布局
-        View inflate = inflater.inflate(R.layout.setting_view, container, false);
+        View inflate = inflater.inflate(R.layout.fragment_setting, container, false);
 
         //拦截事件
         inflate.setOnTouchListener(new View.OnTouchListener() {
@@ -35,7 +34,7 @@ public class SettingFragment extends Fragment {
         });
 
         //处理事件
-        SeekBar seekBar_music = inflate.findViewById(R.id.seek_bar_music);
+        SeekBar seekBar_music = inflate.findViewById(R.id.setting_music_seekbar);
         float progress_music = BackgroundMusicManager.getInstance(getContext()).getBackgroundVolume() * 100;
         Log.d(Constant.TAG,"背景音乐进度:"+progress_music);
         seekBar_music.setProgress((int) progress_music);
@@ -59,7 +58,7 @@ public class SettingFragment extends Fragment {
         });
 
         //音乐按钮
-        SeekBar seekBar_effect = inflate.findViewById(R.id.seek_bar_effect);
+        SeekBar seekBar_effect = inflate.findViewById(R.id.setting_effect_seekbar);
         float progress_effect = SoundPlayUtil.getInstance(getContext()).getVoice() * 100;
         Log.d(Constant.TAG,"音效进度:"+progress_effect);
         seekBar_effect.setProgress((int) progress_effect);
@@ -84,7 +83,7 @@ public class SettingFragment extends Fragment {
 
 
         //移除该视图
-        inflate.findViewById(R.id.setting_finish).setOnClickListener(new View.OnClickListener() {
+        inflate.findViewById(R.id.setting_finish_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //播放点击音效

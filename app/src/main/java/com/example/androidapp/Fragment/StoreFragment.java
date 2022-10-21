@@ -42,7 +42,7 @@ public class StoreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //加载布局
-        final View inflate = inflater.inflate(R.layout.store_view, container, false);
+        final View inflate = inflater.inflate(R.layout.fragment_store, container, false);
 
         //拦截事件
         inflate.setOnTouchListener(new View.OnTouchListener() {
@@ -79,7 +79,7 @@ public class StoreFragment extends Fragment {
         }
 
         //找到显示道具数量的文本
-        NumberOfItem prop_fight = inflate.findViewById(R.id.prop_fight);
+        NumberOfItem prop_fight = inflate.findViewById(R.id.prop_tip);
         prop_fight.setCount(fight_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
         //prop_bomb.setCount(bomb_num);
@@ -97,7 +97,7 @@ public class StoreFragment extends Fragment {
         refresh_money_text.setText(String.valueOf(refresh_money));
 
         //购买拳头
-        LinearLayout fight = inflate.findViewById(R.id.store_fight);
+        LinearLayout fight = inflate.findViewById(R.id.store_tip);
 
         fight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,7 +205,7 @@ public class StoreFragment extends Fragment {
         user_money_text.setText(String.valueOf(user_money));
 
         //找到显示道具数量的文本
-        NumberOfItem prop_fight = inflate.findViewById(R.id.prop_fight);
+        NumberOfItem prop_fight = inflate.findViewById(R.id.prop_tip);
         prop_fight.setCount(fight_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
         prop_bomb.setCount(bomb_num);

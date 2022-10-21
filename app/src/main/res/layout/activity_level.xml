@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/backg12"
+    android:background="@mipmap/background"
 
     tools:context=".Activity.LevelActivity">
 
@@ -46,52 +46,58 @@
         <!--页面控制器-->
 
         <ImageButton
-            android:id="@+id/pager_back"
+            android:id="@+id/page_home"
             style="@style/operation_btn"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="61dp"
+            android:layout_marginBottom="58dp"
             android:layout_marginEnd="46dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="45dp"
             android:background="?attr/selectableItemBackground"
-            android:src="@drawable/home" />
+            android:src="@drawable/level_home_pic" />
 
         <LinearLayout
             android:layout_width="225dp"
             android:layout_height="48dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="72dp"
-            android:layout_marginEnd="67dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginStart="90dp"
             android:layout_marginTop="60dp">
 
             <Button
-                android:id="@+id/pager_up"
+                android:id="@+id/page_left"
                 style="@style/pager_bg"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/bow_left"
+                android:layout_weight="1"
+                android:background="@drawable/level_page_left_pic"
                 android:enabled="false" />
 
-            <Button
-                android:id="@+id/pager_down"
-                style="@style/pager_bg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/bow_right" />
-
             <com.example.androidapp.SelfView.XLTextView
-                android:id="@+id/pager_text"
+                android:id="@+id/page_text"
                 style="@style/ShowPagerMessage"
                 android:layout_width="36dp"
                 android:layout_height="31dp"
                 android:layout_gravity="center_vertical"
-                android:text="1/1" />
+                android:layout_weight="1"
+                android:text="1/1"
+                android:textColor="#020101" />
+
+            <Button
+                android:id="@+id/page_right"
+                style="@style/pager_bg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/level_page_right_pic" />
 
         </LinearLayout>
 

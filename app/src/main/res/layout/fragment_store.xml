@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#AA000000">
+
+    <!--商店具体内容-->
+    <RelativeLayout
+        android:id="@+id/view_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/store_main_bg"
+        android:padding="15dp">
+
+        <!--持有的金币数量-->
+        <LinearLayout
+            android:id="@+id/rank_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp">
+
+            <com.example.androidapp.SelfView.XLTextView
+                style="@style/ShowMoneyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ShowMoney" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/store_show_money_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <!--图标-->
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/store_coin_pic" />
+
+                <!--持有的数目-->
+                <com.example.androidapp.SelfView.XLTextView
+                    android:id="@+id/store_user_money"
+                    style="@style/ShowMoneyNumText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1099" />
+
+            </LinearLayout>
+
+            <!--显示持有的金币数目-->
+        </LinearLayout>
+
+        <!--道具展示-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rank_show"
+            android:layout_centerInParent="true"
+            android:background="@drawable/store_show_props_bg"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <!--拳头道具-->
+
+            <!--炸弹道具-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/store_show_prop_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!--道具图标-->
+                <swu.xl.numberitem.NumberOfItem
+                    android:id="@+id/prop_tip"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:paddingBottom="2dp"
+                    app:imgResource="@drawable/store_prop_bg"
+                    app:srcResource="@drawable/prop_tip_pic" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--名称-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="提示"
+                        android:textColor="@color/black" />
+
+                    <!--描述-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropDesText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/Prop_Fight_Des"
+                        android:textColor="#A31F86" />
+
+
+                </LinearLayout>
+
+                <com.example.androidapp.SelfView.XLLinearLayout
+                    android:id="@+id/store_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/store_show_money_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <!--图标-->
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/store_coin_pic" />
+
+                    <!--持有的数目-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/store_fight_money"
+                        style="@style/ShowSimpleMoneyNumText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:text="10" />
+
+                </com.example.androidapp.SelfView.XLLinearLayout>
+
+                <!--道具文本说明-->
+
+                <!--价格-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/store_show_prop_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!--道具图标-->
+                <swu.xl.numberitem.NumberOfItem
+                    android:id="@+id/prop_bomb"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:paddingBottom="2dp"
+                    app:imgResource="@drawable/store_prop_bg"
+                    app:srcResource="@drawable/prop_bomb_pic" />
+
+                <LinearLayout
+                    android:layout_width="108dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--名称-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/Prop_Bomb_Text"
+                        android:textColor="@color/black" />
+
+                    <!--描述-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropDesText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/Prop_Bomb_Des"
+                        android:textColor="#A31F86" />
+
+
+                </LinearLayout>
+
+                <com.example.androidapp.SelfView.XLLinearLayout
+                    android:id="@+id/store_bomb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/store_show_money_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <!--图标-->
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/store_coin_pic" />
+
+                    <!--持有的数目-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/store_bomb_money"
+                        style="@style/ShowSimpleMoneyNumText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:text="10" />
+
+                </com.example.androidapp.SelfView.XLLinearLayout>
+
+                <!--道具文本说明-->
+
+                <!--价格-->
+            </LinearLayout>
+
+            <!--刷新道具-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/store_show_prop_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!--道具图标-->
+                <swu.xl.numberitem.NumberOfItem
+                    android:id="@+id/prop_refresh"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:paddingBottom="2dp"
+                    app:imgResource="@drawable/store_prop_bg"
+                    app:srcResource="@drawable/prop_refresh_pic" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <!--名称-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/Prop_Refresh_Text"
+                        android:textColor="@color/black" />
+
+                    <!--描述-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        style="@style/ShowSimplePropDesText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/Prop_Refresh_Des"
+                        android:textColor="#A31F86" />
+
+
+                </LinearLayout>
+
+                <com.example.androidapp.SelfView.XLLinearLayout
+                    android:id="@+id/store_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/store_show_money_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <!--图标-->
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/store_coin_pic" />
+
+                    <!--持有的数目-->
+                    <com.example.androidapp.SelfView.XLTextView
+                        android:id="@+id/store_refresh_money"
+                        style="@style/ShowSimpleMoneyNumText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:text="10" />
+
+                </com.example.androidapp.SelfView.XLLinearLayout>
+
+                <!--道具文本说明-->
+
+                <!--价格-->
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--商店牌子-->
+
+    <!--关闭按钮-->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view_store"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="-45dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/store_candy_pic" />
+
+    <ImageView
+        android:id="@+id/store_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@id/view_store"
+        android:layout_alignTop="@id/view_store"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/store_rank_delete_pic" />
+
+</RelativeLayout>

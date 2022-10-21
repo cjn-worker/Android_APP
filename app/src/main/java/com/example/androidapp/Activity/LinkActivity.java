@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,9 +15,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidapp.Constant.LinkConstant;
@@ -104,7 +101,7 @@ public class LinkActivity extends AppCompatActivity
         level_text.setText(String.valueOf(level.getL_id()));
         money_text = findViewById(R.id.link_money_text);
         money_text.setText(String.valueOf(money));
-        score_text =findViewById(R.id.link_score);
+        score_text =findViewById(R.id.link_score_text);
         score_text.setText("0");
         score=0;
 //
@@ -131,7 +128,7 @@ public class LinkActivity extends AppCompatActivity
     {
         initLayout();
         initPauseButton();
-        time_bar=findViewById(R.id.time_bar);
+        time_bar=findViewById(R.id.link_time_bar);
 
     }
 
@@ -253,7 +250,7 @@ public class LinkActivity extends AppCompatActivity
 
     private void initPauseButton()
     {
-        pause=findViewById(R.id.pause);
+        pause=findViewById(R.id.link_pause_btn);
         pause.setOnClickListener(new View.OnClickListener()
         {
             @Override

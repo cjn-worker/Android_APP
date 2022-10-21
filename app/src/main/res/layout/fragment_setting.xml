@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#BB000000"
+    >
+
+    <!--主题内容-->
+    <RelativeLayout
+        android:id="@+id/setting_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp">
+
+        <!--背景颜色-->
+
+        <!--具体内容-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setiing_main_bg"
+            android:orientation="vertical">
+
+            <!--背景音乐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/store_prop_bg"
+                        android:src="@drawable/setting_music_pic" />
+
+                    <SeekBar
+                        android:id="@+id/setting_music_seekbar"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="4"
+                        android:background="@null"
+                        android:max="100"
+                        android:progress="80"
+                        android:progressDrawable="@drawable/seeting_seekbar_bg"
+                        android:secondaryProgress="100"
+                        android:splitTrack="false"
+                        android:thumb="@drawable/setting_ice_thumb_pic" />
+
+                </LinearLayout>
+
+                <com.example.androidapp.SelfView.XLTextView
+                    style="@style/Setting_Music_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="背景音乐"
+                    android:textColor="#0E8CC5" />
+
+
+            </LinearLayout>
+
+            <!--音效-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/store_prop_bg"
+                        android:src="@drawable/setting_sound_effect_pic"
+                        app:srcCompat="@drawable/setting_music_pic" />
+
+                    <SeekBar
+                        android:id="@+id/setting_effect_seekbar"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="4"
+                        android:background="@null"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/seeting_seekbar_bg"
+                        android:secondaryProgress="100"
+                        android:splitTrack="false"
+                        android:thumb="@drawable/setting_droplet_pic" />
+
+                </LinearLayout>
+
+                <com.example.androidapp.SelfView.XLTextView
+                    style="@style/Setting_Music_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="游戏音效"
+                    android:textColor="#8F19AF" />
+
+
+            </LinearLayout>
+
+            <!--完成-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal">
+
+                <com.example.androidapp.SelfView.XLButton
+                    android:id="@+id/setting_finish_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/setting_finish_bg"
+                    android:text="完成"
+                    android:textColor="#ffffff"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--标题部分-->
+    <RelativeLayout
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_above="@+id/setting_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-50dp"
+        android:background="@drawable/setting_icecream_pic"
+        android:gravity="center_horizontal">
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

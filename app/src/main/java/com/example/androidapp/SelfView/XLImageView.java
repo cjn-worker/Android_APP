@@ -2,18 +2,17 @@ package com.example.androidapp.SelfView;
 
 import android.content.Context;
 
-import com.example.androidapp.Constant.Enum.LevelMode;
 import com.example.androidapp.Constant.Enum.LevelState;
 import com.example.androidapp.R;
 
 public class XLImageView extends androidx.appcompat.widget.AppCompatImageView {
     //四套显示样式
     public static final int[] resources = {
-            R.drawable.cloud,      //关卡没有被打开
-            R.drawable.snowman1,   //关卡闯关成功 一星
-            R.drawable.snowman2,   //关卡闯关成功 二星
-            R.drawable.snowman3, //关卡闯关成功 三星
-            R.drawable.snowman0      //关卡正在被闯
+            R.drawable.levle_undo_pic,      //关卡没有被打开
+            R.drawable.level_one_crown_pic,   //关卡闯关成功 一星
+            R.drawable.level_two_crowns_pic,   //关卡闯关成功 二星
+            R.drawable.level_three_crowns_pic, //关卡闯关成功 三星
+            R.drawable.level_doing_doing      //关卡正在被闯
     };
 
     /**

@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.androidapp.Constant.Constant;
-import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.Model.XLLevel;
 import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.R;
@@ -41,9 +40,9 @@ public class SuccessActivity extends BaseActivity implements View.OnClickListene
     XLTextView batter_text;
 
     //关卡菜单按钮
-    XLButton menu_btn;
-    XLButton refresh_btn;
-    XLButton next_btn;
+    Button menu_btn;
+    Button refresh_btn;
+    Button next_btn;
 
     //关卡
     XLLevel level;
@@ -87,7 +86,7 @@ public class SuccessActivity extends BaseActivity implements View.OnClickListene
         }
 
         //设置时间
-        time_text.findViewById(R.id.time_text);
+        time_text.findViewById(R.id.success_time);
         time_text.setText(level.getL_time()+"秒");
 
         //设置分数
@@ -108,21 +107,21 @@ public class SuccessActivity extends BaseActivity implements View.OnClickListene
         SoundPlayUtil.getInstance(getBaseContext()).play(3);
 
         switch (v.getId()){
-            case R.id.btn_menu:
+            case R.id.success_level_btn:
                 //关卡菜单按钮
                 Log.d(Constant.TAG,"关卡菜单按钮");
 
                 jumpToActivity(0);
 
                 break;
-            case R.id.btn_refresh:
+            case R.id.success_restart_btn:
                 //重新加载按钮
                 Log.d(Constant.TAG,"重新加载按钮");
 
                 jumpToActivity(1);
 
                 break;
-            case R.id.btn_next:
+            case R.id.success_next_btn:
                 //下一关按钮
                 Log.d(Constant.TAG,"下一个关卡按钮");
 
@@ -133,26 +132,26 @@ public class SuccessActivity extends BaseActivity implements View.OnClickListene
     }
     private void initView() {
         stars = new ArrayList<>();
-        left_star = findViewById(R.id.star1);
+        left_star = findViewById(R.id.success_crown1);
         left_star.setVisibility(View.INVISIBLE);
-        middle_star = findViewById(R.id.star2);
+        middle_star = findViewById(R.id.success_crown2);
         middle_star.setVisibility(View.INVISIBLE);
-        right_star = findViewById(R.id.star3);
+        right_star = findViewById(R.id.success_crown3);
         right_star.setVisibility(View.INVISIBLE);
         stars.add(left_star);
         stars.add(middle_star);
         stars.add(right_star);
 
-        level_text = findViewById(R.id.level_text);
+        level_text = findViewById(R.id.success_level_text);
         //score_text = findViewById(R.id.score_text);
-        time_text = findViewById(R.id.time_text);
+        time_text = findViewById(R.id.success_time);
         //batter_text = findViewById(R.id.batter_text);
 
-        menu_btn = findViewById(R.id.btn_menu);
+        menu_btn = findViewById(R.id.success_level_btn);
         menu_btn.setOnClickListener(this);
-        refresh_btn = findViewById(R.id.btn_refresh);
+        refresh_btn = findViewById(R.id.success_restart_btn);
         refresh_btn.setOnClickListener(this);
-        next_btn = findViewById(R.id.btn_next);
+        next_btn = findViewById(R.id.success_next_btn);
         next_btn.setOnClickListener(this);
     }
 
