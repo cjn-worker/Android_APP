@@ -13,6 +13,8 @@ import android.util.Log;
 import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.Constant.Enum.LevelMode;
 import com.example.androidapp.Constant.LinkConstant;
+import com.example.androidapp.LinkGame.LinkModel.Kernel;
+import com.example.androidapp.LinkGame.LinkModel.LinkInfoList;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.manager.GameManager;
 
@@ -35,11 +37,42 @@ public class LinkUtils {
         return true;
     }
     /**
-     * 根据关卡难度生成连连看
-     * @param level
-     *
+     * 让计算机判断当前连连看是否可解决
+     * @param LinkBoard
+     * 返回List(L1(src,..,des),L2,L3)
      */
-    public static int[][] generateBoard(int level)
+    private static boolean Auto(int[][] LinkBoard)
+    {
+        int [][] cloneBoard = LinkUtils.Clone(LinkBoard);
+        LinkInfoList linkInfo = new LinkInfoList();
+        int row = cloneBoard.length - 1;
+        int col = cloneBoard[0].length - 1;
+        int count = (row-1)*(col-1)/2;
+        while (!isCleared(cloneBoard)&&count!=0) {
+            for (int i = 1; i < row; i++) {
+                for (int j = 1; j < col; j++) {
+                    Point src = new Point(i, j);
+                    if (cloneBoard[i][j] != UNBLOCKED) {
+                        boolean find = false;
+                        for (int m = 1; m < row && !find; m++) {
+                            for (int n = 1; n < col && !find; n++) {
+                                Point des = new Point(m, n);
+                                if (cloneBoard[m][n] != UNBLOCKED && !src.isEqual(des)) {
+                                    if (Kernel.findLink(LinkBoard, src, des, linkInfo)) {
+                                        cloneBoard[i][j] = cloneBoard[m][n] = UNBLOCKED;
+                                        find = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            count--;
+        }
+        return linkInfo.getLink().size() == (row-1) * (col-1) / 2;
+    }
+    private static int[][] generate(int level)
     {
         int sourceNum=0;
         int row=0;
@@ -54,25 +87,34 @@ public class LinkUtils {
             case 2:
                 row=10;
                 col=8;
-                sourceNum=col-2;
+                sourceNum=row-2;
                 break;
             case 3:
                 row=12;
-                col=8;
-                sourceNum=col-2;
+                col=10;
+                sourceNum=row-2;
                 break;
         }
         int [][]LinkBoard=new int[row][col];
-        for(int i=0;i<LinkBoard.length;i++)
-            LinkBoard[i][0]=LinkBoard[i][LinkBoard[0].length-1]=UNBLOCKED;
-        for(int j=0;j<LinkBoard[0].length;j++)
-            LinkBoard[0][j]=LinkBoard[LinkBoard.length-1][j]=UNBLOCKED;
-        int total=(LinkBoard.length-2)*(LinkBoard[0].length-2);
+        for(int i=0;i<row;i++)
+            LinkBoard[i][0]=LinkBoard[i][col-1]=UNBLOCKED;
+        for(int j=0;j<col;j++)
+            LinkBoard[0][j]=LinkBoard[row-1][j]=UNBLOCKED;
+//        int total=(row-2)*(col-2);
+        ArrayList<Integer> sourceList = new ArrayList<>();
+        for(int i =0 ;i<sourceNum;i++) {
+            int k = (int) (Math.random() * LinkConstant.RESOURCE.length);
+            while (sourceList.contains(k)) {
+                k = (int) (Math.random() * LinkConstant.RESOURCE.length);
+            }
+            sourceList.add(k);
+        }
         ArrayList<Integer> dataList = new ArrayList<>();
-        for(int i=0;i<total/sourceNum;i++)
+        for(int i=0;i<col-2;i++)
         {
-            for(int j=0;j<sourceNum;j++)
-                dataList.add(j);
+            for(int j=0;j<sourceNum;j++){
+                dataList.add(sourceList.get(j));
+            }
         }
         for(int i=1;i<LinkBoard.length-1;i++)
         {
@@ -85,10 +127,19 @@ public class LinkUtils {
         }
         return LinkBoard;
     }
-    public static int[][] generateBoard_statically(int level)
+    /**
+     * 根据关卡难度生成连连看
+     * @param level
+     *
+     */
+    public static int[][] generateBoard(int level)
     {
-        return null;
+        int[][] LinkBoard = generate(level);
+        while(!Auto(LinkBoard))
+            LinkBoard=generate(level);
+        return LinkBoard;
     }
+
     public static int [][] Clone(int[][] LinkBoard)
     {
         int[][] cloneBoard=new int[LinkBoard.length][LinkBoard[0].length];

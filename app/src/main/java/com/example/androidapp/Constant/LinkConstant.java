@@ -38,6 +38,16 @@ public interface LinkConstant
             R.drawable.emoji18,
             R.drawable.emoji19,
             R.drawable.emoji20,
+            R.drawable.emoji21,
+            R.drawable.emoji22,
+            R.drawable.emoji23,
+            R.drawable.emoji24,
+            R.drawable.emoji25,
+            R.drawable.emoji26,
+            R.drawable.emoji27,
+            R.drawable.emoji28,
+            R.drawable.emoji29,
+            R.drawable.emoji30,
     };
 
 

@@ -5,7 +5,7 @@ package com.example.androidapp.LinkGame.LinkModel;
 public class Kernel {
 
     public static final int UNBLOCKED =-1;
-    private static boolean directLink(int[][] LinkBoard, Point src, Point des, SealLinkInfo SealedLinkInfo) {
+    private static boolean directLink(int[][] LinkBoard, Point src, Point des, LinkInfoList SealedLinkInfo) {
 
         if (src.getX() == des.getX()) {
             int min = Math.min(src.getY(), des.getY());
@@ -31,7 +31,7 @@ public class Kernel {
         return false;
     }
 
-    private static boolean oneBendLink(int[][] LinkBoard, Point src, Point des, SealLinkInfo SealedLinkInfo) {
+    private static boolean oneBendLink(int[][] LinkBoard, Point src, Point des, LinkInfoList SealedLinkInfo) {
         Point tmp1 = new Point(des.getX(), src.getY());
         Point tmp2 = new Point(src.getX(), des.getY());
         boolean judge1 = directLink(LinkBoard, src, tmp1, null)
@@ -53,7 +53,7 @@ public class Kernel {
         return false;
     }
 
-    private static boolean twoBendsLink(int[][] LinkBoard, Point src, Point des, SealLinkInfo SealedLinkInfo) {
+    private static boolean twoBendsLink(int[][] LinkBoard, Point src, Point des, LinkInfoList SealedLinkInfo) {
         int row = LinkBoard.length;
         int col = LinkBoard[0].length;
 //        boolean link
@@ -91,7 +91,7 @@ public class Kernel {
         return isLinked&&isUnblocked;
     }
 
-    public static boolean findLink(int[][] LinkBoard, Point src, Point des, SealLinkInfo sealLinkInfo)
+    public static boolean findLink(int[][] LinkBoard, Point src, Point des, LinkInfoList linkInfoList)
     {
         int x_s = src.getX();int y_s = src.getY();
         int x_d = des.getX();int y_d = des.getY();
@@ -99,9 +99,9 @@ public class Kernel {
         boolean NUnblocked= !(LinkBoard[x_s][y_s]==UNBLOCKED ||LinkBoard[x_d][y_d]==UNBLOCKED);
         if(Same&&NUnblocked)
         {
-            return directLink(LinkBoard,src,des,sealLinkInfo)||
-                    oneBendLink(LinkBoard,src,des,sealLinkInfo)||
-                    twoBendsLink(LinkBoard,src,des,sealLinkInfo);
+            return directLink(LinkBoard,src,des, linkInfoList)||
+                    oneBendLink(LinkBoard,src,des, linkInfoList)||
+                    twoBendsLink(LinkBoard,src,des, linkInfoList);
         }
         return false;
     }

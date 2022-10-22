@@ -27,7 +27,7 @@ import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.Fragment.PauseFragment;
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
-import com.example.androidapp.LinkGame.LinkModel.SealLinkInfo;
+import com.example.androidapp.LinkGame.LinkModel.LinkInfoList;
 import com.example.androidapp.LinkGame.Utils.LinkUtils;
 import com.example.androidapp.LinkGame.Utils.ScreenUtil;
 import com.example.androidapp.Model.XLLevel;
@@ -205,18 +205,18 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                             //如果不是第一次触摸 且 触摸的不是同一个点
                             if (lastView != null && lastView != imgView)
                             {
-                                SealLinkInfo sealLinkInfo = new SealLinkInfo();
+                                LinkInfoList linkInfoList = new LinkInfoList();
                                 //如果两者的图片相同，且两者可以连接
                                 if (imgView.getFlag() == lastView.getFlag() &&
                                         Kernel.findLink(
                                                 manager.getBoard(),
                                                 lastView.getPoint(),
                                                 imgView.getPoint(),
-                                                sealLinkInfo
+                                                linkInfoList
                                         ))
                                 {
                                     startViewAnimation(imgView);
-                                    layout.setLinkInfo(new LinkInfo(sealLinkInfo.getLink().get(0)));
+                                    layout.setLinkInfo(new LinkInfo(linkInfoList.getLink().get(0)));
                                     //设置所有的宝可梦不可以点击
                                     layout.setEnabled(false);
                                     SoundPlayUtil.getInstance(getBaseContext()).play(4);
