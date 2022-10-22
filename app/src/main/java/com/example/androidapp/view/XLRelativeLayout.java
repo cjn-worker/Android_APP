@@ -3,13 +3,11 @@ package com.example.androidapp.view;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.RelativeLayout;
 
-import com.example.androidapp.Constant.Constant;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
 import com.example.androidapp.LinkGame.LinkModel.Point;
-import com.example.androidapp.LinkGame.Utils.LinkUtils;
+import com.example.androidapp.utils.LinkUtils;
 
 import java.util.List;
 

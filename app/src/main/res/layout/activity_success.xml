@@ -52,7 +52,7 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/success_dizzy_pic" />
 
-            <com.example.androidapp.SelfView.XLTextView
+            <com.example.androidapp.view.XLTextView
                 android:layout_width="180dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -130,7 +130,7 @@
                 app:layout_constraintVertical_bias="0.405"
                 app:srcCompat="@drawable/success_crown_pic" />
 
-            <com.example.androidapp.SelfView.XLTextView
+            <com.example.androidapp.view.XLTextView
                 android:id="@+id/success_level_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/success_score"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -203,7 +203,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/success_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/success_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

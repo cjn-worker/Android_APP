@@ -26,7 +26,7 @@
             android:paddingBottom="20dp"
             android:paddingTop="20dp">
 
-            <com.example.androidapp.SelfView.XLTextView
+            <com.example.androidapp.view.XLTextView
                 style="@style/ShowMoneyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                     android:src="@drawable/store_coin_pic" />
 
                 <!--持有的数目-->
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/store_user_money"
                     style="@style/ShowMoneyNumText"
                     android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
                     android:padding="5dp">
 
                     <!--名称-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         style="@style/ShowSimplePropTitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -106,7 +106,7 @@
                         android:textColor="@color/black" />
 
                     <!--描述-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         style="@style/ShowSimplePropDesText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -117,7 +117,7 @@
 
                 </LinearLayout>
 
-                <com.example.androidapp.SelfView.XLLinearLayout
+                <com.example.androidapp.view.XLLinearLayout
                     android:id="@+id/store_tip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                         android:src="@drawable/store_coin_pic" />
 
                     <!--持有的数目-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         android:id="@+id/store_fight_money"
                         style="@style/ShowSimpleMoneyNumText"
                         android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
                         android:maxLines="1"
                         android:text="10" />
 
-                </com.example.androidapp.SelfView.XLLinearLayout>
+                </com.example.androidapp.view.XLLinearLayout>
 
                 <!--道具文本说明-->
 
@@ -177,7 +177,7 @@
                     android:padding="5dp">
 
                     <!--名称-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         style="@style/ShowSimplePropTitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -186,7 +186,7 @@
                         android:textColor="@color/black" />
 
                     <!--描述-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         style="@style/ShowSimplePropDesText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -197,7 +197,7 @@
 
                 </LinearLayout>
 
-                <com.example.androidapp.SelfView.XLLinearLayout
+                <com.example.androidapp.view.XLLinearLayout
                     android:id="@+id/store_bomb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
                         android:src="@drawable/store_coin_pic" />
 
                     <!--持有的数目-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         android:id="@+id/store_bomb_money"
                         style="@style/ShowSimpleMoneyNumText"
                         android:layout_width="wrap_content"
@@ -225,7 +225,7 @@
                         android:maxLines="1"
                         android:text="10" />
 
-                </com.example.androidapp.SelfView.XLLinearLayout>
+                </com.example.androidapp.view.XLLinearLayout>
 
                 <!--道具文本说明-->
 
@@ -258,7 +258,7 @@
                     android:padding="5dp">
 
                     <!--名称-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         style="@style/ShowSimplePropTitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -267,7 +267,7 @@
                         android:textColor="@color/black" />
 
                     <!--描述-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         style="@style/ShowSimplePropDesText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -278,7 +278,7 @@
 
                 </LinearLayout>
 
-                <com.example.androidapp.SelfView.XLLinearLayout
+                <com.example.androidapp.view.XLLinearLayout
                     android:id="@+id/store_refresh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -297,7 +297,7 @@
                         android:src="@drawable/store_coin_pic" />
 
                     <!--持有的数目-->
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         android:id="@+id/store_refresh_money"
                         style="@style/ShowSimpleMoneyNumText"
                         android:layout_width="wrap_content"
@@ -306,7 +306,7 @@
                         android:maxLines="1"
                         android:text="10" />
 
-                </com.example.androidapp.SelfView.XLLinearLayout>
+                </com.example.androidapp.view.XLLinearLayout>
 
                 <!--道具文本说明-->
 

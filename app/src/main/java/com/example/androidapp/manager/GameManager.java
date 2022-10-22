@@ -13,21 +13,19 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
-import com.example.androidapp.Activity.FailureActivity;
-import com.example.androidapp.Activity.LinkActivity;
-import com.example.androidapp.Activity.SuccessActivity;
-import com.example.androidapp.Constant.Constant;
-import com.example.androidapp.Constant.Enum.LevelMode;
-import com.example.androidapp.Constant.LinkConstant;
+import com.example.androidapp.activity.FailureActivity;
+import com.example.androidapp.activity.LinkActivity;
+import com.example.androidapp.activity.SuccessActivity;
+import com.example.androidapp.constant.Constant;
+import com.example.androidapp.constant.Enum.LevelMode;
+import com.example.androidapp.constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
-import com.example.androidapp.LinkGame.Utils.LinkUtils;
-import com.example.androidapp.LinkGame.Utils.PxUtil;
-import com.example.androidapp.Model.XLLevel;
-import com.example.androidapp.Music.BackgroundMusicManager;
-import com.example.androidapp.Music.SoundPlayUtil;
+import com.example.androidapp.utils.LinkUtils;
+import com.example.androidapp.utils.PxUtil;
+import com.example.androidapp.model.XLLevel;
+import com.example.androidapp.music.BackgroundMusicManager;
+import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.view.ImgView;
-
-import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -351,46 +349,45 @@ public class GameManager
         }
     }
 
-//    /**
-//     * 刷新道具的功能实现
-//     * @param context
-//     * @param layout
-//     * @param width
-//     * @param level_id
-//     * @param level_mode
-//     */
-//    public void refreshGame(final Context context, final RelativeLayout layout, final int width, final int height, final int level_id, final char level_mode, Activity link_activity){
-//        //0.播放消除音效以及粉碎
-//        SoundPlayUtil.getInstance(mContext).play(4);
-//        //粉碎、
-//        ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
-//
-//        //1.所以的AnimalView消失
-//        for (AnimalView animal : animals) {
-//            //恢复背景颜色和清除动画
-//            if (animal.getAnimation() != null){
-//                animal.changeAnimalBackground(LinkConstant.ANIMAL_BG);
-//                animal.clearAnimation();
-//            }
-//
-//            //粉碎
-//            explosionField.explode(animal);
-//
-//            //隐藏
-//            animal.setVisibility(View.INVISIBLE);
-//        }
-//
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                //2.移除所有的子视图
-//                layout.removeAllViews();
-//
-//                //3.重新开始游戏
-//                startGame(context,layout,width,height,level_id,level_mode);
-//            }
-//        },1500);
-//    }
+    /**
+     * 刷新道具的功能实现
+     * @param context
+     * @param layout
+     * @param width
+     * @param level_id
+     * @param level_mode
+     */
+    public void refreshGame(final Context context, final RelativeLayout layout, final int width, final int height, final int level_id, final char level_mode, Activity link_activity){
+        //0.播放消除音效以及粉碎
+        SoundPlayUtil.getInstance(mContext).play(4);
+        //粉碎、
+        ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
+
+        //1.所以的AnimalView消失
+        for (ImgView imgView : imgViews) {
+            //恢复背景颜色和清除动画
+            if (imgView.getAnimation() != null){
+                imgView.clearAnimation();
+            }
+
+            //粉碎
+            explosionField.explode(imgView);
+
+            //隐藏
+            imgView.setVisibility(View.INVISIBLE);
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //2.移除所有的子视图
+                layout.removeAllViews();
+
+                //3.重新开始游戏
+                startGame(context,layout,width,height,level_id,level_mode);
+            }
+        },1500);
+    }
 
 
 

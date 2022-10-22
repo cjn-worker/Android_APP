@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/back"
 
-    tools:context=".Activity.LevelActivity">
+    tools:context=".activity.LevelActivity">
 
     <!--关卡列表-->
     <HorizontalScrollView
@@ -81,7 +81,7 @@
                 android:background="@drawable/level_page_left_pic"
                 android:enabled="false" />
 
-            <com.example.androidapp.SelfView.XLTextView
+            <com.example.androidapp.view.XLTextView
                 android:id="@+id/page_text"
                 style="@style/ShowPagerMessage"
                 android:layout_width="36dp"

@@ -109,7 +109,7 @@
                 android:layout_weight="3"
                 android:orientation="vertical">
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView12"
                     style="@style/ShowSimplePropTitleText"
                     android:layout_width="match_parent"
@@ -121,7 +121,7 @@
                     android:textColor="#000000"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView7"
                     style="@style/ShowSimplePropTitleText"
                     android:layout_width="match_parent"
@@ -133,7 +133,7 @@
                     android:textColor="#000000"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView4"
                     style="@style/ShowSimplePropTitleText"
                     android:layout_width="match_parent"
@@ -145,7 +145,7 @@
                     android:textColor="#000000"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView3"
                     style="@style/ShowSimplePropTitleText"
                     android:layout_width="match_parent"
@@ -157,7 +157,7 @@
                     android:textColor="#000000"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView2"
                     style="@style/ShowSimplePropTitleText"
                     android:layout_width="match_parent"
@@ -176,7 +176,7 @@
                 android:layout_weight="2"
                 android:orientation="vertical">
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/rank_first_score"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -186,7 +186,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/rank_second_score"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -196,7 +196,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/rank_third_score"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -206,7 +206,7 @@
                     android:textColor="@color/white"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/rank_fourth_score"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -216,7 +216,7 @@
                     android:textColor="@color/white"
                     android:textSize="24sp" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/rank_fifth_score"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

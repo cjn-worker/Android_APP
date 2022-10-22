@@ -47,7 +47,7 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <com.example.androidapp.SelfView.XLTextView
+            <com.example.androidapp.view.XLTextView
                 android:id="@+id/XLTextView15"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -78,7 +78,7 @@
                     android:layout_weight="1"
                     app:srcCompat="@drawable/help_pause_rule1_pic" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:id="@+id/XLTextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -104,7 +104,7 @@
                     android:layout_weight="1"
                     app:srcCompat="@drawable/help_pause_rule2_pic" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -136,7 +136,7 @@
                     android:layout_weight="1"
                     app:srcCompat="@drawable/help_pause_rule3_pic" />
 
-                <com.example.androidapp.SelfView.XLTextView
+                <com.example.androidapp.view.XLTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -173,7 +173,7 @@
                         android:layout_weight="3"
                         app:srcCompat="@drawable/prop_tip_pic" />
 
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         android:id="@+id/XLTextView10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -199,7 +199,7 @@
                         android:layout_weight="3"
                         app:srcCompat="@drawable/prop_bomb_pic" />
 
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         android:id="@+id/XLTextView13"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -238,7 +238,7 @@
                         android:layout_weight="3"
                         app:srcCompat="@drawable/prop_refresh_pic" />
 
-                    <com.example.androidapp.SelfView.XLTextView
+                    <com.example.androidapp.view.XLTextView
                         android:id="@+id/XLTextView14"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -267,7 +267,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.example.androidapp.SelfView.XLButton
+        <com.example.androidapp.view.XLButton
             android:id="@+id/help_known_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

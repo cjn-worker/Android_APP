@@ -14,10 +14,10 @@
     	数据库持有的表
     -->
     <list>
-        <mapping class="com.example.androidapp.Model.XLUser"  />
-        <mapping class="com.example.androidapp.Model.XLLevel" />
-        <mapping class="com.example.androidapp.Model.XLProp"  />
-        <mapping class="com.example.androidapp.Model.XLScore" />
+        <mapping class="com.example.androidapp.model.XLUser"  />
+        <mapping class="com.example.androidapp.model.XLLevel" />
+        <mapping class="com.example.androidapp.model.XLProp"  />
+        <mapping class="com.example.androidapp.model.XLScore" />
     </list>
 
 </litepal>
