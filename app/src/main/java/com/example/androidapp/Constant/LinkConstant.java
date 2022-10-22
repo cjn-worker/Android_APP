@@ -4,19 +4,13 @@ import com.example.androidapp.R;
 
 public interface LinkConstant
 {
-    /**
-     * 连连看图标大小
-     */
+    //图标大小
     int IMAGE_SIZE = 70;
 
-    /**
-     * 连连看AnimalView的内间距
-     */
+    //内间距
     int IMAGE_PADDING = 8;
 
-    /**
-     * 连连看图标
-     */
+    //图标
     int[] RESOURCE = {
             R.drawable.emoji1,
             R.drawable.emoji2,
@@ -51,20 +45,10 @@ public interface LinkConstant
     };
 
 
-    /**
-     * 连连看图标背景
-     */
-//    int ANIMAL_BG = R.drawable.animal_bg1;
-//    int ANIMAL_SELECT_BG = R.drawable.animal_select_bg1;
-
-    /**
-     * 连连看默认的时间
-     */
+    //游戏时间
     int TIME = 90;
 
-    /**
-     * 基础分数
-     */
+    //基础得分
     int BASE_SCORE = 500;
 
 

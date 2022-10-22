@@ -27,6 +27,9 @@ public class LinkUtils {
      */
     public static boolean isCleared(int[][] LinkBoard)
     {
+        if (LinkBoard == null){
+            return false;
+        }
         int col = LinkBoard[0].length;
         for (int[] ints : LinkBoard) {
             for (int j = 0; j < col; j++) {
@@ -135,8 +138,9 @@ public class LinkUtils {
     public static int[][] generateBoard(int level)
     {
         int[][] LinkBoard = generate(level);
-        while(!Auto(LinkBoard))
-            LinkBoard=generate(level);
+//        while(!Auto(LinkBoard))
+//            LinkBoard=generate(level);
+
         return LinkBoard;
     }
 

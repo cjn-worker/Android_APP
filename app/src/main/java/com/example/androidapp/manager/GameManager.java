@@ -13,9 +13,11 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
+import com.example.androidapp.Activity.FailureActivity;
 import com.example.androidapp.Activity.LinkActivity;
 import com.example.androidapp.Activity.SuccessActivity;
 import com.example.androidapp.Constant.Constant;
+import com.example.androidapp.Constant.Enum.LevelMode;
 import com.example.androidapp.Constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.LinkGame.Utils.LinkUtils;
@@ -85,7 +87,15 @@ public class GameManager
         this.mContext = context;
         clearLastGame();
         //产生二维数组布局模板
-        setBoard(LinkUtils.loadLevelWithIdAndMode(level_id,level_mode));
+//        setBoard(LinkUtils.loadLevelWithIdAndMode(level_id,level_mode));
+        if (level_mode == LevelMode.LEVEL_MODE_EASY.getValue()){
+            setBoard(LinkUtils.generateBoard(1));
+        }else if (level_mode == LevelMode.LEVEL_MODE_NORMAL.getValue()){
+            setBoard(LinkUtils.generateBoard(2));
+        }else
+        {
+            setBoard(LinkUtils.generateBoard(3));
+        }
 
         //界面布局
         addViewToLayout(context, layout, width, height);
@@ -229,7 +239,7 @@ public class GameManager
             Log.d(Constant.TAG, "失败啦");
 
             //界面跳转
-            Intent intent = new Intent(context, LinkActivity.class);
+            Intent intent = new Intent(context, FailureActivity.class);
             Bundle bundle = new Bundle();
             bundle.putParcelable("level",level);
             intent.putExtras(bundle);
