@@ -132,8 +132,8 @@
 
             <com.example.androidapp.SelfView.XLTextView
                 android:id="@+id/success_level_text"
-                android:layout_width="80dp"
-                android:layout_height="33dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="第N关"
                 android:textColor="@color/white"

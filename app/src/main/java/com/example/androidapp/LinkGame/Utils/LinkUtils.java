@@ -50,8 +50,8 @@ public class LinkUtils {
         LinkInfoList linkInfo = new LinkInfoList();
         int row = cloneBoard.length - 1;
         int col = cloneBoard[0].length - 1;
-        int count = (row-1)*(col-1)/2;
-        while (!isCleared(cloneBoard)&&count!=0) {
+        while (isCleared(cloneBoard)) {
+            int start = linkInfo.getLink().size();
             for (int i = 1; i < row; i++) {
                 for (int j = 1; j < col; j++) {
                     Point src = new Point(i, j);
@@ -60,7 +60,7 @@ public class LinkUtils {
                         for (int m = 1; m < row && !find; m++) {
                             for (int n = 1; n < col && !find; n++) {
                                 Point des = new Point(m, n);
-                                if (cloneBoard[m][n] != UNBLOCKED && src.isEqual(des)) {
+                                if (cloneBoard[m][n] != UNBLOCKED && !src.isEqual(des)) {
                                     if (Kernel.findLink(LinkBoard, src, des, linkInfo)) {
                                         cloneBoard[i][j] = cloneBoard[m][n] = UNBLOCKED;
                                         find = true;
@@ -71,9 +71,11 @@ public class LinkUtils {
                     }
                 }
             }
-            count--;
+            int end = linkInfo.getLink().size();
+            if(end==start)
+                return false;
         }
-        return linkInfo.getLink().size() == (row-1) * (col-1) / 2;
+        return true;
     }
     private static int[][] generate(int level)
     {
@@ -138,6 +140,7 @@ public class LinkUtils {
     public static int[][] generateBoard(int level)
     {
         int[][] LinkBoard = generate(level);
+        Auto(LinkBoard);
 //        while(!Auto(LinkBoard))
 //            LinkBoard=generate(level);
 
