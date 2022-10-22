@@ -39,18 +39,18 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
     List<XLLevel> levels;
 
     //按钮
-    ImageButton back;
-    Button pager_up;
-    Button pager_down;
+    ImageButton home;
+    Button go_left;
+    Button go_right;
 
     //确定总页数
     int pager;
 
     //文本
-    TextView pager_text;
+    TextView page_info;
 
     //页面控制器
-    HorizontalScrollView level_pager;
+    HorizontalScrollView level_page_info;
 
     //关卡根布局
     RelativeLayout level_layout;
@@ -102,17 +102,17 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
         screenWidth = ScreenUtil.getScreenWidth(getApplicationContext());
         Log.d(Constant.TAG,"屏幕宽度："+screenWidth);
 
-        back = findViewById(R.id.page_home);
-        back.setOnClickListener(this);
-        pager_up = findViewById(R.id.page_left);
-        pager_up.setOnClickListener(this);
-        pager_down = findViewById(R.id.page_right);
-        pager_down.setOnClickListener(this);
+        home = findViewById(R.id.page_home);
+        home.setOnClickListener(this);
+        go_left = findViewById(R.id.page_left);
+        go_left.setOnClickListener(this);
+        go_right = findViewById(R.id.page_right);
+        go_right.setOnClickListener(this);
 
-        pager_text = findViewById(R.id.page_text);
+        page_info = findViewById(R.id.page_text);
 
-        level_pager = findViewById(R.id.level_pager);
-        level_pager.setOnTouchListener(new View.OnTouchListener() {
+        level_page_info = findViewById(R.id.level_page);
+        level_page_info.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 //禁止HorizontalScrollView滑动
@@ -137,7 +137,7 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
                 for (int i = 0; i < levels.size(); i++){
                     //确定页数
                     pager = i / Constant.LEVEL_PAGER_COUNT;
-                    pager_text.setText("1/"+(pager+1));
+                    page_info.setText("1/"+(pager+1));
                     //确定在当前页数的第几行
                     int pager_row = i % Constant.LEVEL_PAGER_COUNT / Constant.LEVEL_ROW_COUNT;
                     //确定在当前页数的第几列
@@ -227,25 +227,25 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
         }else if(direction == 1 && offset == ((pager-1) * screenWidth)) {
             //如果当前向右滑动 且 滑动后处于最后一页
             //右边的按钮设置不可用
-            pager_down.setEnabled(false);
+            go_right.setEnabled(false);
         }else if(direction == -1 && offset == screenWidth){
             //如果当前向左滑动 且 滑动后处于第一页
             //左边的按钮设置不可用
-            pager_up.setEnabled(false);
+            go_left.setEnabled(false);
         }else{
             //恢复
-            pager_up.setEnabled(true);
-            pager_down.setEnabled(true);
+            go_left.setEnabled(true);
+            go_right.setEnabled(true);
         }
 
         //滑动视图
-        level_pager.smoothScrollTo(offset + screenWidth * direction,0);
+        level_page_info.smoothScrollTo(offset + screenWidth * direction,0);
 
         //修改偏移值
         offset = offset + screenWidth * direction;
 
         //修改显示内容
-        pager_text.setText((offset / screenWidth+1) + "/" + (pager+1));
+        page_info.setText((offset / screenWidth+1) + "/" + (pager+1));
 
         return true;
     }

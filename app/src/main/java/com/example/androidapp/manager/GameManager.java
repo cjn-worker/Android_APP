@@ -1,7 +1,6 @@
 package com.example.androidapp.manager;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,14 +24,10 @@ import com.example.androidapp.Music.BackgroundMusicManager;
 import com.example.androidapp.Music.SoundPlayUtil;
 import com.example.androidapp.view.ImgView;
 
-import org.litepal.LitePal;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import tyrantgit.explosionfield.ExplosionField;
 
 public class GameManager
 {
@@ -85,7 +80,7 @@ public class GameManager
         this.mContext = context;
         clearLastGame();
         //产生二维数组布局模板
-        setBoard(LinkUtils.loadLevelWithIdAndMode(level_id,level_mode));
+        setBoard(LinkUtils.generateBoard(3));
 //        int[][] a = {
 //                {-1, -1, -1, -1},
 //                {-1, 1, 1, -1},
