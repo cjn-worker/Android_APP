@@ -407,15 +407,15 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
                 if (refresh_num > 0){
                     //刷新游戏
-//                    manager.refreshGame(
-//                            getApplicationContext(),
-//                            link_layout,
-//                            screenWidth,
-//                            screenHeight-message_bottom-ScreenUtil.getNavigationBarHeight(getApplicationContext()),
-//                            level.getL_id(),
-//                            level.getL_mode(),
-//                            LinkActivity.this
-//                    );
+                    manager.refreshGame(
+                            getApplicationContext(),
+                            layout,
+                            screenWidth,
+                            screenHeight-350-ScreenUtil.getNavigationBarHeight(getApplicationContext()),
+                            level.getL_id(),
+                            level.getL_mode(),
+                            LinkActivity.this
+                    );
 
                     //数量减1
                     refresh_num--;

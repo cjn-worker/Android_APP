@@ -349,46 +349,45 @@ public class GameManager
         }
     }
 
-//    /**
-//     * 刷新道具的功能实现
-//     * @param context
-//     * @param layout
-//     * @param width
-//     * @param level_id
-//     * @param level_mode
-//     */
-//    public void refreshGame(final Context context, final RelativeLayout layout, final int width, final int height, final int level_id, final char level_mode, Activity link_activity){
-//        //0.播放消除音效以及粉碎
-//        SoundPlayUtil.getInstance(mContext).play(4);
-//        //粉碎、
-//        ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
-//
-//        //1.所以的AnimalView消失
-//        for (AnimalView animal : animals) {
-//            //恢复背景颜色和清除动画
-//            if (animal.getAnimation() != null){
-//                animal.changeAnimalBackground(LinkConstant.ANIMAL_BG);
-//                animal.clearAnimation();
-//            }
-//
-//            //粉碎
-//            explosionField.explode(animal);
-//
-//            //隐藏
-//            animal.setVisibility(View.INVISIBLE);
-//        }
-//
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                //2.移除所有的子视图
-//                layout.removeAllViews();
-//
-//                //3.重新开始游戏
-//                startGame(context,layout,width,height,level_id,level_mode);
-//            }
-//        },1500);
-//    }
+    /**
+     * 刷新道具的功能实现
+     * @param context
+     * @param layout
+     * @param width
+     * @param level_id
+     * @param level_mode
+     */
+    public void refreshGame(final Context context, final RelativeLayout layout, final int width, final int height, final int level_id, final char level_mode, Activity link_activity){
+        //0.播放消除音效以及粉碎
+        SoundPlayUtil.getInstance(mContext).play(4);
+        //粉碎、
+        ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
+
+        //1.所以的AnimalView消失
+        for (ImgView imgView : imgViews) {
+            //恢复背景颜色和清除动画
+            if (imgView.getAnimation() != null){
+                imgView.clearAnimation();
+            }
+
+            //粉碎
+            explosionField.explode(imgView);
+
+            //隐藏
+            imgView.setVisibility(View.INVISIBLE);
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //2.移除所有的子视图
+                layout.removeAllViews();
+
+                //3.重新开始游戏
+                startGame(context,layout,width,height,level_id,level_mode);
+            }
+        },1500);
+    }
 
 
 
