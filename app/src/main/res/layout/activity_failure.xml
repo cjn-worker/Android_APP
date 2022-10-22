@@ -26,7 +26,7 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/failure_bear_pic" />
 
-        <com.example.androidapp.SelfView.XLTextView
+        <com.example.androidapp.view.XLTextView
             android:layout_width="wrap_content"
             android:layout_height="107dp"
             android:layout_alignParentEnd="true"

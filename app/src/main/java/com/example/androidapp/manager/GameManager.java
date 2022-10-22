@@ -13,21 +13,19 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
-import com.example.androidapp.Activity.FailureActivity;
-import com.example.androidapp.Activity.LinkActivity;
-import com.example.androidapp.Activity.SuccessActivity;
-import com.example.androidapp.Constant.Constant;
-import com.example.androidapp.Constant.Enum.LevelMode;
-import com.example.androidapp.Constant.LinkConstant;
+import com.example.androidapp.activity.FailureActivity;
+import com.example.androidapp.activity.LinkActivity;
+import com.example.androidapp.activity.SuccessActivity;
+import com.example.androidapp.constant.Constant;
+import com.example.androidapp.constant.Enum.LevelMode;
+import com.example.androidapp.constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
-import com.example.androidapp.LinkGame.Utils.LinkUtils;
-import com.example.androidapp.LinkGame.Utils.PxUtil;
-import com.example.androidapp.Model.XLLevel;
-import com.example.androidapp.Music.BackgroundMusicManager;
-import com.example.androidapp.Music.SoundPlayUtil;
+import com.example.androidapp.utils.LinkUtils;
+import com.example.androidapp.utils.PxUtil;
+import com.example.androidapp.model.XLLevel;
+import com.example.androidapp.music.BackgroundMusicManager;
+import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.view.ImgView;
-
-import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
