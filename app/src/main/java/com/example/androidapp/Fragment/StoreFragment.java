@@ -45,13 +45,7 @@ public class StoreFragment extends Fragment {
         final View inflate = inflater.inflate(R.layout.fragment_store, container, false);
 
         //拦截事件
-        inflate.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+        inflate.setOnTouchListener((v, event) -> true);
 
         //处理事件
         //查询用户数据
@@ -99,55 +93,43 @@ public class StoreFragment extends Fragment {
         //购买拳头
         LinearLayout fight = inflate.findViewById(R.id.store_tip);
 
-        fight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(Constant.TAG,"购买拳头");
+        fight.setOnClickListener(v -> {
+            Log.d(Constant.TAG,"购买拳头");
 
-                refreshSQLite(PropMode.PROP_FIGHT,inflate);
-            }
+            refreshSQLite(PropMode.PROP_FIGHT,inflate);
         });
 
         //购买炸弹
-        inflate.findViewById(R.id.store_bomb).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //播放点击音效
-                SoundPlayUtil.getInstance(getContext()).play(3);
+        inflate.findViewById(R.id.store_bomb).setOnClickListener(v -> {
+            //播放点击音效
+            SoundPlayUtil.getInstance(getContext()).play(3);
 
-                Log.d(Constant.TAG,"购买炸弹");
+            Log.d(Constant.TAG,"购买炸弹");
 
-                refreshSQLite(PropMode.PROP_BOMB,inflate);
-            }
+            refreshSQLite(PropMode.PROP_BOMB,inflate);
         });
 
         //购买刷新
-        inflate.findViewById(R.id.store_refresh).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //播放点击音效
-                SoundPlayUtil.getInstance(getContext()).play(3);
+        inflate.findViewById(R.id.store_refresh).setOnClickListener(v -> {
+            //播放点击音效
+            SoundPlayUtil.getInstance(getContext()).play(3);
 
-                Log.d(Constant.TAG,"购买刷新");
+            Log.d(Constant.TAG,"购买刷新");
 
-                refreshSQLite(PropMode.PROP_REFRESH,inflate);
-            }
+            refreshSQLite(PropMode.PROP_REFRESH,inflate);
         });
 
         //移除该视图
-        inflate.findViewById(R.id.store_delete).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //播放点击音效
-                SoundPlayUtil.getInstance(getContext()).play(3);
+        inflate.findViewById(R.id.store_delete).setOnClickListener(v -> {
+            //播放点击音效
+            SoundPlayUtil.getInstance(getContext()).play(3);
 
-                if (getActivity() != null){
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.remove(StoreFragment.this);
-                    transaction.commit();
-                }else {
-                    System.out.println("空的Activity");
-                }
+            if (getActivity() != null){
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.remove(StoreFragment.this);
+                transaction.commit();
+            }else {
+                System.out.println("空的Activity");
             }
         });
 

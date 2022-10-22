@@ -4,8 +4,8 @@ package com.example.androidapp.LinkGame.LinkModel;
  * 坐标类，用来表示二维中的一个点
  */
 public class Point {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Point(){this.x=this.y=-1;}
 
@@ -22,7 +22,7 @@ public class Point {
 
     public boolean isEqual(Point A)
     {
-        return this.x==A.x&&this.y==A.y;
+        return this.x != A.x || this.y != A.y;
     }
 
 //

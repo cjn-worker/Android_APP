@@ -14,7 +14,7 @@ public class BackgroundMusicManager {
     private static final String TAG = "Bg_Music";
     private float mLeftVolume;
     private float mRightVolume;
-    private Context mContext;
+    private final Context mContext;
     private MediaPlayer mBackgroundMediaPlayer;
     private boolean mIsPaused;
     private int mCurrentPath;

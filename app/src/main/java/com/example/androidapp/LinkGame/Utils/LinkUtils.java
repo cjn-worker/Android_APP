@@ -57,7 +57,7 @@ public class LinkUtils {
                         for (int m = 1; m < row && !find; m++) {
                             for (int n = 1; n < col && !find; n++) {
                                 Point des = new Point(m, n);
-                                if (cloneBoard[m][n] != UNBLOCKED && !src.isEqual(des)) {
+                                if (cloneBoard[m][n] != UNBLOCKED && src.isEqual(des)) {
                                     if (Kernel.findLink(LinkBoard, src, des, linkInfo)) {
                                         cloneBoard[i][j] = cloneBoard[m][n] = UNBLOCKED;
                                         find = true;
@@ -184,9 +184,11 @@ public class LinkUtils {
 
         int[] data = new int[row * col];
         int index = 0;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                data[index++] = matrix[i][j];
+        for (int[] ints : matrix)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                data[index++] = ints[j];
             }
         }
 
@@ -378,9 +380,12 @@ public class LinkUtils {
             Log.d(Constant.TAG,"测试消除"+random);
 
             //判断该布局中是否有
-            for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board[0].length; j++) {
-                    if (board[i][j] == random){
+            for (int[] ints : board)
+            {
+                for (int j = 0; j < board[0].length; j++)
+                {
+                    if (ints[j] == random)
+                    {
                         return random;
                     }
                 }

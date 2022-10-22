@@ -36,8 +36,8 @@ import java.util.Random;
 
 public class ExplosionField extends View {
 
-    private List<ExplosionAnimator> mExplosions = new ArrayList<>();
-    private int[] mExpandInset = new int[2];
+    private final List<ExplosionAnimator> mExplosions = new ArrayList<>();
+    private final int[] mExpandInset = new int[2];
 
     public ExplosionField(Context context) {
         super(context);
@@ -96,7 +96,7 @@ public class ExplosionField extends View {
         ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(150);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
-            Random random = new Random();
+            final Random random = new Random();
 
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

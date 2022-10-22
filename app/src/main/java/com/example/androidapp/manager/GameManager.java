@@ -37,7 +37,7 @@ import tyrantgit.explosionfield.ExplosionField;
 public class GameManager
 {
     private int[][] board;
-    private List<ImgView> imgViews = new ArrayList<>();
+    private final List<ImgView> imgViews = new ArrayList<>();
     private ImgView lastView;
     private int size;
     private Context mContext;
@@ -45,7 +45,7 @@ public class GameManager
     private float time = LinkConstant.TIME;
     private LinkActivity listener;
     @SuppressLint("HandlerLeak")
-    private Handler handler = new Handler(){
+    private final Handler handler = new Handler(){
 
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -241,12 +241,7 @@ public class GameManager
             SoundPlayUtil.getInstance(context).play(2);
 
             //继续播放
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    BackgroundMusicManager.getInstance(context).resumeBackgroundMusic();
-                }
-            },5000);
+            new Handler().postDelayed(() -> BackgroundMusicManager.getInstance(context).resumeBackgroundMusic(),5000);
 
         }else {
             Log.d(Constant.TAG, "成功啦");
@@ -263,12 +258,7 @@ public class GameManager
             //播放成功音效
             SoundPlayUtil.getInstance(context).play(1);
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    BackgroundMusicManager.getInstance(context).resumeBackgroundMusic();
-                }
-            },5000);
+            new Handler().postDelayed(() -> BackgroundMusicManager.getInstance(context).resumeBackgroundMusic(),5000);
         }
 
 

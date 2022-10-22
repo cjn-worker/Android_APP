@@ -57,7 +57,7 @@ public class CustomPaint
             paramCanvas.drawLine(x1, y1, x2, y2, mLighnitngGlowPaintBold);
             return;
         }
-        float x3 = 0, y3 = 0;
+        float x3, y3;
         if (localRandom.nextBoolean()) {
             x3 = (float) ((x2 + x1) / 2.0F + ((localRandom.nextInt(8) - 0.5D) * paramInt));
         } else {
@@ -70,7 +70,6 @@ public class CustomPaint
         }
         drawLightning(x1, y1, x3, y3, paramInt / 2, paramCanvas);
         drawLightning(x2, y2, x3, y3, paramInt / 2, paramCanvas);
-        return;
 
     }
 
@@ -85,7 +84,7 @@ public class CustomPaint
             return;
         }
 
-        float x3 = 0, y3 = 0;
+        float x3, y3;
         boolean x3Z = localRandom.nextBoolean();
         if (x3Z) {
             x3 = (float) ((x2 + x1) / 2.0F + ((localRandom.nextInt(8) - 0.5D) * paramInt));
@@ -100,7 +99,6 @@ public class CustomPaint
         }
         drawLightningBold(x1, y1, x3, y3, paramInt / 2, paramCanvas);
         drawLightningBold(x2, y2, x3, y3, paramInt / 2, paramCanvas);
-        return;
 
     }
 }

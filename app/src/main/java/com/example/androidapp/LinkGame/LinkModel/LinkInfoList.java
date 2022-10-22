@@ -8,7 +8,7 @@ import java.util.List;
  * 封装后数据类型为列表List:[I1,I2,...],I1:[Point:src,...,Point:des]
  */
 public class LinkInfoList {
-    private List<List<Point>> Link = new ArrayList<>();
+    private final List<List<Point>> Link = new ArrayList<>();
 
     public LinkInfoList(){}
 
@@ -28,15 +28,5 @@ public class LinkInfoList {
         }
         return null;
     }
-//    public void Unseal()
-//    {
-//        for (List<Point> points : Link) {
-//            for (Point point : points) {
-//                System.out.print(point.toString());
-//            }
-//            System.out.println("");
-//        }
-//
-//    }
 
 }

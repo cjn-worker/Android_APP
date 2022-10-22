@@ -9,10 +9,10 @@ import com.example.androidapp.LinkGame.LinkModel.Point;
 public class ImgView extends androidx.appcompat.widget.AppCompatImageView
 {
     //图片的标志代号，用来判断两个图片是否相等
-    private int flag;
+    private final int flag;
 
     //图片的坐标
-    private Point point;
+    private final Point point;
 
     /**
      * 构造方法

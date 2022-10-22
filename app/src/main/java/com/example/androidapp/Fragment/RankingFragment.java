@@ -37,12 +37,7 @@ public class RankingFragment extends Fragment {
         final View inflate = inflater.inflate(R.layout.fragment_rank, container, false);
 
         //拦截事件
-        inflate.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+        inflate.setOnTouchListener((v, event) -> true);
 
 
         //查询用户数据
@@ -75,19 +70,16 @@ public class RankingFragment extends Fragment {
 
 
         //移除该视图
-        inflate.findViewById(R.id.rank_delete).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //播放点击音效
-                SoundPlayUtil.getInstance(getContext()).play(3);
+        inflate.findViewById(R.id.rank_delete).setOnClickListener(v -> {
+            //播放点击音效
+            SoundPlayUtil.getInstance(getContext()).play(3);
 
-                if (getActivity() != null){
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.remove(RankingFragment.this);
-                    transaction.commit();
-                }else {
-                    System.out.println("空的Activity");
-                }
+            if (getActivity() != null){
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.remove(RankingFragment.this);
+                transaction.commit();
+            }else {
+                System.out.println("空的Activity");
             }
         });
 

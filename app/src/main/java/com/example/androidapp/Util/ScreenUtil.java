@@ -1,15 +1,12 @@
 package com.example.androidapp.Util;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 
 import java.lang.reflect.Method;
-import java.util.Objects;
 
 import com.example.androidapp.Constant.Constant;
 
@@ -56,7 +53,7 @@ public class ScreenUtil {
     public static int getStateBarHeight(Context context){
         int statusHeight = -1;
         try {
-            Class clazz = Class.forName("com.android.internal.R$dimen");
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
             Object object = clazz.newInstance();
             int height = Integer.parseInt(clazz.getField("status_bar_height")
                     .get(object).toString());
@@ -80,7 +77,7 @@ public class ScreenUtil {
             hasNavigationBar = rs.getBoolean(id);
         }
         try {
-            Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
+            Class<?> systemPropertiesClass = Class.forName("android.os.SystemProperties");
             Method m = systemPropertiesClass.getMethod("get", String.class);
             String navBarOverride = (String) m.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
             if ("1".equals(navBarOverride)) {

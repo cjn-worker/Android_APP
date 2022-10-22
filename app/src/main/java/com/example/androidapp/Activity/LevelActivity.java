@@ -112,14 +112,11 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
         page_info = findViewById(R.id.page_text);
 
         level_page_info = findViewById(R.id.level_page);
-        level_page_info.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //禁止HorizontalScrollView滑动
-                //滑动会影响页面控制器
-                //HorizontalScrollView滑动时也没有回调方法
-                return true;
-            }
+        level_page_info.setOnTouchListener((v, event) -> {
+            //禁止HorizontalScrollView滑动
+            //滑动会影响页面控制器
+            //HorizontalScrollView滑动时也没有回调方法
+            return true;
         });
 
         level_layout = findViewById(R.id.level_root);
@@ -128,71 +125,67 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
     /**
      * 加载关卡
      */
+    @SuppressLint("SetTextI18n")
     private void initLevel() {
-        level_layout.post(new Runnable() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void run() {
-                //循环展示
-                for (int i = 0; i < levels.size(); i++){
-                    //确定页数
-                    pager = i / Constant.LEVEL_PAGER_COUNT;
-                    page_info.setText("1/"+(pager+1));
-                    //确定在当前页数的第几行
-                    int pager_row = i % Constant.LEVEL_PAGER_COUNT / Constant.LEVEL_ROW_COUNT;
-                    //确定在当前页数的第几列
-                    int pager_col = i % Constant.LEVEL_PAGER_COUNT % Constant.LEVEL_ROW_COUNT;
-                    //边距
-                    int level_padding = (screenWidth - Constant.LEVEL_ROW_COUNT *
-                            PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) /
-                            (Constant.LEVEL_ROW_COUNT + 1);
+        level_layout.post(() -> {
+            //循环展示
+            for (int i = 0; i < levels.size(); i++){
+                //确定页数
+                pager = i / Constant.LEVEL_PAGER_COUNT;
+                page_info.setText("1/"+(pager+1));
+                //确定在当前页数的第几行
+                int pager_row = i % Constant.LEVEL_PAGER_COUNT / Constant.LEVEL_ROW_COUNT;
+                //确定在当前页数的第几列
+                int pager_col = i % Constant.LEVEL_PAGER_COUNT % Constant.LEVEL_ROW_COUNT;
+                //边距
+                int level_padding = (screenWidth - Constant.LEVEL_ROW_COUNT *
+                        PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) /
+                        (Constant.LEVEL_ROW_COUNT + 1);
 
-                    //创建视图
-                    XLImageView xlImageView = new XLImageView(
-                            getApplicationContext(),
-                            LevelState.getState(levels.get(i).getL_new()));
+                //创建视图
+                XLImageView xlImageView = new XLImageView(
+                        getApplicationContext(),
+                        LevelState.getState(levels.get(i).getL_new()));
 
-                    //设置id
-                    xlImageView.setId(i);
+                //设置id
+                xlImageView.setId(i);
 
-                    //布局参数
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                            PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext()),
-                            PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())
-                    );
+                //布局参数
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                        PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext()),
+                        PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())
+                );
 
-                    //添加约束
-                    layoutParams.leftMargin = screenWidth * pager + level_padding +
-                            (level_padding + PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) * pager_col;
-                    layoutParams.topMargin = ScreenUtil.getStateBarHeight(getApplicationContext()) +
-                            PxUtil.dpToPx(Constant.LEVEL_TOP,getApplicationContext()) +
-                            level_padding + (level_padding + PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) * pager_row;
+                //添加约束
+                layoutParams.leftMargin = screenWidth * pager + level_padding +
+                        (level_padding + PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) * pager_col;
+                layoutParams.topMargin = ScreenUtil.getStateBarHeight(getApplicationContext()) +
+                        PxUtil.dpToPx(Constant.LEVEL_TOP,getApplicationContext()) +
+                        level_padding + (level_padding + PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) * pager_row;
 
-                    //最后一位需要添加右边距
-                    if (i == levels.size()-1) {
-                        layoutParams.rightMargin = level_padding;
-                    }
-
-                    //添加控件到容器中
-                    level_layout.addView(xlImageView,layoutParams);
-
-                    //点击事件
-                    xlImageView.setOnClickListener(new View.OnClickListener() {
-
-                        @Override
-                        public void onClick(View v) {
-                            //播放点击音效
-                            SoundPlayUtil.getInstance(getBaseContext()).play(3);
-//                            判断是否可以进入该关卡
-                            if (LevelState.getState(levels.get(v.getId()).getL_new()) != LevelState.LEVEL_STATE_NO){
-                                jumpToLinkActivity(levels.get(v.getId()));
-
-                            }else {
-                                Toast.makeText(LevelActivity.this, "当前关卡不可进入", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                //最后一位需要添加右边距
+                if (i == levels.size()-1) {
+                    layoutParams.rightMargin = level_padding;
                 }
+
+                //添加控件到容器中
+                level_layout.addView(xlImageView,layoutParams);
+
+                //点击事件
+                xlImageView.setOnClickListener(v -> {
+                    //播放点击音效
+                    SoundPlayUtil.getInstance(getBaseContext()).play(3);
+//                            判断是否可以进入该关卡
+                    if (LevelState.getState(levels.get(v.getId()).getL_new()) != LevelState.LEVEL_STATE_NO)
+                    {
+                        jumpToLinkActivity(levels.get(v.getId()));
+
+                    }
+                    else
+                    {
+                        Toast.makeText(LevelActivity.this, "当前关卡不可进入", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

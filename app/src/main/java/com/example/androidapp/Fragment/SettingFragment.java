@@ -26,12 +26,7 @@ public class SettingFragment extends Fragment {
         View inflate = inflater.inflate(R.layout.fragment_setting, container, false);
 
         //拦截事件
-        inflate.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+        inflate.setOnTouchListener((v, event) -> true);
 
         //处理事件
         SeekBar seekBar_music = inflate.findViewById(R.id.setting_music_seekbar);
@@ -83,19 +78,16 @@ public class SettingFragment extends Fragment {
 
 
         //移除该视图
-        inflate.findViewById(R.id.setting_finish_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //播放点击音效
-                SoundPlayUtil.getInstance(getContext()).play(3);
+        inflate.findViewById(R.id.setting_finish_btn).setOnClickListener(v -> {
+            //播放点击音效
+            SoundPlayUtil.getInstance(getContext()).play(3);
 
-                if (getActivity() != null){
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.remove(SettingFragment.this);
-                    transaction.commit();
-                }else {
-                    System.out.println("空的Activity");
-                }
+            if (getActivity() != null){
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.remove(SettingFragment.this);
+                transaction.commit();
+            }else {
+                System.out.println("空的Activity");
             }
         });
 

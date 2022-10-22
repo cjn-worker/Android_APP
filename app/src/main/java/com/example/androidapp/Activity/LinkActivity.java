@@ -51,7 +51,7 @@ import tyrantgit.explosionfield.ExplosionField;
 public class LinkActivity extends BaseActivity implements View.OnClickListener
 {
     private ExplosionField explosionField;
-    private GameManager manager = GameManager.getManager();
+    private final GameManager manager = GameManager.getManager();
     //屏幕宽度,高度
     private int screenWidth;
     private int screenHeight;
@@ -62,7 +62,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     //记录金币的变量
     int money;
     private SeekBar time_bar;
-    private boolean isPause=false;
+    private final boolean isPause=false;
     //显示关卡的文本
     private XLTextView level_text;
     //显示金币的文本
@@ -174,105 +174,94 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         explosionField = ExplosionField.attach2Window(this);
         layout.setAlpha(1.0f);
         RelativeLayout link_layout = findViewById(R.id.root_link);
-        layout.setOnTouchListener(new View.OnTouchListener()
-        {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, final MotionEvent event)
+        layout.setOnTouchListener((v, event) -> {
+
+            //获取触摸点相对于布局的坐标
+            int x = (int) event.getX();
+            int y = (int) event.getY();
+
+            //触摸事件
+            if (event.getAction() == MotionEvent.ACTION_DOWN)
             {
-
-                //获取触摸点相对于布局的坐标
-                int x = (int) event.getX();
-                int y = (int) event.getY();
-
-                //触摸事件
-                if (event.getAction() == MotionEvent.ACTION_DOWN)
+                for (final ImgView imgView : manager.getImgViews())
                 {
-                    for (final ImgView imgView : manager.getImgViews())
+                    //获取ImgView实例的rect
+                    RectF rectF = new RectF(
+                            imgView.getLeft(),
+                            imgView.getTop(),
+                            imgView.getRight(),
+                            imgView.getBottom());
+
+                    //判断是否包含
+                    if (rectF.contains(x, y) && imgView.getVisibility() == View.VISIBLE)
                     {
-                        //获取ImgView实例的rect
-                        RectF rectF = new RectF(
-                                imgView.getLeft(),
-                                imgView.getTop(),
-                                imgView.getRight(),
-                                imgView.getBottom());
+                        final ImgView lastView = manager.getLastView();
 
-                        //判断是否包含
-                        if (rectF.contains(x, y) && imgView.getVisibility() == View.VISIBLE)
+                        //如果不是第一次触摸 且 触摸的不是同一个点
+                        if (lastView != null && lastView != imgView)
                         {
-                            final ImgView lastView = manager.getLastView();
-
-                            //如果不是第一次触摸 且 触摸的不是同一个点
-                            if (lastView != null && lastView != imgView)
-                            {
-                                LinkInfoList linkInfoList = new LinkInfoList();
-                                //如果两者的图片相同，且两者可以连接
-                                if (imgView.getFlag() == lastView.getFlag() &&
-                                        Kernel.findLink(
-                                                manager.getBoard(),
-                                                lastView.getPoint(),
-                                                imgView.getPoint(),
-                                                linkInfoList
-                                        ))
-                                {
-                                    startViewAnimation(imgView);
-                                    layout.setLinkInfo(new LinkInfo(linkInfoList.getLink().get(0)));
-                                    //设置所有的宝可梦不可以点击
-                                    layout.setEnabled(false);
-                                    SoundPlayUtil.getInstance(getBaseContext()).play(4);
-                                    //修改模板
-                                    manager.getBoard()[lastView.getPoint().getX()][lastView.getPoint().getY()] = -1;
-                                    manager.getBoard()[imgView.getPoint().getX()][imgView.getPoint().getY()] = -1;
-
-                                    //粉碎
-                                    explosionField.explode(lastView);
-                                    explosionField.explode(imgView);
-                                    money += 1;
-                                    money_text.setText(String.valueOf(money));
-                                    score+=2;
-                                    score_text.setText(String.valueOf(score));
-                                    new Handler().postDelayed(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            //隐藏
-                                            lastView.setVisibility(View.INVISIBLE);
-                                            lastView.clearAnimation();
-                                            imgView.setVisibility(View.INVISIBLE);
-                                            imgView.clearAnimation();
-                                            manager.setLastView(null);
-                                            layout.setLinkInfo(null);
-                                            layout.setEnabled(true);
-                                        }
-                                    }, 500);
-                                }
-                                else
-                                {
-                                    if (lastView.getAnimation() != null){
-                                        lastView.clearAnimation();
-                                    }
-                                    SoundPlayUtil.getInstance(getBaseContext()).play(3);
-                                    manager.setLastView(null);
-                                }
-                            }
-                            else if (lastView == null)
+                            LinkInfoList linkInfoList = new LinkInfoList();
+                            //如果两者的图片相同，且两者可以连接
+                            if (imgView.getFlag() == lastView.getFlag() &&
+                                    Kernel.findLink(
+                                            manager.getBoard(),
+                                            lastView.getPoint(),
+                                            imgView.getPoint(),
+                                            linkInfoList
+                                    ))
                             {
                                 startViewAnimation(imgView);
-                                SoundPlayUtil.getInstance(getBaseContext()).play(3);
-                                manager.setLastView(imgView);
-                                break;
+                                layout.setLinkInfo(new LinkInfo(linkInfoList.getLink().get(0)));
+                                //设置所有的宝可梦不可以点击
+                                layout.setEnabled(false);
+                                SoundPlayUtil.getInstance(getBaseContext()).play(4);
+                                //修改模板
+                                manager.getBoard()[lastView.getPoint().getX()][lastView.getPoint().getY()] = -1;
+                                manager.getBoard()[imgView.getPoint().getX()][imgView.getPoint().getY()] = -1;
+
+                                //粉碎
+                                explosionField.explode(lastView);
+                                explosionField.explode(imgView);
+                                money += 1;
+                                money_text.setText(String.valueOf(money));
+                                score+=2;
+                                score_text.setText(String.valueOf(score));
+                                new Handler().postDelayed(() -> {
+                                    //隐藏
+                                    lastView.setVisibility(View.INVISIBLE);
+                                    lastView.clearAnimation();
+                                    imgView.setVisibility(View.INVISIBLE);
+                                    imgView.clearAnimation();
+                                    manager.setLastView(null);
+                                    layout.setLinkInfo(null);
+                                    layout.setEnabled(true);
+                                }, 500);
                             }
                             else
                             {
-                                lastView.clearAnimation();
+                                if (lastView.getAnimation() != null){
+                                    lastView.clearAnimation();
+                                }
+                                SoundPlayUtil.getInstance(getBaseContext()).play(3);
                                 manager.setLastView(null);
                             }
                         }
+                        else if (lastView == null)
+                        {
+                            startViewAnimation(imgView);
+                            SoundPlayUtil.getInstance(getBaseContext()).play(3);
+                            manager.setLastView(imgView);
+                            break;
+                        }
+                        else
+                        {
+                            lastView.clearAnimation();
+                            manager.setLastView(null);
+                        }
                     }
                 }
-                return false;
             }
+            return false;
         });
         link_layout.addView(layout);
     }
@@ -280,22 +269,16 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     private void initPauseButton()
     {
         pause=findViewById(R.id.link_pause_btn);
-        pause.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                manager.pauseGame();
-                //跳转暂停的fragment
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                final PauseFragment pause = new PauseFragment();
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("level",level);
-                pause.setArguments(bundle);
-                transaction.replace(R.id.root_link,pause,"pause");
-                transaction.commit();
-            }
-
+        pause.setOnClickListener(view -> {
+            manager.pauseGame();
+            //跳转暂停的fragment
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            final PauseFragment pause = new PauseFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("level",level);
+            pause.setArguments(bundle);
+            transaction.replace(R.id.root_link,pause,"pause");
+            transaction.commit();
         });
     }
 

@@ -36,10 +36,10 @@ public class ExplosionAnimator extends ValueAnimator {
     private static final float Y = Utils.dp2Px(20);
     private static final float V = Utils.dp2Px(2);
     private static final float W = Utils.dp2Px(1);
-    private Paint mPaint;
-    private Particle[] mParticles;
-    private Rect mBound;
-    private View mContainer;
+    private final Paint mPaint;
+    private final Particle[] mParticles;
+    private final Rect mBound;
+    private final View mContainer;
 
     public ExplosionAnimator(View container, Bitmap bitmap, Rect bound) {
         mPaint = new Paint();

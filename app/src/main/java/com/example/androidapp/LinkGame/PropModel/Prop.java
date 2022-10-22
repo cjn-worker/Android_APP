@@ -1,16 +1,12 @@
 package com.example.androidapp.LinkGame.PropModel;
 
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
-import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
-import com.example.androidapp.LinkGame.LinkModel.LinkInfoList;
 import com.example.androidapp.LinkGame.LinkModel.Point;
-import com.example.androidapp.LinkGame.Utils.LinkUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.androidapp.LinkGame.LinkModel.Kernel.UNBLOCKED;
-import static com.example.androidapp.LinkGame.Utils.LinkUtils.isCleared;
 
 public class Prop {
     private static int refreshNum;
@@ -87,7 +83,7 @@ public class Prop {
                     for (int m = 1; m < row && !find; m++) {
                         for (int n = 1; n < col && !find; n++) {
                             Point des = new Point(m, n);
-                            if (LinkBoard[m][n] != UNBLOCKED && !src.isEqual(des)) {
+                            if (LinkBoard[m][n] != UNBLOCKED && src.isEqual(des)) {
                                 if (Kernel.findLink(LinkBoard, src, des, null)) {
                                     points.add(new Point(i, j));
                                     points.add(new Point(m, n));

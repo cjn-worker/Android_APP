@@ -39,7 +39,7 @@ public class Utils {
     public static Bitmap createBitmapFromView(View view) {
         if (view instanceof ImageView) {
             Drawable drawable = ((ImageView) view).getDrawable();
-            if (drawable != null && drawable instanceof BitmapDrawable) {
+            if (drawable instanceof BitmapDrawable) {
                 return ((BitmapDrawable) drawable).getBitmap();
             }
         }

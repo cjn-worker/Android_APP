@@ -66,7 +66,7 @@ public class Kernel {
                     SealedLinkInfo.Seal(new LinkInfo(src, tmp1, tmp2, des));
                 }
                 return true;
-            };
+            }
         }
         for (int j = 0; j < row ; j++)//水平方向
         {
@@ -107,11 +107,5 @@ public class Kernel {
     }
 }
 
-//    private static boolean isValueEqual(int[][] LinkBoard,Coordinate A,Coordinate B)
-//    {
-//        boolean a=LinkBoard[A.getX()][A.getY()]==UNBLOCKED||LinkBoard[B.getX()][B.getY()]==UNBLOCKED;
-//        boolean b=LinkBoard[A.getX()][A.getY()]==LinkBoard[B.getX()][B.getY()];
-//        return a&&b;
-//    }
 
 
