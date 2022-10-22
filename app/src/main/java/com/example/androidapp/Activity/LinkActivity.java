@@ -150,6 +150,9 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         prop_bomb.setOnClickListener(this);
         prop_refresh = findViewById(R.id.prop_refresh);
         prop_refresh.setOnClickListener(this);
+        prop_tip.setCount(fight_num);
+        prop_bomb.setCount(bomb_num);
+        prop_refresh.setCount(refresh_num);
     }
 
     private void initView()
@@ -187,7 +190,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                 {
                     for (final ImgView imgView : manager.getImgViews())
                     {
-                        //获取AnimalView实例的rect
+                        //获取ImgView实例的rect
                         RectF rectF = new RectF(
                                 imgView.getLeft(),
                                 imgView.getTop(),
@@ -247,7 +250,6 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                                 else
                                 {
                                     if (lastView.getAnimation() != null){
-                                        //清楚所有动画
                                         lastView.clearAnimation();
                                     }
                                     SoundPlayUtil.getInstance(getBaseContext()).play(3);
@@ -264,7 +266,6 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                             else
                             {
                                 lastView.clearAnimation();
-                                //取消框框
                                 manager.setLastView(null);
                             }
                         }
@@ -284,21 +285,8 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onClick(View view)
             {
-//                if (!isPause)
-//                {
-//                    manager.pauseGame();
-//                    layout.setEnabled(false);
-//                    isPause=!isPause;
-//                }
-//                else
-//                {
-//                    manager.pauseGame();
-//                    layout.setEnabled(true);
-//                    isPause=!isPause;
-//                }
                 manager.pauseGame();
-
-                //2.添加一个fragment
+                //跳转暂停的fragment
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 final PauseFragment pause = new PauseFragment();
                 Bundle bundle = new Bundle();
@@ -395,7 +383,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
                 if (fight_num > 0){
                     //随机消除一对可以消除的AnimalView
-                    //manager.fightGame(LinkActivity.this);
+                    manager.fightGame(LinkActivity.this);
 
                     //数量减1
                     fight_num--;
@@ -415,7 +403,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
                 if (bomb_num > 0){
                     //随机消除某一种所有的AnimalView
-                    //manager.bombGame(LinkActivity.this);
+                    manager.bombGame(LinkActivity.this);
 
                     //数量减1
                     bomb_num--;

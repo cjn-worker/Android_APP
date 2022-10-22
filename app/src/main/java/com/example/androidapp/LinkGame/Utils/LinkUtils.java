@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.example.androidapp.LinkGame.LinkModel.Kernel.UNBLOCKED;
+import static com.example.androidapp.LinkGame.LinkModel.Kernel.findLink;
 
 import android.content.Context;
 import android.util.Log;
@@ -245,5 +246,96 @@ public class LinkUtils {
         }else {
             return '3';
         }
+    }
+
+    /**
+     * 根据游戏时间获取相关分数评价
+     * @param time
+     * @return
+     */
+    public static int getScoreByTime(int time){
+        return (LinkConstant.TIME -time) * LinkConstant.BASE_SCORE / LinkConstant.TIME;
+    }
+
+    /**
+     * 获取连击数
+     */
+    public static int getSerialClick(){
+        //获取布局
+        int[][] board = GameManager.getManager().getBoard();
+
+        return (board.length-2) * (board[0].length-2) / 2;
+    }
+
+    public static Point[] getDoubleRemove(){
+        //获得模板
+        int[][] board = GameManager.getManager().getBoard();
+
+        //存储两个相对坐标
+        Point point1 = null;
+        Point point2 = null;
+
+        //找到两个点
+        while (point1 == null && point2 == null){
+            //寻找第一个点
+            for (int i = 1; i < board.length-1; i++) {
+                for (int j = 1; j < board[0].length-1; j++) {
+                    //产生第一个点
+                    point1 = new Point(i,j);
+
+                    for (int p = 1; p < board.length-1; p++) {
+                        for (int q = 1; q < board[0].length-1; q++) {
+                            //产生第二个点
+                            point2 = new Point(p,q);
+
+                            //如果两个点不是同一个点
+                            if (point1.getX() != point2.getX() || point1.getY() != point2.getY()){
+                                //并且该两点图案相同 且不为0
+                                if (board[point1.getX()][point1.getY()] == board[point2.getX()][point2.getY()]
+                                        && board[point1.getX()][point1.getY()] != 0){
+                                    //并且可以被消除
+                                    if (findLink(board,point1,point2,null)){
+                                        return new Point[]{point1,point2};
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return new Point[]{point1,point2};
+    }
+
+    /**
+     * 返回一个布局存在的AnimalView
+     * @return
+     */
+    public static int getExistAnimal(){
+        //获取布局
+        int[][] board = GameManager.getManager().getBoard();
+
+        //产生随机数
+        int random = 0;
+        while (!LinkUtils.isCleared(board)){
+            //产生一个随机数
+            random = new Random().nextInt(LinkUtils.getMaxData(board))+1;
+            Log.d(Constant.TAG,"测试消除"+random);
+
+            //判断该布局中是否有
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    if (board[i][j] == random){
+                        return random;
+                    }
+                }
+            }
+        }
+
+        return random;
     }
 }
