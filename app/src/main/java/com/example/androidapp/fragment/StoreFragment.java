@@ -24,9 +24,11 @@ import com.example.androidapp.model.XLProp;
 import com.example.androidapp.model.XLUser;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
+
 import swu.xl.numberitem.NumberOfItem;
 
-public class StoreFragment extends Fragment {
+public class StoreFragment extends Fragment
+{
     //存储数据
     private int user_money = 0;
     private int fight_money = 0;
@@ -38,7 +40,8 @@ public class StoreFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         //加载布局
         final View inflate = inflater.inflate(R.layout.fragment_store, container, false);
 
@@ -54,16 +57,22 @@ public class StoreFragment extends Fragment {
 
         //查询道具数据
         List<XLProp> props = LitePal.findAll(XLProp.class);
-        for (XLProp prop : props) {
-            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue()){
+        for (XLProp prop : props)
+        {
+            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue())
+            {
                 //拳头道具
                 fight_money = prop.getP_price();
                 fight_num = prop.getP_number();
-            }else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue()){
+            }
+            else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue())
+            {
                 //炸弹道具
                 bomb_money = prop.getP_price();
                 bomb_num = prop.getP_number();
-            }else {
+            }
+            else
+            {
                 //刷新道具
                 refresh_money = prop.getP_price();
                 refresh_num = prop.getP_number();
@@ -92,29 +101,22 @@ public class StoreFragment extends Fragment {
         LinearLayout fight = inflate.findViewById(R.id.store_tip);
 
         fight.setOnClickListener(v -> {
-            Log.d(Constant.TAG,"购买拳头");
-
-            refreshSQLite(PropMode.PROP_FIGHT,inflate);
+            SoundPlayUtil.getInstance(getContext()).play(3);
+            refreshSQLite(PropMode.PROP_FIGHT, inflate);
         });
 
         //购买炸弹
         inflate.findViewById(R.id.store_bomb).setOnClickListener(v -> {
             //播放点击音效
             SoundPlayUtil.getInstance(getContext()).play(3);
-
-            Log.d(Constant.TAG,"购买炸弹");
-
-            refreshSQLite(PropMode.PROP_BOMB,inflate);
+            refreshSQLite(PropMode.PROP_BOMB, inflate);
         });
 
         //购买刷新
         inflate.findViewById(R.id.store_refresh).setOnClickListener(v -> {
             //播放点击音效
             SoundPlayUtil.getInstance(getContext()).play(3);
-
-            Log.d(Constant.TAG,"购买刷新");
-
-            refreshSQLite(PropMode.PROP_REFRESH,inflate);
+            refreshSQLite(PropMode.PROP_REFRESH, inflate);
         });
 
         //移除该视图
@@ -122,27 +124,25 @@ public class StoreFragment extends Fragment {
             //播放点击音效
             SoundPlayUtil.getInstance(getContext()).play(3);
 
-            if (getActivity() != null){
+            if (getActivity() != null)
+            {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.remove(StoreFragment.this);
                 transaction.commit();
-            }else {
-                System.out.println("空的Activity");
             }
         });
 
         return inflate;
     }
 
-    /**
-     * 刷新数据库的内容
-     * @param mode
-     */
-    private void refreshSQLite(PropMode mode,View inflate){
+    //刷新数据库
+    private void refreshSQLite(PropMode mode, View inflate)
+    {
         //道具对象
         XLProp prop = new XLProp();
 
-        switch (mode){
+        switch (mode)
+        {
             case PROP_FIGHT:
                 user_money -= fight_money;
                 fight_num++;
@@ -151,7 +151,7 @@ public class StoreFragment extends Fragment {
                 prop.update(1);
 
                 //道具购买提示
-                Toast.makeText(getContext(), "成功购买一个锤子道具，消耗"+fight_money+"金币", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "成功购买一个锤子道具，消耗" + fight_money + "金币", Toast.LENGTH_SHORT).show();
                 break;
             case PROP_BOMB:
                 user_money -= bomb_money;
@@ -161,7 +161,7 @@ public class StoreFragment extends Fragment {
                 prop.update(2);
 
                 //道具购买提示
-                Toast.makeText(getContext(), "成功购买一个炸弹道具，消耗"+bomb_money+"金币", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "成功购买一个炸弹道具，消耗" + bomb_money + "金币", Toast.LENGTH_SHORT).show();
                 break;
             case PROP_REFRESH:
                 user_money -= refresh_money;
@@ -171,7 +171,7 @@ public class StoreFragment extends Fragment {
                 prop.update(3);
 
                 //道具购买提示
-                Toast.makeText(getContext(), "成功购买一个重排道具，消耗"+refresh_money+"金币", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "成功购买一个重排道具，消耗" + refresh_money + "金币", Toast.LENGTH_SHORT).show();
                 break;
         }
 

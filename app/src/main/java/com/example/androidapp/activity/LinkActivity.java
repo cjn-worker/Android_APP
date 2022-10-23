@@ -50,25 +50,34 @@ import tyrantgit.explosionfield.ExplosionField;
 
 public class LinkActivity extends BaseActivity implements View.OnClickListener
 {
+    //引入的第三方提供爆炸效果的类
     private ExplosionField explosionField;
+    //游戏管理者
     private final GameManager manager = GameManager.getManager();
     //屏幕宽度,高度
     private int screenWidth;
     private int screenHeight;
     //游戏的布局，存放imgviews
     private XLRelativeLayout layout;
+    //关卡
     private XLLevel level;
+    //用户
     private XLUser user;
     //记录金币的变量
     int money;
+    //时间条
     private SeekBar time_bar;
-    private final boolean isPause=false;
+    //是否暂停的标志
+    private final boolean isPause = false;
     //显示关卡的文本
     private XLTextView level_text;
     //显示金币的文本
     private XLTextView money_text;
+    //显示分数的文本
     private XLTextView score_text;
+    //暂停按钮
     private XLButton pause;
+    //记录分数的变量
     private int score;
 
     //拳头道具
@@ -99,14 +108,15 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         manager.startGame(this,
                 layout,
                 screenWidth,
-                screenHeight -350- ScreenUtil.getNavigationBarHeight(getApplicationContext()),
+                screenHeight - 350 - ScreenUtil.getNavigationBarHeight(getApplicationContext()),
                 level.getL_id(),
                 level.getL_mode()
         );
         manager.setListener(LinkActivity.this);
     }
 
-    private void initData() {
+    private void initData()
+    {
         //获取数据
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
@@ -122,25 +132,28 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         level_text.setText(String.valueOf(level.getL_id()));
         money_text = findViewById(R.id.link_money_text);
         money_text.setText(String.valueOf(money));
-        score_text =findViewById(R.id.link_score_text);
+        score_text = findViewById(R.id.link_score_text);
         score_text.setText("0");
-        score=0;
-//
+        score = 0;
+
         //查询道具数据
         props = LitePal.findAll(XLProp.class);
-        for (XLProp prop : props) {
-            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue()){
+        for (XLProp prop : props)
+        {
+            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue())
+            {
                 //拳头道具
                 fight_num = prop.getP_number();
-                Log.d(Constant.TAG,"查询的消除道具数量："+fight_num);
-            }else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue()){
+            }
+            else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue())
+            {
                 //炸弹道具
                 bomb_num = prop.getP_number();
-                Log.d(Constant.TAG,"查询的炸弹道具数量："+bomb_num);
-            }else {
+            }
+            else
+            {
                 //刷新道具
                 refresh_num = prop.getP_number();
-                Log.d(Constant.TAG,"查询的刷新道具数量："+refresh_num);
             }
         }
 
@@ -153,29 +166,30 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         prop_tip.setCount(fight_num);
         prop_bomb.setCount(bomb_num);
         prop_refresh.setCount(refresh_num);
+        time_bar = findViewById(R.id.link_time_bar);
     }
 
     private void initView()
     {
         initLayout();
         initPauseButton();
-        time_bar=findViewById(R.id.link_time_bar);
-
     }
 
+    //初始化布局
     @SuppressLint("ClickableViewAccessibility")
     private void initLayout()
     {
         layout = new XLRelativeLayout(this);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         layout.setLayoutParams(layoutParams);
+
         screenWidth = ScreenUtil.getScreenWidth(getApplicationContext());
         screenHeight = ScreenUtil.getScreenHeight(getApplicationContext());
+        //初始化爆炸类
         explosionField = ExplosionField.attach2Window(this);
         layout.setAlpha(1.0f);
         RelativeLayout link_layout = findViewById(R.id.root_link);
         layout.setOnTouchListener((v, event) -> {
-
             //获取触摸点相对于布局的坐标
             int x = (int) event.getX();
             int y = (int) event.getY();
@@ -196,7 +210,6 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                     if (rectF.contains(x, y) && imgView.getVisibility() == View.VISIBLE)
                     {
                         final ImgView lastView = manager.getLastView();
-
                         //如果不是第一次触摸 且 触摸的不是同一个点
                         if (lastView != null && lastView != imgView)
                         {
@@ -212,20 +225,17 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                             {
                                 startViewAnimation(imgView);
                                 layout.setLinkInfo(new LinkInfo(linkInfoList.getLink().get(0)));
-                                //设置所有的宝可梦不可以点击
+                                //设置所有的图标不可以点击
                                 layout.setEnabled(false);
                                 SoundPlayUtil.getInstance(getBaseContext()).play(4);
-                                //修改模板
+                                //修改板子
                                 manager.getBoard()[lastView.getPoint().getX()][lastView.getPoint().getY()] = -1;
                                 manager.getBoard()[imgView.getPoint().getX()][imgView.getPoint().getY()] = -1;
 
                                 //粉碎
                                 explosionField.explode(lastView);
                                 explosionField.explode(imgView);
-                                money += 1;
-                                money_text.setText(String.valueOf(money));
-                                score+=2;
-                                score_text.setText(String.valueOf(score));
+                                changeMoneyAndScore();
                                 new Handler().postDelayed(() -> {
                                     //隐藏
                                     lastView.setVisibility(View.INVISIBLE);
@@ -239,7 +249,8 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                             }
                             else
                             {
-                                if (lastView.getAnimation() != null){
+                                if (lastView.getAnimation() != null)
+                                {
                                     lastView.clearAnimation();
                                 }
                                 SoundPlayUtil.getInstance(getBaseContext()).play(3);
@@ -266,23 +277,34 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         link_layout.addView(layout);
     }
 
+    private void changeMoneyAndScore()
+    {
+        money += 1;
+        score += 2;
+        money_text.setText(String.valueOf(money));
+        score_text.setText(String.valueOf(score));
+    }
+
+    //初始化暂停按钮
     private void initPauseButton()
     {
-        pause=findViewById(R.id.link_pause_btn);
+        pause = findViewById(R.id.link_pause_btn);
         pause.setOnClickListener(view -> {
             manager.pauseGame();
             //跳转暂停的fragment
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             final PauseFragment pause = new PauseFragment();
             Bundle bundle = new Bundle();
-            bundle.putParcelable("level",level);
+            bundle.putParcelable("level", level);
             pause.setArguments(bundle);
-            transaction.replace(R.id.root_link,pause,"pause");
+            transaction.replace(R.id.root_link, pause, "pause");
             transaction.commit();
         });
     }
 
-    private void startViewAnimation(ImgView imgView){
+    //选中动画
+    private void startViewAnimation(ImgView imgView)
+    {
         //缩放动画
         ScaleAnimation scaleAnimation = new ScaleAnimation(
                 1.0f, 1.05f,
@@ -323,32 +345,38 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
 
     //时间发生改变的时间
-    public void onTimeChanged(float time) {
+    public void onTimeChanged(float time)
+    {
         //如果时间小于0
-        if (time <= 0.0){
+        if (time <= 0.0)
+        {
             manager.pauseGame();
-            manager.endGame(this,level,time);
-        }else {
+            manager.endGame(this, level, time);
+        }
+        else
+        {
             //保留小数后一位
-            time_bar.setProgress((int)time);
+            time_bar.setProgress((int) time);
         }
 
         //如果board全部清除了
-        if (LinkUtils.isCleared(manager.getBoard())){
+        if (LinkUtils.isCleared(manager.getBoard()))
+        {
             //结束游戏
             manager.pauseGame();
-            level.setL_time((int) (LinkConstant.TIME -time));
+            level.setL_time((int) (LinkConstant.TIME - time));
             level.setL_new(LinkUtils.getStarByTime((int) time));
-            manager.endGame(this,level,time);
+            manager.endGame(this, level, time);
 
             //关卡结算
             level.update(level.getId());
 
             //下一关判断
             XLLevel next_level = LitePal.find(XLLevel.class, level.getId() + 1);
-            if (next_level.getL_new() == '0'){
+            if (next_level.getL_new() == '0')
+            {
                 next_level.setL_new('4');
-                next_level.update(level.getId()+1);
+                next_level.update(level.getId() + 1);
             }
 
             //金币道具清算
@@ -356,16 +384,20 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
             user.update(1);
         }
     }
-    public void onClick(View v) {
+
+
+    @SuppressLint("NonConstantResourceId")
+    public void onClick(View v)
+    {
         //播放点击音效
         SoundPlayUtil.getInstance(getBaseContext()).play(3);
 
-        switch (v.getId()){
+        switch (v.getId())
+        {
             case R.id.prop_tip:
-                Log.d(Constant.TAG,"拳头道具");
 
-                if (fight_num > 0){
-                    //随机消除一对可以消除的AnimalView
+                if (fight_num > 0)
+                {
                     manager.fightGame(LinkActivity.this);
 
                     //数量减1
@@ -374,44 +406,46 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
                     //数据库处理
                     ContentValues values = new ContentValues();
-                    values.put("p_number",fight_num);
-                    LitePal.update(XLProp.class,values,1);
-                }else {
+                    values.put("p_number", fight_num);
+                    LitePal.update(XLProp.class, values, 1);
+                }
+                else
+                {
                     Toast.makeText(this, "道具已经用完", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
             case R.id.prop_bomb:
-                Log.d(Constant.TAG,"炸弹道具");
 
-                if (bomb_num > 0){
-                    //随机消除某一种所有的AnimalView
+                if (bomb_num > 0)
+                {
                     manager.bombGame(LinkActivity.this);
 
                     //数量减1
                     bomb_num--;
                     prop_bomb.setCount(bomb_num);
-                    Log.d(Constant.TAG,"数量："+bomb_num);
 
                     //数据库处理
                     ContentValues values = new ContentValues();
-                    values.put("p_number",bomb_num);
-                    LitePal.update(XLProp.class,values,2);
-                }else {
+                    values.put("p_number", bomb_num);
+                    LitePal.update(XLProp.class, values, 2);
+                }
+                else
+                {
                     Toast.makeText(this, "道具已经用完", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
             case R.id.prop_refresh:
-                Log.d(Constant.TAG,"刷新道具");
 
-                if (refresh_num > 0){
+                if (refresh_num > 0)
+                {
                     //刷新游戏
                     manager.refreshGame(
                             getApplicationContext(),
                             layout,
                             screenWidth,
-                            screenHeight-350-ScreenUtil.getNavigationBarHeight(getApplicationContext()),
+                            screenHeight - 350 - ScreenUtil.getNavigationBarHeight(getApplicationContext()),
                             level.getL_id(),
                             level.getL_mode(),
                             LinkActivity.this
@@ -423,17 +457,22 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
 
                     //数据库处理
                     ContentValues values = new ContentValues();
-                    values.put("p_number",refresh_num);
-                    LitePal.update(XLProp.class,values,3);
-                }else {
+                    values.put("p_number", refresh_num);
+                    LitePal.update(XLProp.class, values, 3);
+                }
+                else
+                {
                     Toast.makeText(this, "道具已经用完", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
         }
     }
+
+
     @Override
-    protected void onPause() {
+    protected void onPause()
+    {
         super.onPause();
 
         //暂停游戏
@@ -441,14 +480,14 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
 
         //开启游戏
-        if (manager.isPause()){
+        if (manager.isPause())
+        {
             manager.pauseGame();
         }
     }
-
-
 }
