@@ -140,9 +140,8 @@ public class LinkUtils {
     public static int[][] generateBoard(int level)
     {
         int[][] LinkBoard = generate(level);
-        Auto(LinkBoard);
-//        while(!Auto(LinkBoard))
-//            LinkBoard=generate(level);
+        while(!Auto(LinkBoard))
+            LinkBoard=generate(level);
 
         return LinkBoard;
     }

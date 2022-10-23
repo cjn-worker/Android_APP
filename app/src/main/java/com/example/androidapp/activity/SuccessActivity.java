@@ -1,6 +1,7 @@
 package com.example.androidapp.activity;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -11,14 +12,19 @@ import android.widget.ImageView;
 
 import com.example.androidapp.constant.Constant;
 import com.example.androidapp.model.XLLevel;
+import com.example.androidapp.model.XLProp;
+import com.example.androidapp.model.XLScore;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
+import com.example.androidapp.utils.LinkUtils;
 import com.example.androidapp.view.XLTextView;
 
 
 import org.litepal.LitePal;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -72,7 +78,7 @@ public class SuccessActivity extends BaseActivity implements View.OnClickListene
         Bundle bundle = intent.getExtras();
         assert bundle != null;
         level = bundle.getParcelable("level");
-        //int serial_click = bundle.getInt("serial_click");
+        int serial_click = bundle.getInt("serial_click");
 
         //设置关卡数据
         level_text.setText("第"+level.getL_id()+"关");
@@ -88,11 +94,33 @@ public class SuccessActivity extends BaseActivity implements View.OnClickListene
         time_text.findViewById(R.id.success_time);
         time_text.setText(level.getL_time()+"秒");
 
+
         //设置分数
-        //score_text.setText(LinkUtils.getScoreByTime(level.getL_time())+"分");
+        score_text.setText(LinkUtils.getScoreByTime(level.getL_time())+"分");
 
         //设置连击
-        //batter_text.setText(serial_click+"次");
+        batter_text.setText(serial_click+"次");
+
+        int rank=LinkUtils.getScoreByTime(level.getL_time());
+        List<XLScore> scores = LitePal.findAll(XLScore.class);
+        XLScore score=scores.get(0);
+
+        ArrayList<Integer> a= new ArrayList<>();
+        a.add(score.getOne_score());
+        a.add(score.getTwo_score());
+        a.add(score.getThree_score());
+        a.add(score.getFour_score());
+        a.add(score.getFive_score());
+        a.add(rank);
+
+        a.sort(Comparator.reverseOrder());
+        score.setOne_score(a.get(0));
+        score.setTwo_score(a.get(1));
+        score.setThree_score(a.get(2));
+        score.setFour_score(a.get(3));
+        score.setFive_score(a.get(4));
+        score.update(1);
+
     }
 
     /**
@@ -142,9 +170,9 @@ public class SuccessActivity extends BaseActivity implements View.OnClickListene
         stars.add(right_star);
 
         level_text = findViewById(R.id.success_level_text);
-        //score_text = findViewById(R.id.score_text);
+        score_text = findViewById(R.id.success_score);
         time_text = findViewById(R.id.success_time);
-        //batter_text = findViewById(R.id.batter_text);
+        batter_text = findViewById(R.id.success_number);
 
         menu_btn = findViewById(R.id.success_level_btn);
         menu_btn.setOnClickListener(this);

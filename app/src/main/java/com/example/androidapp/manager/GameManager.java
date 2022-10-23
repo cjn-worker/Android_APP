@@ -257,7 +257,7 @@ public class GameManager
             Intent intent = new Intent(context, SuccessActivity.class);
             Bundle bundle = new Bundle();
             bundle.putParcelable("level",level);
-            //bundle.putInt("serial_click",LinkUtils.getSerialClick());
+            bundle.putInt("serial_click",LinkUtils.getSerialClick());
             intent.putExtras(bundle);
             context.startActivity(intent);
 
