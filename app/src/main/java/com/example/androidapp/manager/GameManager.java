@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
+import com.example.androidapp.LinkGame.LinkModel.Kernel;
 import com.example.androidapp.activity.FailureActivity;
 import com.example.androidapp.activity.LinkActivity;
 import com.example.androidapp.activity.SuccessActivity;
@@ -20,11 +21,13 @@ import com.example.androidapp.constant.Enum.LevelMode;
 import com.example.androidapp.constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.utils.LinkUtils;
+import com.example.androidapp.utils.PropUtils;
 import com.example.androidapp.utils.PxUtil;
 import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.music.BackgroundMusicManager;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.view.ImgView;
+import static com.example.androidapp.LinkGame.LinkModel.Kernel.UNBLOCKED;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -309,34 +312,35 @@ public class GameManager
     {
         //1.产生一对消除的点
         Point[] doubleRemove = LinkUtils.getDoubleRemove();
-
+        List<Point> toRemove = PropUtils.Tip(getBoard());
+        System.out.println(toRemove);
         //2.board修改
-        board[doubleRemove[0].getX()][doubleRemove[0].getY()] = -1;
-        board[doubleRemove[1].getX()][doubleRemove[1].getY()] = -1;
-
+        for(int i =0;i<toRemove.size();i++)
+        {
+            board[toRemove.get(i).getX()][toRemove.get(i).getY()]=UNBLOCKED;
+        }
         //3.播放消除音效以及粉碎
         SoundPlayUtil.getInstance(mContext).play(4);
         //粉碎、
         ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
 
         //4.ImgView隐藏
-        for (ImgView imgView : imgViews)
-        {
-            if ((imgView.getPoint().getX() == doubleRemove[0].getX()
-                    && imgView.getPoint().getY() == doubleRemove[0].getY())
-                    || imgView.getPoint().getX() == doubleRemove[1].getX()
-                    && imgView.getPoint().getY() == doubleRemove[1].getY())
-            {
-                //恢复背景颜色和清除动画
-                if (imgView.getAnimation() != null)
-                {
-                    imgView.clearAnimation();
-                }
+        for (ImgView imgView : imgViews) {
+            for (int i = 0; i < toRemove.size(); i++) {
+                System.out.println(imgView.getPoint());
+                if (imgView.getPoint().isEqual(toRemove.get(i))) {
+                    //恢复背景颜色和清除动画
+                    if(imgView.getVisibility()==View.VISIBLE) {
+                        if (imgView.getAnimation() != null) {
+                            imgView.clearAnimation();
+                        }
 
-                //粉碎
-                explosionField.explode(imgView);
-                //隐藏
-                imgView.setVisibility(View.INVISIBLE);
+                        //粉碎
+                        explosionField.explode(imgView);
+                        //隐藏
+                        imgView.setVisibility(View.INVISIBLE);
+                    }
+                }
             }
         }
     }
@@ -344,19 +348,13 @@ public class GameManager
     //炸弹道具
     public void bombGame(Activity link_activity)
     {
-        //1.随机产生一个待消除的
-        int random = LinkUtils.getExistAnimal();
-
-        //2.board修改
-        for (int i = 0; i < board.length; i++)
+        //获得消除的点
+        List<Point> toBomb = PropUtils.Bomb(getBoard());
+        int value = board[toBomb.get(0).getX()][toBomb.get(0).getY()];
+        //修改board
+        for(int i =0;i<toBomb.size();i++)
         {
-            for (int j = 0; j < board[0].length; j++)
-            {
-                if (board[i][j] == random)
-                {
-                    board[i][j] = -1;
-                }
-            }
+            board[toBomb.get(i).getX()][toBomb.get(i).getY()]=UNBLOCKED;
         }
 
         //3.播放消除音效以及粉碎
@@ -365,19 +363,19 @@ public class GameManager
         ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
 
         //4.ImgView隐藏
-        for (ImgView imgView : imgViews)
-        {
-            if (imgView.getFlag() == random)
-            {
+        for (ImgView imgView : imgViews) {
+            if(imgView.getFlag()==value){
                 //恢复背景颜色和清除动画
-                if (imgView.getAnimation() != null)
-                {
-                    imgView.clearAnimation();
+                if(imgView.getVisibility()==View.VISIBLE) {
+                    if (imgView.getAnimation() != null) {
+                        imgView.clearAnimation();
+                    }
+
+                    //粉碎
+                    explosionField.explode(imgView);
+                    //隐藏
+                    imgView.setVisibility(View.INVISIBLE);
                 }
-                //粉碎
-                explosionField.explode(imgView);
-                //隐藏
-                imgView.setVisibility(View.INVISIBLE);
             }
         }
     }
@@ -390,35 +388,42 @@ public class GameManager
         //粉碎、
         ExplosionField explosionField = ExplosionField.attach2Window(link_activity);
 
-        //1.所以的ImgView消失
+        //1.所有的ImgView消失
         for (ImgView imgView : imgViews)
         {
             //恢复背景颜色和清除动画
-            if (imgView.getAnimation() != null)
-            {
-                imgView.clearAnimation();
+            if(imgView.getVisibility()==View.VISIBLE) {
+                if (imgView.getAnimation() != null) {
+                    imgView.clearAnimation();
+                }
+
+                //粉碎
+//                explosionField.explode(imgView);
+                //隐藏
+                imgView.setVisibility(View.INVISIBLE);
             }
-
-            //粉碎
-            explosionField.explode(imgView);
-
-            //隐藏
-            imgView.setVisibility(View.INVISIBLE);
         }
+        PropUtils.Refresh(board);
+        while(imgViews.size()!=0)
+            imgViews.remove(0);
 
-        new Handler().postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                //2.移除所有的子视图
-                layout.removeAllViews();
-
-                //3.重新开始游戏
-                startGame(context, layout, width, height, level_id, level_mode);
-            }
-        }, 1500);
+        addViewToLayout(context, layout, width, height);
     }
+
+
+
+//        new Handler().postDelayed(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                //2.移除所有的子视图
+//                layout.removeAllViews();
+//
+//                //3.重新开始游戏
+//                startGame(context, layout, width, height, level_id, level_mode);
+//            }
+//        }, 1500);
 
     public List<ImgView> getImgViews()
     {

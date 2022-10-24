@@ -142,34 +142,46 @@ public class StoreFragment extends Fragment
         switch (mode)
         {
             case PROP_FIGHT:
-                user_money -= fight_money;
-                fight_num++;
+                if(user_money>=fight_money) {
+                    user_money -= fight_money;
+                    fight_num++;
 
-                prop.setP_number(fight_num);
-                prop.update(1);
+                    prop.setP_number(fight_num);
+                    prop.update(1);
 
-                //道具购买提示
-                Toast.makeText(getContext(), "成功购买一个锤子道具，消耗" + fight_money + "金币", Toast.LENGTH_SHORT).show();
+                    //道具购买提示
+                    Toast.makeText(getContext(), "成功购买一个锤子道具，消耗" + fight_money + "金币", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    Toast.makeText(getContext(), "金币不足" , Toast.LENGTH_SHORT).show();
                 break;
             case PROP_BOMB:
-                user_money -= bomb_money;
-                bomb_num++;
+                if(user_money>=bomb_money) {
+                    user_money -= bomb_money;
+                    bomb_num++;
 
-                prop.setP_number(bomb_num);
-                prop.update(2);
+                    prop.setP_number(bomb_num);
+                    prop.update(2);
 
-                //道具购买提示
-                Toast.makeText(getContext(), "成功购买一个炸弹道具，消耗" + bomb_money + "金币", Toast.LENGTH_SHORT).show();
+                    //道具购买提示
+                    Toast.makeText(getContext(), "成功购买一个炸弹道具，消耗" + bomb_money + "金币", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    Toast.makeText(getContext(), "金币不足" , Toast.LENGTH_SHORT).show();
                 break;
             case PROP_REFRESH:
-                user_money -= refresh_money;
-                refresh_num++;
+                if(user_money>=refresh_money) {
+                    user_money -= refresh_money;
+                    refresh_num++;
 
-                prop.setP_number(refresh_num);
-                prop.update(3);
+                    prop.setP_number(refresh_num);
+                    prop.update(3);
 
-                //道具购买提示
-                Toast.makeText(getContext(), "成功购买一个重排道具，消耗" + refresh_money + "金币", Toast.LENGTH_SHORT).show();
+                    //道具购买提示
+                    Toast.makeText(getContext(), "成功购买一个重排道具，消耗" + refresh_money + "金币", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    Toast.makeText(getContext(), "金币不足" , Toast.LENGTH_SHORT).show();
                 break;
         }
 
