@@ -17,6 +17,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.androidapp.fragment.HelpFragment;
 import com.example.androidapp.fragment.RankingFragment;
 import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.model.LinkProp;
@@ -42,6 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     Button setting;
     Button score;
     Button store;
+    Button help;
     Button root_main;
     private BroadcastReceiver mBroadcastReceiver;
     @Override
@@ -243,6 +245,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         score.setOnClickListener(this);
         store = findViewById(R.id.main_store_btn);
         store.setOnClickListener(this);
+        help=findViewById(R.id.main_help_button);
+        help.setOnClickListener(this);
         //root_main = findViewById(R.id.root_main);
     }
 
@@ -375,6 +379,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 //添加一个fragment
                 final RankingFragment rank = new RankingFragment();
                 transaction.replace(R.id.root_main,rank,"rank");
+                transaction.commit();
+
+                break;
+            case R.id.main_help_button:
+                Log.d(Constant.TAG,",帮助按钮");
+
+                //添加一个fragment
+                final HelpFragment help = new HelpFragment();
+                transaction.replace(R.id.root_main,help,"help");
                 transaction.commit();
 
                 break;
