@@ -310,7 +310,7 @@
                 android:layout_height="80dp"
                 android:layout_gravity="bottom|center"
                 android:layout_weight="1"
-                android:background="@drawable/success_pause_failure_restart_pic"
+                android:background="@drawable/pause_return_pic"
                 android:gravity="bottom|center" />
 
             <com.example.androidapp.view.MyTextView

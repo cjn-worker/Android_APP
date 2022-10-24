@@ -193,7 +193,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="金币"
+                    android:text="排名"
                     android:textColor="#403C5C"
                     android:textSize="24sp" />
             </LinearLayout>
@@ -211,7 +211,7 @@
                     android:layout_marginEnd="15dp"
                     android:layout_marginStart="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/ribbon" />
+                    android:background="@drawable/main_help_pic" />
 
                 <com.example.androidapp.view.MyTextView
                     android:id="@+id/myTextView9"
