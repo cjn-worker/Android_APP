@@ -33,7 +33,7 @@
                 android:text="@string/ShowMoney" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:background="@drawable/store_show_money_bg"
@@ -51,9 +51,10 @@
                 <com.example.androidapp.view.MyTextView
                     android:id="@+id/store_user_money"
                     style="@style/ShowMoneyNumText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="1099" />
+                    android:gravity="center"
+                    android:text="1000" />
 
             </LinearLayout>
 
@@ -90,7 +91,7 @@
                     app:srcResource="@drawable/prop_tip_pic" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
@@ -119,7 +120,7 @@
 
                 <com.example.androidapp.view.MyLinearLayout
                     android:id="@+id/store_tip"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="15dp"
@@ -139,11 +140,12 @@
                     <com.example.androidapp.view.MyTextView
                         android:id="@+id/store_fight_money"
                         style="@style/ShowSimpleMoneyNumText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:text="10" />
+                        android:text="20" />
 
                 </com.example.androidapp.view.MyLinearLayout>
 
@@ -170,7 +172,7 @@
                     app:srcResource="@drawable/prop_bomb_pic" />
 
                 <LinearLayout
-                    android:layout_width="108dp"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
@@ -199,7 +201,7 @@
 
                 <com.example.androidapp.view.MyLinearLayout
                     android:id="@+id/store_bomb"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="15dp"
@@ -219,11 +221,12 @@
                     <com.example.androidapp.view.MyTextView
                         android:id="@+id/store_bomb_money"
                         style="@style/ShowSimpleMoneyNumText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:text="10" />
+                        android:text="50" />
 
                 </com.example.androidapp.view.MyLinearLayout>
 
@@ -251,7 +254,7 @@
                     app:srcResource="@drawable/prop_refresh_pic" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
@@ -280,7 +283,7 @@
 
                 <com.example.androidapp.view.MyLinearLayout
                     android:id="@+id/store_refresh"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="15dp"
@@ -300,8 +303,9 @@
                     <com.example.androidapp.view.MyTextView
                         android:id="@+id/store_refresh_money"
                         style="@style/ShowSimpleMoneyNumText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:inputType="number"
                         android:maxLines="1"
                         android:text="10" />

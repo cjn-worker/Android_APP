@@ -55,7 +55,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="连连看的规则"
-                android:textColor="@color/white"
+                android:textColor="#42FB9B"
                 android:textSize="48sp" />
         </LinearLayout>
 
@@ -86,7 +86,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="无转折"
-                    android:textColor="@color/white"
+                    android:textColor="#0DFDE1"
                     android:textSize="34sp" />
 
             </LinearLayout>
@@ -111,7 +111,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="一个转折"
-                    android:textColor="@color/white"
+                    android:textColor="#0DFDE1"
                     android:textSize="34sp" />
             </LinearLayout>
 
@@ -143,7 +143,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="两个转折"
-                    android:textColor="@color/white"
+                    android:textColor="#0DFDE1"
                     android:textSize="34sp" />
             </LinearLayout>
         </LinearLayout>
@@ -181,7 +181,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="提示道具，找到一对可消除的emoji"
-                        android:textColor="@color/white"
+                        android:textColor="#FAA9ED"
                         android:textSize="20sp" />
 
                 </LinearLayout>
@@ -207,7 +207,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="炸弹道具，消除同一种所有的emoji"
-                        android:textColor="@color/white"
+                        android:textColor="#FAA9ED"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -246,7 +246,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="刷新道具，重排连连看布局"
-                        android:textColor="@color/white"
+                        android:textColor="#FAA9ED"
                         android:textSize="20sp" />
                 </LinearLayout>
 

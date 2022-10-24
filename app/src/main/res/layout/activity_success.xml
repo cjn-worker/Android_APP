@@ -91,7 +91,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_weight="3">
 
             <ImageView
                 android:id="@+id/success_crown2"
@@ -130,6 +131,15 @@
                 app:layout_constraintVertical_bias="0.405"
                 app:srcCompat="@drawable/success_crown_pic" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <com.example.androidapp.view.MyTextView
                 android:id="@+id/success_level_text"
                 android:layout_width="wrap_content"
@@ -137,91 +147,92 @@
                 android:layout_marginTop="8dp"
                 android:text="第N关"
                 android:textColor="@color/white"
-                android:textSize="28sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/success_crown2" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="28sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <com.example.androidapp.view.MyTextView
-                    android:id="@+id/XLTextView8"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="得分"
-                    android:textColor="@color/white"
-                    android:textSize="34sp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <com.example.androidapp.view.MyTextView
-                    android:id="@+id/XLTextView6"
+                    <com.example.androidapp.view.MyTextView
+                        android:id="@+id/XLTextView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="得分"
+                        android:textColor="@color/white"
+                        android:textSize="34sp" />
+
+                    <com.example.androidapp.view.MyTextView
+                        android:id="@+id/XLTextView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="用时"
+                        android:textColor="@color/white"
+                        android:textSize="34sp" />
+
+                    <com.example.androidapp.view.MyTextView
+                        android:id="@+id/XLTextView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="连击"
+                        android:textColor="@color/white"
+                        android:textSize="34sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="用时"
-                    android:textColor="@color/white"
-                    android:textSize="34sp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <com.example.androidapp.view.MyTextView
-                    android:id="@+id/XLTextView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="连击"
-                    android:textColor="@color/white"
-                    android:textSize="34sp" />
+                    <com.example.androidapp.view.MyTextView
+                        android:id="@+id/success_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="1000"
+                        android:textColor="@color/white"
+                        android:textSize="34sp" />
 
-            </LinearLayout>
+                    <com.example.androidapp.view.MyTextView
+                        android:id="@+id/success_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="60s"
+                        android:textColor="@color/white"
+                        android:textSize="34sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                    <com.example.androidapp.view.MyTextView
+                        android:id="@+id/success_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textColor="@color/white"
+                        android:textSize="34sp" />
+                </LinearLayout>
 
-                <com.example.androidapp.view.MyTextView
-                    android:id="@+id/success_score"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="1000"
-                    android:textColor="@color/white"
-                    android:textSize="34sp" />
-
-                <com.example.androidapp.view.MyTextView
-                    android:id="@+id/success_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="60s"
-                    android:textColor="@color/white"
-                    android:textSize="34sp" />
-
-                <com.example.androidapp.view.MyTextView
-                    android:id="@+id/success_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text="20"
-                    android:textColor="@color/white"
-                    android:textSize="34sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -229,52 +240,88 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="3"
+            android:background="#8050C6FD"
+            android:gravity="bottom"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/success_level_btn"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/success_pause_failure_level_pic"
-                android:gravity="center" />
+                android:orientation="vertical">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                <Button
+                    android:id="@+id/success_level_btn"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/success_pause_failure_level_pic"
+                    android:gravity="center" />
 
-            <Button
-                android:id="@+id/success_restart_btn"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
+                <com.example.androidapp.view.MyTextView
+                    android:id="@+id/XLTextView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center|top"
+                    android:text="关卡菜单"
+                    android:textColor="#403C5C"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/success_pause_failure_restart_pic" />
+                android:orientation="vertical">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                <Button
+                    android:id="@+id/success_restart_btn"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/success_pause_failure_restart_pic" />
 
-            <Button
-                android:id="@+id/success_next_btn"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
+                <com.example.androidapp.view.MyTextView
+                    android:id="@+id/XLTextView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center|top"
+                    android:text="再来一次"
+                    android:textColor="#403C5C"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/success_pause_next_pic" />
+                android:orientation="vertical">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                <Button
+                    android:id="@+id/success_next_btn"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/success_pause_next_pic" />
+
+                <com.example.androidapp.view.MyTextView
+                    android:id="@+id/XLTextView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center|top"
+                    android:text="下一关卡"
+                    android:textColor="#403C5C"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
