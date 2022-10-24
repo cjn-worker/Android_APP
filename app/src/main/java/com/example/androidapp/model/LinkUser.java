@@ -5,7 +5,7 @@ import org.litepal.crud.LitePalSupport;
 /**
  * 用户
  */
-public class XLUser extends LitePalSupport {
+public class LinkUser extends LitePalSupport {
     //用户持有的金币数
     private int u_money;
     //当前用户使用的游戏背景
@@ -30,7 +30,7 @@ public class XLUser extends LitePalSupport {
 
     @Override
     public String toString() {
-        return "XLUser{" +
+        return "LinkUser{" +
                 "u_money=" + u_money +
                 ", u_background=" + u_background +
                 '}';

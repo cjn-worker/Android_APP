@@ -18,10 +18,10 @@ import android.widget.Button;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.androidapp.fragment.RankingFragment;
-import com.example.androidapp.model.XLLevel;
-import com.example.androidapp.model.XLProp;
-import com.example.androidapp.model.XLScore;
-import com.example.androidapp.model.XLUser;
+import com.example.androidapp.model.LinkLevel;
+import com.example.androidapp.model.LinkProp;
+import com.example.androidapp.model.LinkScore;
+import com.example.androidapp.model.LinkUser;
 import com.example.androidapp.constant.Constant;
 import com.example.androidapp.fragment.SettingFragment;
 import com.example.androidapp.R;
@@ -109,14 +109,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
      */
     private void initSQLite3() {
         //查找当前数据库的内容
-        List<XLUser> users = LitePal.findAll(XLUser.class);
-        List<XLLevel> levels = LitePal.findAll(XLLevel.class);
-        List<XLProp> props = LitePal.findAll(XLProp.class);
-        List<XLScore> scores = LitePal.findAll(XLScore.class);
+        List<LinkUser> users = LitePal.findAll(LinkUser.class);
+        List<LinkLevel> levels = LitePal.findAll(LinkLevel.class);
+        List<LinkProp> props = LitePal.findAll(LinkProp.class);
+        List<LinkScore> scores = LitePal.findAll(LinkScore.class);
 
         //如果用户数据为空，装入数据
         if (users.size() == 0){
-            XLUser user = new XLUser();
+            LinkUser user = new LinkUser();
             user.setU_money(1000);
             user.setU_background(0);
             user.save();
@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         if (levels.size() == 0){
             //简单模式
             for(int i = 1; i <= 40; i++){
-                XLLevel level = new XLLevel();
+                LinkLevel level = new LinkLevel();
                 //设置关卡号
                 level.setL_id(i);
                 //设置关卡模式
@@ -146,7 +146,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
             //普通模式
             for(int i = 1; i <= 40; i++){
-                XLLevel level = new XLLevel();
+                LinkLevel level = new LinkLevel();
                 //设置关卡号
                 level.setL_id(i);
                 //设置关卡模式
@@ -166,7 +166,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
             //困难模式
             for(int i = 1; i <= 40; i++) {
-                XLLevel level = new XLLevel();
+                LinkLevel level = new LinkLevel();
                 //设置关卡号
                 level.setL_id(i);
                 //设置关卡模式
@@ -187,21 +187,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //如果道具数据为空，装入数据
         if (props.size() == 0){
             //1.装入拳头道具
-            XLProp prop_fight = new XLProp();
+            LinkProp prop_fight = new LinkProp();
             prop_fight.setP_kind('1');
             prop_fight.setP_number(50);
             prop_fight.setP_price(5);
             prop_fight.save();
 
             //2.装入炸弹道具
-            XLProp prop_bomb = new XLProp();
+            LinkProp prop_bomb = new LinkProp();
             prop_bomb.setP_kind('2');
             prop_bomb.setP_number(50);
             prop_bomb.setP_price(50);
             prop_bomb.save();
 
             //3.装入刷新道具
-            XLProp prop_refresh = new XLProp();
+            LinkProp prop_refresh = new LinkProp();
             prop_refresh.setP_kind('3');
             prop_refresh.setP_number(50);
             prop_refresh.setP_price(20);
@@ -211,7 +211,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //如果分数数据为空，装入数据
         if(scores.size() == 0){
 
-            XLScore score=new XLScore();
+            LinkScore score=new LinkScore();
             //1.装入得分
             score.setOne_score(0);
             score.setTwo_score(0);
@@ -280,12 +280,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 Log.d(Constant.TAG,"简单模式按钮");
 
                 //查询简单模式的数据
-                List<XLLevel> XLLevels1 = LitePal.where("l_mode == ?", "1").find(XLLevel.class);
-                Log.d(Constant.TAG,XLLevels1.size()+"");
+                List<LinkLevel> LinkLevels1 = LitePal.where("l_mode == ?", "1").find(LinkLevel.class);
+                Log.d(Constant.TAG, LinkLevels1.size()+"");
 
                 //依次查询每一个内容
-                for (XLLevel xlLevel : XLLevels1) {
-                    Log.d(Constant.TAG,xlLevel.toString());
+                for (LinkLevel linkLevel : LinkLevels1) {
+                    Log.d(Constant.TAG, linkLevel.toString());
                 }
 
                 //跳转界面
@@ -295,7 +295,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 //加入关卡模式数据
                 bundle_easy.putString("mode","简单");
                 //加入关卡数据
-                bundle_easy.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) XLLevels1);
+                bundle_easy.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) LinkLevels1);
                 intent_easy.putExtras(bundle_easy);
                 //跳转
                 startActivity(intent_easy);
@@ -305,12 +305,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 Log.d(Constant.TAG,"普通模式按钮");
 
                 //查询简单模式的数据
-                List<XLLevel> XLLevels2 = LitePal.where("l_mode == ?", "2").find(XLLevel.class);
-                Log.d(Constant.TAG,XLLevels2.size()+"");
+                List<LinkLevel> LinkLevels2 = LitePal.where("l_mode == ?", "2").find(LinkLevel.class);
+                Log.d(Constant.TAG, LinkLevels2.size()+"");
 
                 //依次查询每一个内容
-                for (XLLevel xlLevel : XLLevels2) {
-                    Log.d(Constant.TAG,xlLevel.toString());
+                for (LinkLevel linkLevel : LinkLevels2) {
+                    Log.d(Constant.TAG, linkLevel.toString());
                 }
 
                 //跳转界面
@@ -320,7 +320,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 //加入关卡模式数据
                 bundle_normal.putString("mode","简单");
                 //加入关卡数据
-                bundle_normal.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) XLLevels2);
+                bundle_normal.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) LinkLevels2);
                 intent_normal.putExtras(bundle_normal);
                 //跳转
                 startActivity(intent_normal);
@@ -330,12 +330,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 Log.d(Constant.TAG,"困难模式按钮");
 
                 //查询简单模式的数据
-                List<XLLevel> XLLevels3 = LitePal.where("l_mode == ?", "3").find(XLLevel.class);
-                Log.d(Constant.TAG,XLLevels3.size()+"");
+                List<LinkLevel> LinkLevels3 = LitePal.where("l_mode == ?", "3").find(LinkLevel.class);
+                Log.d(Constant.TAG, LinkLevels3.size()+"");
 
                 //依次查询每一个内容
-                for (XLLevel xlLevel : XLLevels3) {
-                    Log.d(Constant.TAG,xlLevel.toString());
+                for (LinkLevel linkLevel : LinkLevels3) {
+                    Log.d(Constant.TAG, linkLevel.toString());
                 }
 
                 //跳转界面
@@ -345,7 +345,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 //加入关卡模式数据
                 bundle_hard.putString("mode","简单");
                 //加入关卡数据
-                bundle_hard.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) XLLevels3);
+                bundle_hard.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) LinkLevels3);
                 intent_hard.putExtras(bundle_hard);
                 //跳转
                 startActivity(intent_hard);

@@ -17,10 +17,10 @@ import java.util.List;
 
 import com.example.androidapp.constant.Constant;
 import com.example.androidapp.constant.Enum.LevelState;
-import com.example.androidapp.model.XLLevel;
+import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
-import com.example.androidapp.view.XLImageView;
+import com.example.androidapp.view.MyImageView;
 import com.example.androidapp.utils.PxUtil;
 import com.example.androidapp.utils.ScreenUtil;
 
@@ -35,7 +35,7 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
     String mode;
 
     //关卡数据
-    List<XLLevel> levels;
+    List<LinkLevel> levels;
 
     //按钮
     ImageButton home;
@@ -87,8 +87,8 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
         Log.d(Constant.TAG,mode);
         assert levels != null;
         Log.d(Constant.TAG,levels.size()+"");
-        for (XLLevel xlLevel : levels) {
-            Log.d(Constant.TAG,xlLevel.toString());
+        for (LinkLevel linkLevel : levels) {
+            Log.d(Constant.TAG, linkLevel.toString());
         }
     }
 
@@ -142,12 +142,12 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
                         (Constant.LEVEL_ROW_COUNT + 1);
 
                 //创建视图
-                XLImageView xlImageView = new XLImageView(
+                MyImageView myImageView = new MyImageView(
                         getApplicationContext(),
                         LevelState.getState(levels.get(i).getL_new()));
 
                 //设置id
-                xlImageView.setId(i);
+                myImageView.setId(i);
 
                 //布局参数
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
@@ -168,10 +168,10 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
                 }
 
                 //添加控件到容器中
-                level_layout.addView(xlImageView,layoutParams);
+                level_layout.addView(myImageView,layoutParams);
 
                 //点击事件
-                xlImageView.setOnClickListener(v -> {
+                myImageView.setOnClickListener(v -> {
                     //播放点击音效
                     SoundPlayUtil.getInstance(getBaseContext()).play(3);
 //                            判断是否可以进入该关卡
@@ -192,7 +192,7 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
     /**
      * 界面跳转
      */
-    public void jumpToLinkActivity(XLLevel level){
+    public void jumpToLinkActivity(LinkLevel level){
         //跳转界面
         Intent intent = new Intent(this, LinkActivity.class);
         //加入数据

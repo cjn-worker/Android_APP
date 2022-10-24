@@ -8,7 +8,7 @@ import org.litepal.crud.LitePalSupport;
 /**
  * 关卡类
  */
-public class XLLevel extends LitePalSupport implements Parcelable {
+public class LinkLevel extends LitePalSupport implements Parcelable {
     //id
     private int id;
     //关卡号
@@ -63,7 +63,7 @@ public class XLLevel extends LitePalSupport implements Parcelable {
 
     @Override
     public String toString() {
-        return "XLLevel{" +
+        return "LinkLevel{" +
                 "id=" + id +
                 ", l_id=" + l_id +
                 ", l_time=" + l_time +
@@ -85,25 +85,25 @@ public class XLLevel extends LitePalSupport implements Parcelable {
         dest.writeCharArray(new char[]{l_mode,l_new});
     }
 
-    public static final Creator<XLLevel> CREATOR = new Creator<XLLevel>() {
+    public static final Creator<LinkLevel> CREATOR = new Creator<LinkLevel>() {
         @Override
-        public XLLevel createFromParcel(Parcel in) {
+        public LinkLevel createFromParcel(Parcel in) {
             //必须按顺序读取
-            XLLevel xlLevel = new XLLevel();
-            xlLevel.id = in.readInt();
-            xlLevel.l_id = in.readInt();
-            xlLevel.l_time = in.readInt();
+            LinkLevel linkLevel = new LinkLevel();
+            linkLevel.id = in.readInt();
+            linkLevel.l_id = in.readInt();
+            linkLevel.l_time = in.readInt();
             char[] temp = new char[2];
             in.readCharArray(temp);
-            xlLevel.l_mode = temp[0];
-            xlLevel.l_new = temp[1];
+            linkLevel.l_mode = temp[0];
+            linkLevel.l_new = temp[1];
 
-            return xlLevel;
+            return linkLevel;
         }
 
         @Override
-        public XLLevel[] newArray(int size) {
-            return new XLLevel[size];
+        public LinkLevel[] newArray(int size) {
+            return new LinkLevel[size];
         }
     };
 }

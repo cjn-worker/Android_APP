@@ -2,7 +2,7 @@ package com.example.androidapp.model;
 
 import org.litepal.crud.LitePalSupport;
 
-public class XLScore extends LitePalSupport{
+public class LinkScore extends LitePalSupport{
 
     //用户得分
     private int one_score;
@@ -65,7 +65,7 @@ public class XLScore extends LitePalSupport{
 
     @Override
     public String toString() {
-        return "XLScore{" +
+        return "LinkScore{" +
                 "one_score=" + one_score +
                 ", two_score=" + two_score +
                 ", three_score=" + three_score +

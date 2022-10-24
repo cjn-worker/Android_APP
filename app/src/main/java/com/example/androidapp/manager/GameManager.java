@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -22,7 +21,7 @@ import com.example.androidapp.constant.LinkConstant;
 import com.example.androidapp.LinkGame.LinkModel.Point;
 import com.example.androidapp.utils.LinkUtils;
 import com.example.androidapp.utils.PxUtil;
-import com.example.androidapp.model.XLLevel;
+import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.music.BackgroundMusicManager;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.view.ImgView;
@@ -262,7 +261,7 @@ public class GameManager
     }
 
     //结束游戏
-    public void endGame(final Context context, XLLevel level, float time)
+    public void endGame(final Context context, LinkLevel level, float time)
     {
         if (time < 0.1)
         {

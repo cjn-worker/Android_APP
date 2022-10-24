@@ -8,7 +8,7 @@ import android.util.Log;
 
 
 import com.example.androidapp.constant.Constant;
-import com.example.androidapp.model.XLLevel;
+import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
 
@@ -21,7 +21,7 @@ import java.util.List;
 public class FailureActivity extends BaseActivity
 {
     //关卡
-    XLLevel level;
+    LinkLevel level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,12 +61,12 @@ public class FailureActivity extends BaseActivity
         if (flag == 0)
         {
             //查询对应模式的数据
-            List<XLLevel> XLLevels = LitePal.where("l_mode == ?", String.valueOf(level.getL_mode())).find(XLLevel.class);
-            Log.d(Constant.TAG, XLLevels.size() + "");
+            List<LinkLevel> LinkLevels = LitePal.where("l_mode == ?", String.valueOf(level.getL_mode())).find(LinkLevel.class);
+            Log.d(Constant.TAG, LinkLevels.size() + "");
             //依次查询每一个内容
-            for (XLLevel xlLevel : XLLevels)
+            for (LinkLevel linkLevel : LinkLevels)
             {
-                Log.d(Constant.TAG, xlLevel.toString());
+                Log.d(Constant.TAG, linkLevel.toString());
             }
 
             //跳转界面
@@ -76,7 +76,7 @@ public class FailureActivity extends BaseActivity
             //加入关卡模式数据
             bundle.putString("mode", "简单");
             //加入关卡数据
-            bundle.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) XLLevels);
+            bundle.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) LinkLevels);
             intent.putExtras(bundle);
             startActivity(intent);
         }

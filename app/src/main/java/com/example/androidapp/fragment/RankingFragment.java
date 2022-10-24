@@ -17,7 +17,7 @@ import org.litepal.LitePal;
 
 import java.util.List;
 
-import com.example.androidapp.model.XLScore;
+import com.example.androidapp.model.LinkScore;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
 
@@ -43,8 +43,8 @@ public class RankingFragment extends Fragment
 
 
         //查询用户数据
-        List<XLScore> scores = LitePal.findAll(XLScore.class);
-        XLScore score = scores.get(0);
+        List<LinkScore> scores = LitePal.findAll(LinkScore.class);
+        LinkScore score = scores.get(0);
         //存储用户数据
         one_score = score.getOne_score();
         two_score = score.getTwo_score();

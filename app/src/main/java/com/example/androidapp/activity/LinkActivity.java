@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -21,25 +20,24 @@ import android.widget.Toast;
 
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.androidapp.constant.Constant;
 import com.example.androidapp.constant.Enum.PropMode;
 import com.example.androidapp.constant.LinkConstant;
 import com.example.androidapp.fragment.PauseFragment;
 import com.example.androidapp.LinkGame.LinkModel.Kernel;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
 import com.example.androidapp.LinkGame.LinkModel.LinkInfoList;
+import com.example.androidapp.model.LinkProp;
+import com.example.androidapp.model.LinkUser;
 import com.example.androidapp.utils.LinkUtils;
 import com.example.androidapp.utils.ScreenUtil;
-import com.example.androidapp.model.XLLevel;
-import com.example.androidapp.model.XLProp;
-import com.example.androidapp.model.XLUser;
+import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
-import com.example.androidapp.view.XLButton;
-import com.example.androidapp.view.XLTextView;
+import com.example.androidapp.view.MyButton;
+import com.example.androidapp.view.MyTextView;
 import com.example.androidapp.manager.GameManager;
 import com.example.androidapp.view.ImgView;
-import com.example.androidapp.view.XLRelativeLayout;
+import com.example.androidapp.view.MyRelativeLayout;
 
 import org.litepal.LitePal;
 
@@ -58,11 +56,11 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     private int screenWidth;
     private int screenHeight;
     //游戏的布局，存放imgviews
-    private XLRelativeLayout layout;
+    private MyRelativeLayout layout;
     //关卡
-    private XLLevel level;
+    private LinkLevel level;
     //用户
-    private XLUser user;
+    private LinkUser user;
     //记录金币的变量
     int money;
     //时间条
@@ -70,13 +68,13 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     //是否暂停的标志
     private final boolean isPause = false;
     //显示关卡的文本
-    private XLTextView level_text;
+    private MyTextView level_text;
     //显示金币的文本
-    private XLTextView money_text;
+    private MyTextView money_text;
     //显示分数的文本
-    private XLTextView score_text;
+    private MyTextView score_text;
     //暂停按钮
-    private XLButton pause;
+    private MyButton pause;
     //记录分数的变量
     private int score;
 
@@ -95,7 +93,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     int refresh_num;
 
     //道具
-    List<XLProp> props;
+    List<LinkProp> props;
 
     @SuppressLint("ClickableViewAccessibility")
     protected void onCreate(Bundle savedInstanceState)
@@ -124,7 +122,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         level = bundle.getParcelable("level");
 
         //查询用户数据
-        List<XLUser> users = LitePal.findAll(XLUser.class);
+        List<LinkUser> users = LitePal.findAll(LinkUser.class);
         user = users.get(0);
         money = user.getU_money();
 
@@ -137,8 +135,8 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         score = 0;
 
         //查询道具数据
-        props = LitePal.findAll(XLProp.class);
-        for (XLProp prop : props)
+        props = LitePal.findAll(LinkProp.class);
+        for (LinkProp prop : props)
         {
             if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue())
             {
@@ -179,7 +177,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     @SuppressLint("ClickableViewAccessibility")
     private void initLayout()
     {
-        layout = new XLRelativeLayout(this);
+        layout = new MyRelativeLayout(this);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         layout.setLayoutParams(layoutParams);
 
@@ -372,7 +370,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
             level.update(level.getId());
 
             //下一关判断
-            XLLevel next_level = LitePal.find(XLLevel.class, level.getId() + 1);
+            LinkLevel next_level = LitePal.find(LinkLevel.class, level.getId() + 1);
             if (next_level.getL_new() == '0')
             {
                 next_level.setL_new('4');
@@ -407,7 +405,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                     //数据库处理
                     ContentValues values = new ContentValues();
                     values.put("p_number", fight_num);
-                    LitePal.update(XLProp.class, values, 1);
+                    LitePal.update(LinkProp.class, values, 1);
                 }
                 else
                 {
@@ -428,7 +426,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                     //数据库处理
                     ContentValues values = new ContentValues();
                     values.put("p_number", bomb_num);
-                    LitePal.update(XLProp.class, values, 2);
+                    LitePal.update(LinkProp.class, values, 2);
                 }
                 else
                 {
@@ -458,7 +456,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                     //数据库处理
                     ContentValues values = new ContentValues();
                     values.put("p_number", refresh_num);
-                    LitePal.update(XLProp.class, values, 3);
+                    LitePal.update(LinkProp.class, values, 3);
                 }
                 else
                 {

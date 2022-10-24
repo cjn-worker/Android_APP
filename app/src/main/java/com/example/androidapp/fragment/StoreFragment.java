@@ -1,7 +1,6 @@
 package com.example.androidapp.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +17,9 @@ import org.litepal.LitePal;
 
 import java.util.List;
 
-import com.example.androidapp.constant.Constant;
 import com.example.androidapp.constant.Enum.PropMode;
-import com.example.androidapp.model.XLProp;
-import com.example.androidapp.model.XLUser;
+import com.example.androidapp.model.LinkProp;
+import com.example.androidapp.model.LinkUser;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
 
@@ -50,14 +48,14 @@ public class StoreFragment extends Fragment
 
         //处理事件
         //查询用户数据
-        List<XLUser> users = LitePal.findAll(XLUser.class);
-        XLUser user = users.get(0);
+        List<LinkUser> users = LitePal.findAll(LinkUser.class);
+        LinkUser user = users.get(0);
         //存储用户数据
         user_money = user.getU_money();
 
         //查询道具数据
-        List<XLProp> props = LitePal.findAll(XLProp.class);
-        for (XLProp prop : props)
+        List<LinkProp> props = LitePal.findAll(LinkProp.class);
+        for (LinkProp prop : props)
         {
             if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue())
             {
@@ -139,7 +137,7 @@ public class StoreFragment extends Fragment
     private void refreshSQLite(PropMode mode, View inflate)
     {
         //道具对象
-        XLProp prop = new XLProp();
+        LinkProp prop = new LinkProp();
 
         switch (mode)
         {
@@ -176,7 +174,7 @@ public class StoreFragment extends Fragment
         }
 
         //刷新用户数据
-        XLUser user = new XLUser();
+        LinkUser user = new LinkUser();
         user.setU_money(user_money);
         user.update(1);
 

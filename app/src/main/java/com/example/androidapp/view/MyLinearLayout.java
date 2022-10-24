@@ -7,12 +7,12 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
-public class XLLinearLayout extends LinearLayout {
-    public XLLinearLayout(Context context) {
+public class MyLinearLayout extends LinearLayout {
+    public MyLinearLayout(Context context) {
         super(context);
     }
 
-    public XLLinearLayout(Context context, @Nullable AttributeSet attrs) {
+    public MyLinearLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 

@@ -6,12 +6,12 @@ import android.util.AttributeSet;
 
 import androidx.annotation.Nullable;
 
-public class XLButton extends androidx.appcompat.widget.AppCompatButton {
-    public XLButton(Context context) {
+public class MyButton extends androidx.appcompat.widget.AppCompatButton {
+    public MyButton(Context context) {
         super(context);
     }
 
-    public XLButton(Context context, AttributeSet attrs) {
+    public MyButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

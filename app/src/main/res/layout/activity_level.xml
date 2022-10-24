@@ -81,7 +81,7 @@
                 android:background="@drawable/level_page_left_pic"
                 android:enabled="false" />
 
-            <com.example.androidapp.view.XLTextView
+            <com.example.androidapp.view.MyTextView
                 android:id="@+id/page_text"
                 style="@style/ShowPagerMessage"
                 android:layout_width="36dp"
