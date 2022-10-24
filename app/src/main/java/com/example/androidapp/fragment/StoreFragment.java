@@ -81,7 +81,7 @@ public class StoreFragment extends Fragment
         NumberOfItem prop_fight = inflate.findViewById(R.id.prop_tip);
         prop_fight.setCount(fight_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
-        //prop_bomb.setCount(bomb_num);
+        prop_bomb.setCount(bomb_num);
         NumberOfItem prop_refresh = inflate.findViewById(R.id.prop_refresh);
         prop_refresh.setCount(refresh_num);
 
