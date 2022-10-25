@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.example.androidapp.LinkGame.LinkModel.Point;
+import com.example.androidapp.game.link.Point;
 
 public class ImgView extends androidx.appcompat.widget.AppCompatImageView
 {

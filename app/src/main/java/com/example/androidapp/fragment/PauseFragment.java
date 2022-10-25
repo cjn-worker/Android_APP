@@ -20,7 +20,7 @@ import com.example.androidapp.constant.Enum.LevelState;
 import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
-import com.example.androidapp.manager.GameManager;
+import com.example.androidapp.game.manager.GameManager;
 
 import org.litepal.LitePal;
 

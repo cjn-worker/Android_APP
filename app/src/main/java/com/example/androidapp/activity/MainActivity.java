@@ -192,7 +192,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             LinkProp tip_fight = new LinkProp();
             tip_fight.setP_kind('1');
             tip_fight.setP_number(50);
-            tip_fight.setP_price(5);
+            tip_fight.setP_price(10);
             tip_fight.save();
 
             //2.装入炸弹道具
@@ -262,7 +262,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
             //播放
             BackgroundMusicManager.getInstance(this).playBackgroundMusic(
-                    R.raw.bg_music,
+                    R.raw.game_bg_music,
                     true
             );
         }

@@ -5,8 +5,8 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
-import com.example.androidapp.LinkGame.LinkModel.Point;
+import com.example.androidapp.game.link.LinkInfo;
+import com.example.androidapp.game.link.Point;
 import com.example.androidapp.utils.LinkUtils;
 
 import java.util.List;

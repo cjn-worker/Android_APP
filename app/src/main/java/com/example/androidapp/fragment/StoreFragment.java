@@ -99,21 +99,21 @@ public class StoreFragment extends Fragment
         LinearLayout fight = inflate.findViewById(R.id.store_tip);
 
         fight.setOnClickListener(v -> {
-            SoundPlayUtil.getInstance(getContext()).play(3);
+            SoundPlayUtil.getInstance(getContext()).play(6);
             refreshSQLite(PropMode.PROP_TIP, inflate);
         });
 
         //购买炸弹
         inflate.findViewById(R.id.store_bomb).setOnClickListener(v -> {
             //播放点击音效
-            SoundPlayUtil.getInstance(getContext()).play(3);
+            SoundPlayUtil.getInstance(getContext()).play(6);
             refreshSQLite(PropMode.PROP_BOMB, inflate);
         });
 
         //购买刷新
         inflate.findViewById(R.id.store_refresh).setOnClickListener(v -> {
             //播放点击音效
-            SoundPlayUtil.getInstance(getContext()).play(3);
+            SoundPlayUtil.getInstance(getContext()).play(6);
             refreshSQLite(PropMode.PROP_REFRESH, inflate);
         });
 

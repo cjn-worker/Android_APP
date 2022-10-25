@@ -23,9 +23,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.androidapp.constant.Enum.PropMode;
 import com.example.androidapp.constant.LinkConstant;
 import com.example.androidapp.fragment.PauseFragment;
-import com.example.androidapp.LinkGame.LinkModel.Kernel;
-import com.example.androidapp.LinkGame.LinkModel.LinkInfo;
-import com.example.androidapp.LinkGame.LinkModel.LinkInfoList;
+import com.example.androidapp.game.link.Kernel;
+import com.example.androidapp.game.link.LinkInfoList;
 import com.example.androidapp.model.LinkProp;
 import com.example.androidapp.model.LinkUser;
 import com.example.androidapp.utils.LinkUtils;
@@ -35,7 +34,7 @@ import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
 import com.example.androidapp.view.MyButton;
 import com.example.androidapp.view.MyTextView;
-import com.example.androidapp.manager.GameManager;
+import com.example.androidapp.game.manager.GameManager;
 import com.example.androidapp.view.ImgView;
 import com.example.androidapp.view.MyRelativeLayout;
 
@@ -106,7 +105,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         manager.startGame(this,
                 layout,
                 screenWidth,
-                screenHeight - 350 - ScreenUtil.getNavigationBarHeight(getApplicationContext()),
+                screenHeight - 150 - ScreenUtil.getNavigationBarHeight(getApplicationContext()),
                 level.getL_id(),
                 level.getL_mode()
         );
@@ -222,7 +221,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
                                     ))
                             {
                                 startViewAnimation(imgView);
-                                layout.setLinkInfo(new LinkInfo(linkInfoList.getLink().get(0)));
+                                layout.setLinkInfo(linkInfoList.Unseal(0));
                                 //设置所有的图标不可以点击
                                 layout.setEnabled(false);
                                 SoundPlayUtil.getInstance(getBaseContext()).play(4);
