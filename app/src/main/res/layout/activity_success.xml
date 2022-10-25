@@ -240,16 +240,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="bottom"
+            android:layout_gravity="bottom|center"
             android:layout_weight="3"
             android:background="#8050C6FD"
-            android:gravity="bottom"
+            android:gravity="bottom|center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="bottom|center"
                 android:layout_weight="1"
+                android:gravity="bottom|center"
                 android:orientation="vertical">
 
                 <Button
@@ -265,6 +267,7 @@
                     android:id="@+id/XLTextView16"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center|top"
                     android:layout_weight="2"
                     android:gravity="center|top"
                     android:text="关卡菜单"
@@ -275,7 +278,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="bottom|center"
                 android:layout_weight="1"
+                android:gravity="bottom|center"
                 android:orientation="vertical">
 
                 <Button
@@ -290,6 +295,7 @@
                     android:id="@+id/XLTextView11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center|top"
                     android:layout_weight="2"
                     android:gravity="center|top"
                     android:text="再来一次"
@@ -300,7 +306,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="bottom|center"
                 android:layout_weight="1"
+                android:gravity="bottom|center"
                 android:orientation="vertical">
 
                 <Button
@@ -315,6 +323,7 @@
                     android:id="@+id/XLTextView9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center|top"
                     android:layout_weight="2"
                     android:gravity="center|top"
                     android:text="下一关卡"

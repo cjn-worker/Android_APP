@@ -32,23 +32,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="52dp">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <com.example.androidapp.view.MyButton
                     android:id="@+id/link_pause_btn"
-                    android:layout_width="26dp"
-                    android:layout_height="43dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
+                    android:layout_weight="8"
                     android:background="@drawable/link_pause_pic"
                     android:foregroundGravity="center_vertical|center" />
 
                 <SeekBar
                     android:id="@+id/link_time_bar"
-                    android:layout_width="240dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="4"
+                    android:layout_weight="1"
                     android:max="90"
                     android:progress="90"
                     android:progressDrawable="@drawable/link_timer_seekbar_bg"
@@ -59,13 +60,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="52dp">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
+                    android:layout_weight="4"
                     android:orientation="vertical"
                     tools:ignore="MissingConstraints">
 
@@ -77,7 +79,7 @@
                         android:gravity="center"
                         android:text="关卡"
                         android:textColor="@color/white"
-                        android:textSize="20sp" />
+                        android:textSize="24sp" />
 
                     <com.example.androidapp.view.MyTextView
                         android:id="@+id/link_level_text"
@@ -93,10 +95,10 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="330dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_weight="4"
+                    android:layout_weight="1"
                     android:background="@drawable/prop_bg"
                     android:gravity="center"
                     android:orientation="horizontal">

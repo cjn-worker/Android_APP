@@ -127,7 +127,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //如果关卡数据为空，装入数据
         if (levels.size() == 0){
             //简单模式
-            for(int i = 1; i <= 40; i++){
+            for(int i = 1; i <= Constant.LEVEL_NUM; i++){
                 LinkLevel level = new LinkLevel();
                 //设置关卡号
                 level.setL_id(i);
@@ -147,7 +147,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
 
             //普通模式
-            for(int i = 1; i <= 40; i++){
+            for(int i = 1; i <= Constant.LEVEL_NUM; i++){
                 LinkLevel level = new LinkLevel();
                 //设置关卡号
                 level.setL_id(i);
@@ -167,7 +167,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
 
             //困难模式
-            for(int i = 1; i <= 40; i++) {
+            for(int i = 1; i <= Constant.LEVEL_NUM; i++) {
                 LinkLevel level = new LinkLevel();
                 //设置关卡号
                 level.setL_id(i);

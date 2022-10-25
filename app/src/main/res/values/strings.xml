@@ -6,8 +6,8 @@
     <string name="help"></string>
     <string name="settings"></string>
     <string name="Link">关卡</string>
-    <string name="Prop_Fight_Text">锤子</string>
-    <string name="Prop_Fight_Des">找出一对\n可连接的emoji</string>
+    <string name="Prop_Tip_Text">锤子</string>
+    <string name="Prop_Tip_Des">找出一对\n可连接的emoji</string>
     <string name="Prop_Bomb_Text">炸弹</string>
     <string name="Prop_Bomb_Des">消除某个种类\n所有的emoji</string>
     <string name="Prop_Refresh_Text">重排</string>

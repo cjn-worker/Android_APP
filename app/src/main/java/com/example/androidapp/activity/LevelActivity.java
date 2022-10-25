@@ -43,7 +43,7 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
     Button go_right;
 
     //确定总页数
-    int pager;
+    int page;
 
     //文本
     TextView page_info;
@@ -130,12 +130,12 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
             //循环展示
             for (int i = 0; i < levels.size(); i++){
                 //确定页数
-                pager = i / Constant.LEVEL_PAGER_COUNT;
-                page_info.setText("1/"+(pager+1));
+                page = i / Constant.LEVEL_PAGE_COUNT;
+                page_info.setText("1/"+(page+1));
                 //确定在当前页数的第几行
-                int pager_row = i % Constant.LEVEL_PAGER_COUNT / Constant.LEVEL_ROW_COUNT;
+                int pager_row = i % Constant.LEVEL_PAGE_COUNT / Constant.LEVEL_ROW_COUNT;
                 //确定在当前页数的第几列
-                int pager_col = i % Constant.LEVEL_PAGER_COUNT % Constant.LEVEL_ROW_COUNT;
+                int pager_col = i % Constant.LEVEL_PAGE_COUNT % Constant.LEVEL_ROW_COUNT;
                 //边距
                 int level_padding = (screenWidth - Constant.LEVEL_ROW_COUNT *
                         PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) /
@@ -156,7 +156,7 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
                 );
 
                 //添加约束
-                layoutParams.leftMargin = screenWidth * pager + level_padding +
+                layoutParams.leftMargin = screenWidth * page + level_padding +
                         (level_padding + PxUtil.dpToPx(Constant.LEVEL_SIZE,getApplicationContext())) * pager_col;
                 layoutParams.topMargin = ScreenUtil.getStateBarHeight(getApplicationContext()) +
                         PxUtil.dpToPx(Constant.LEVEL_TOP,getApplicationContext()) +
@@ -212,11 +212,11 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
      */
     public boolean scrollLevelsOfDirection(int direction){
 
-        if ((direction == 1 && offset == (pager * screenWidth)) || (direction == -1 && offset == 0)){
+        if ((direction == 1 && offset == (page * screenWidth)) || (direction == -1 && offset == 0)){
             //如果当前向右滑动 且 当前已经处于最后一页 或
             //如果当前向左滑动 且 当前已经处于第一页
             return false;
-        }else if(direction == 1 && offset == ((pager-1) * screenWidth)) {
+        }else if(direction == 1 && offset == ((page -1) * screenWidth)) {
             //如果当前向右滑动 且 滑动后处于最后一页
             //右边的按钮设置不可用
             go_right.setEnabled(false);
@@ -237,7 +237,7 @@ public class LevelActivity extends BaseActivity implements View.OnClickListener 
         offset = offset + screenWidth * direction;
 
         //修改显示内容
-        page_info.setText((offset / screenWidth+1) + "/" + (pager+1));
+        page_info.setText((offset / screenWidth+1) + "/" + (page +1));
 
         return true;
     }

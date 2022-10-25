@@ -112,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="@string/Prop_Fight_Des"
+                        android:text="@string/Prop_Tip_Des"
                         android:textColor="#A31F86" />
 
 
@@ -326,16 +326,14 @@
     <!--关闭按钮-->
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_above="@+id/view_store"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="-45dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="112dp"
+        android:layout_alignEnd="@+id/view_store"
+        android:layout_alignStart="@+id/view_store"
+        android:layout_marginBottom="-46dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginStart="103dp"
         android:src="@drawable/store_candy_pic" />
 
     <ImageView

@@ -4,8 +4,10 @@ public interface Constant {
     //日志TAG
     String TAG = "Constant";
 
+    //总关卡数目
+    int LEVEL_NUM = 48;
     //一页展示关卡的个数
-    int LEVEL_PAGER_COUNT = 16;
+    int LEVEL_PAGE_COUNT = 16;
 
     //一行展示的关卡的个数
     int LEVEL_ROW_COUNT = 4;

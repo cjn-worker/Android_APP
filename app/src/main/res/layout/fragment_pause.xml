@@ -278,7 +278,7 @@
 
             <Button
                 android:id="@+id/pause_level_btn"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="bottom|center"
                 android:layout_weight="1"
@@ -306,7 +306,7 @@
 
             <Button
                 android:id="@+id/pause_restart_btn"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="bottom|center"
                 android:layout_weight="1"
@@ -334,7 +334,7 @@
 
             <Button
                 android:id="@+id/pause_next_btn"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="bottom|center"
                 android:layout_weight="1"
