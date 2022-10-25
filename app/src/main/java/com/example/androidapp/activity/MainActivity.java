@@ -186,12 +186,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
         //如果道具数据为空，装入数据
         if (props.size() == 0){
-            //1.装入拳头道具
-            XLProp prop_fight = new XLProp();
-            prop_fight.setP_kind('1');
-            prop_fight.setP_number(50);
-            prop_fight.setP_price(5);
-            prop_fight.save();
+            //1.装入提示道具
+            XLProp prop_tip = new XLProp();
+            prop_tip.setP_kind('1');
+            prop_tip.setP_number(50);
+            prop_tip.setP_price(5);
+            prop_tip.save();
 
             //2.装入炸弹道具
             XLProp prop_bomb = new XLProp();

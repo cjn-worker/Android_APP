@@ -129,7 +129,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         //查询道具数据
         props = LitePal.findAll(XLProp.class);
         for (XLProp prop : props) {
-            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue()){
+            if (prop.getP_kind() == PropMode.PROP_TIP.getValue()){
                 //拳头道具
                 fight_num = prop.getP_number();
                 Log.d(Constant.TAG,"查询的消除道具数量："+fight_num);
