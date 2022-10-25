@@ -5,7 +5,7 @@ package com.example.androidapp.constant.Enum;
  */
 public enum PropMode {
     //简单模式
-    PROP_FIGHT('1'),
+    PROP_TIP('1'),
     //普通模式
     PROP_BOMB('2'),
     //困难模式

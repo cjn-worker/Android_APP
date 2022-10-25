@@ -6,7 +6,7 @@ import org.litepal.crud.LitePalSupport;
  * 道具
  */
 public class LinkProp extends LitePalSupport {
-    //道具的种类 1：拳头 2：炸弹 3：刷新
+    //道具的种类 1：提示 2：炸弹 3：刷新
     private char p_kind;
     //道具的的数量
     private int p_number;

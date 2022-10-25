@@ -29,8 +29,8 @@ public class StoreFragment extends Fragment
 {
     //存储数据
     private int user_money = 0;
-    private int fight_money = 0;
-    private int fight_num = 0;
+    private int tip_money = 0;
+    private int tip_num = 0;
     private int bomb_money = 0;
     private int bomb_num = 0;
     private int refresh_money = 0;
@@ -57,11 +57,11 @@ public class StoreFragment extends Fragment
         List<LinkProp> props = LitePal.findAll(LinkProp.class);
         for (LinkProp prop : props)
         {
-            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue())
+            if (prop.getP_kind() == PropMode.PROP_TIP.getValue())
             {
                 //拳头道具
-                fight_money = prop.getP_price();
-                fight_num = prop.getP_number();
+                tip_money = prop.getP_price();
+                tip_num = prop.getP_number();
             }
             else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue())
             {
@@ -79,7 +79,7 @@ public class StoreFragment extends Fragment
 
         //找到显示道具数量的文本
         NumberOfItem prop_fight = inflate.findViewById(R.id.prop_tip);
-        prop_fight.setCount(fight_num);
+        prop_fight.setCount(tip_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
         prop_bomb.setCount(bomb_num);
         NumberOfItem prop_refresh = inflate.findViewById(R.id.prop_refresh);
@@ -89,7 +89,7 @@ public class StoreFragment extends Fragment
         TextView user_money_text = inflate.findViewById(R.id.store_user_money);
         user_money_text.setText(String.valueOf(user_money));
         TextView fight_money_text = inflate.findViewById(R.id.store_fight_money);
-        fight_money_text.setText(String.valueOf(fight_money));
+        fight_money_text.setText(String.valueOf(tip_money));
         TextView bomb_money_text = inflate.findViewById(R.id.store_bomb_money);
         bomb_money_text.setText(String.valueOf(bomb_money));
         TextView refresh_money_text = inflate.findViewById(R.id.store_refresh_money);
@@ -100,7 +100,7 @@ public class StoreFragment extends Fragment
 
         fight.setOnClickListener(v -> {
             SoundPlayUtil.getInstance(getContext()).play(3);
-            refreshSQLite(PropMode.PROP_FIGHT, inflate);
+            refreshSQLite(PropMode.PROP_TIP, inflate);
         });
 
         //购买炸弹
@@ -141,16 +141,16 @@ public class StoreFragment extends Fragment
 
         switch (mode)
         {
-            case PROP_FIGHT:
-                if(user_money>=fight_money) {
-                    user_money -= fight_money;
-                    fight_num++;
+            case PROP_TIP:
+                if(user_money>= tip_money) {
+                    user_money -= tip_money;
+                    tip_num++;
 
-                    prop.setP_number(fight_num);
+                    prop.setP_number(tip_num);
                     prop.update(1);
 
                     //道具购买提示
-                    Toast.makeText(getContext(), "成功购买一个锤子道具，消耗" + fight_money + "金币", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "成功购买一个锤子道具，消耗" + tip_money + "金币", Toast.LENGTH_SHORT).show();
                 }
                 else
                     Toast.makeText(getContext(), "金币不足" , Toast.LENGTH_SHORT).show();
@@ -196,7 +196,7 @@ public class StoreFragment extends Fragment
 
         //找到显示道具数量的文本
         NumberOfItem prop_fight = inflate.findViewById(R.id.prop_tip);
-        prop_fight.setCount(fight_num);
+        prop_fight.setCount(tip_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
         prop_bomb.setCount(bomb_num);
         NumberOfItem prop_refresh = inflate.findViewById(R.id.prop_refresh);

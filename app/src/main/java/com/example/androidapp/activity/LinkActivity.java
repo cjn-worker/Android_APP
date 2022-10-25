@@ -138,7 +138,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         props = LitePal.findAll(LinkProp.class);
         for (LinkProp prop : props)
         {
-            if (prop.getP_kind() == PropMode.PROP_FIGHT.getValue())
+            if (prop.getP_kind() == PropMode.PROP_TIP.getValue())
             {
                 //拳头道具
                 fight_num = prop.getP_number();
