@@ -26,14 +26,14 @@
             android:paddingBottom="20dp"
             android:paddingTop="20dp">
 
-            <com.example.androidapp.view.XLTextView
+            <com.example.androidapp.view.MyTextView
                 style="@style/ShowMoneyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ShowMoney" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:background="@drawable/store_show_money_bg"
@@ -48,12 +48,13 @@
                     android:src="@drawable/store_coin_pic" />
 
                 <!--持有的数目-->
-                <com.example.androidapp.view.XLTextView
+                <com.example.androidapp.view.MyTextView
                     android:id="@+id/store_user_money"
                     style="@style/ShowMoneyNumText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="1099" />
+                    android:gravity="center"
+                    android:text="1000" />
 
             </LinearLayout>
 
@@ -90,14 +91,14 @@
                     app:srcResource="@drawable/prop_tip_pic" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
                     android:padding="5dp">
 
                     <!--名称-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         style="@style/ShowSimplePropTitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -106,7 +107,7 @@
                         android:textColor="@color/black" />
 
                     <!--描述-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         style="@style/ShowSimplePropDesText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -117,9 +118,9 @@
 
                 </LinearLayout>
 
-                <com.example.androidapp.view.XLLinearLayout
+                <com.example.androidapp.view.MyLinearLayout
                     android:id="@+id/store_tip"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="15dp"
@@ -136,16 +137,17 @@
                         android:src="@drawable/store_coin_pic" />
 
                     <!--持有的数目-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         android:id="@+id/store_fight_money"
                         style="@style/ShowSimpleMoneyNumText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:text="10" />
+                        android:text="20" />
 
-                </com.example.androidapp.view.XLLinearLayout>
+                </com.example.androidapp.view.MyLinearLayout>
 
                 <!--道具文本说明-->
 
@@ -170,14 +172,14 @@
                     app:srcResource="@drawable/prop_bomb_pic" />
 
                 <LinearLayout
-                    android:layout_width="108dp"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
                     android:padding="5dp">
 
                     <!--名称-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         style="@style/ShowSimplePropTitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -186,7 +188,7 @@
                         android:textColor="@color/black" />
 
                     <!--描述-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         style="@style/ShowSimplePropDesText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -197,9 +199,9 @@
 
                 </LinearLayout>
 
-                <com.example.androidapp.view.XLLinearLayout
+                <com.example.androidapp.view.MyLinearLayout
                     android:id="@+id/store_bomb"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="15dp"
@@ -216,16 +218,17 @@
                         android:src="@drawable/store_coin_pic" />
 
                     <!--持有的数目-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         android:id="@+id/store_bomb_money"
                         style="@style/ShowSimpleMoneyNumText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:text="10" />
+                        android:text="50" />
 
-                </com.example.androidapp.view.XLLinearLayout>
+                </com.example.androidapp.view.MyLinearLayout>
 
                 <!--道具文本说明-->
 
@@ -251,14 +254,14 @@
                     app:srcResource="@drawable/prop_refresh_pic" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
                     android:padding="5dp">
 
                     <!--名称-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         style="@style/ShowSimplePropTitleText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -267,7 +270,7 @@
                         android:textColor="@color/black" />
 
                     <!--描述-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         style="@style/ShowSimplePropDesText"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
@@ -278,9 +281,9 @@
 
                 </LinearLayout>
 
-                <com.example.androidapp.view.XLLinearLayout
+                <com.example.androidapp.view.MyLinearLayout
                     android:id="@+id/store_refresh"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="15dp"
@@ -297,16 +300,17 @@
                         android:src="@drawable/store_coin_pic" />
 
                     <!--持有的数目-->
-                    <com.example.androidapp.view.XLTextView
+                    <com.example.androidapp.view.MyTextView
                         android:id="@+id/store_refresh_money"
                         style="@style/ShowSimpleMoneyNumText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:inputType="number"
                         android:maxLines="1"
                         android:text="10" />
 
-                </com.example.androidapp.view.XLLinearLayout>
+                </com.example.androidapp.view.MyLinearLayout>
 
                 <!--道具文本说明-->
 

@@ -1,7 +1,7 @@
 package com.example.androidapp.fragment;
 
 
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +17,12 @@ import org.litepal.LitePal;
 
 import java.util.List;
 
-import com.example.androidapp.model.XLScore;
+import com.example.androidapp.model.LinkScore;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
 
-public class RankingFragment extends Fragment {
+public class RankingFragment extends Fragment
+{
     //存储数据
     private int one_score = 0;
     private int two_score = 0;
@@ -29,9 +30,11 @@ public class RankingFragment extends Fragment {
     private int four_score = 0;
     private int five_score = 0;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         //加载布局
         final View inflate = inflater.inflate(R.layout.fragment_rank, container, false);
 
@@ -40,15 +43,14 @@ public class RankingFragment extends Fragment {
 
 
         //查询用户数据
-        List<XLScore> scores = LitePal.findAll(XLScore.class);
-        XLScore score = scores.get(0);
+        List<LinkScore> scores = LitePal.findAll(LinkScore.class);
+        LinkScore score = scores.get(0);
         //存储用户数据
         one_score = score.getOne_score();
         two_score = score.getTwo_score();
         three_score = score.getThree_score();
         four_score = score.getFour_score();
         five_score = score.getFive_score();
-
 
 
         //找到显示道具价值的文本
@@ -73,12 +75,11 @@ public class RankingFragment extends Fragment {
             //播放点击音效
             SoundPlayUtil.getInstance(getContext()).play(3);
 
-            if (getActivity() != null){
+            if (getActivity() != null)
+            {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.remove(RankingFragment.this);
                 transaction.commit();
-            }else {
-                System.out.println("空的Activity");
             }
         });
 

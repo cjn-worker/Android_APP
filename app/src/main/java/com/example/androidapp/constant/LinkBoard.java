@@ -2,9 +2,6 @@ package com.example.androidapp.constant;
 
 public interface LinkBoard
 {
-    /**
-     * 简单模板
-     */
     int [][] board_easy_1 ={
                 {-1, -1, -1, -1},
                 {-1, 1, 1, -1},
@@ -155,9 +152,6 @@ public interface LinkBoard
             {-1,-1,-1,-1,-1,-1,-1}
     };
 
-    /**
-     * 普通模板
-     */
     int [][] board_normal_1 = {
             {-1,-1,-1,-1,-1,-1,-1,-1},
             {-1,1,2,3,4,-1,-1,-1},
@@ -228,9 +222,6 @@ public interface LinkBoard
             {-1,-1,-1,-1,-1,-1,-1,-1}
     };
 
-    /**
-     * 困难模式
-     */
     int [][] board_hard_1 = {
             {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
             {-1,1,2,3,-1,-1,-1,4,5,-1},

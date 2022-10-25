@@ -8,7 +8,7 @@ import android.util.Log;
 
 
 import com.example.androidapp.constant.Constant;
-import com.example.androidapp.model.XLLevel;
+import com.example.androidapp.model.LinkLevel;
 import com.example.androidapp.music.SoundPlayUtil;
 import com.example.androidapp.R;
 
@@ -18,14 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-public class FailureActivity extends BaseActivity {
-
-    //level
-    XLLevel level;
+public class FailureActivity extends BaseActivity
+{
+    //关卡
+    LinkLevel level;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_failure);
 
@@ -39,9 +39,6 @@ public class FailureActivity extends BaseActivity {
         findViewById(R.id.btn_failure_level).setOnClickListener(v -> {
             //播放点击音效
             SoundPlayUtil.getInstance(getBaseContext()).play(3);
-
-            Log.d(Constant.TAG,"关卡菜单按钮被点击了");
-
             jumpToActivity(0);
         });
 
@@ -49,28 +46,27 @@ public class FailureActivity extends BaseActivity {
         findViewById(R.id.btn_failure_restart).setOnClickListener(v -> {
             //播放点击音效
             SoundPlayUtil.getInstance(getBaseContext()).play(3);
-
-            Log.d(Constant.TAG,"刷新按钮被点击了");
-
             jumpToActivity(1);
         });
 
-        //继续播放背景音乐
-        //BackgroundMusicManager.getInstance(this).resumeBackgroundMusic();
     }
 
     /**
      * 跳转界面
+     *
      * @param flag
      */
-    private void jumpToActivity(int flag){
-        if (flag == 0){
+    private void jumpToActivity(int flag)
+    {
+        if (flag == 0)
+        {
             //查询对应模式的数据
-            List<XLLevel> XLLevels = LitePal.where("l_mode == ?", String.valueOf(level.getL_mode())).find(XLLevel.class);
-            Log.d(Constant.TAG,XLLevels.size()+"");
+            List<LinkLevel> LinkLevels = LitePal.where("l_mode == ?", String.valueOf(level.getL_mode())).find(LinkLevel.class);
+            Log.d(Constant.TAG, LinkLevels.size() + "");
             //依次查询每一个内容
-            for (XLLevel xlLevel : XLLevels) {
-                Log.d(Constant.TAG, xlLevel.toString());
+            for (LinkLevel linkLevel : LinkLevels)
+            {
+                Log.d(Constant.TAG, linkLevel.toString());
             }
 
             //跳转界面
@@ -78,18 +74,20 @@ public class FailureActivity extends BaseActivity {
             //加入数据
             Bundle bundle = new Bundle();
             //加入关卡模式数据
-            bundle.putString("mode","简单");
+            bundle.putString("mode", "简单");
             //加入关卡数据
-            bundle.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) XLLevels);
+            bundle.putParcelableArrayList("levels", (ArrayList<? extends Parcelable>) LinkLevels);
             intent.putExtras(bundle);
             startActivity(intent);
-        }else {
+        }
+        else
+        {
             //跳转界面
             Intent intent = new Intent(this, LinkActivity.class);
             //加入数据
             Bundle bundle = new Bundle();
             //加入关卡数据
-            bundle.putParcelable("level",level);
+            bundle.putParcelable("level", level);
             intent.putExtras(bundle);
             startActivity(intent);
         }

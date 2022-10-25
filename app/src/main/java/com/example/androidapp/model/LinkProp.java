@@ -5,7 +5,7 @@ import org.litepal.crud.LitePalSupport;
 /**
  * 道具
  */
-public class XLProp extends LitePalSupport {
+public class LinkProp extends LitePalSupport {
     //道具的种类 1：拳头 2：炸弹 3：刷新
     private char p_kind;
     //道具的的数量
@@ -40,7 +40,7 @@ public class XLProp extends LitePalSupport {
 
     @Override
     public String toString() {
-        return "XLProp{" +
+        return "LinkProp{" +
                 "p_kind=" + p_kind +
                 ", p_number=" + p_number +
                 ", p_price=" + p_price +

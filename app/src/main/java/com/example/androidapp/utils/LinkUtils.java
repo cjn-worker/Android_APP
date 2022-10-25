@@ -140,8 +140,8 @@ public class LinkUtils {
     public static int[][] generateBoard(int level)
     {
         int[][] LinkBoard = generate(level);
-        while(!Auto(LinkBoard))
-            LinkBoard=generate(level);
+//        while(!Auto(LinkBoard))
+//            LinkBoard=generate(level);
 
         return LinkBoard;
     }
@@ -184,6 +184,7 @@ public class LinkUtils {
 
         return list;
     }
+
     public static int getMaxData(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
@@ -383,7 +384,6 @@ public class LinkUtils {
         while (!LinkUtils.isCleared(board)){
             //产生一个随机数
             random = new Random().nextInt(LinkUtils.getMaxData(board))+1;
-            Log.d(Constant.TAG,"测试消除"+random);
 
             //判断该布局中是否有
             for (int[] ints : board)

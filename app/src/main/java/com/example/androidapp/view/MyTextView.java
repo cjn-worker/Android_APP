@@ -6,12 +6,12 @@ import android.util.AttributeSet;
 
 import androidx.annotation.Nullable;
 
-public class XLTextView extends androidx.appcompat.widget.AppCompatTextView {
-    public XLTextView(Context context) {
+public class MyTextView extends androidx.appcompat.widget.AppCompatTextView {
+    public MyTextView(Context context) {
         super(context);
     }
 
-    public XLTextView(Context context, @Nullable AttributeSet attrs) {
+    public MyTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 

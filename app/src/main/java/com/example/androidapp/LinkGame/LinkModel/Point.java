@@ -22,7 +22,7 @@ public class Point {
 
     public boolean isEqual(Point A)
     {
-        return this.x != A.x || this.y != A.y;
+        return this.x == A.x && this.y == A.y;
     }
 
 //

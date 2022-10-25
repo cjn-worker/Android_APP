@@ -26,7 +26,7 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/failure_bear_pic" />
 
-        <com.example.androidapp.view.XLTextView
+        <com.example.androidapp.view.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="107dp"
             android:layout_alignParentEnd="true"
@@ -45,27 +45,80 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_gravity="bottom"
+        android:layout_weight="8"
+        android:background="#8050C6FD"
+        android:gravity="bottom"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_failure_level"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_margin="50dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/success_pause_failure_level_pic"
-            android:gravity="center" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_failure_restart"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_margin="50dp"
+            <Button
+                android:id="@+id/btn_failure_level"
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/success_pause_failure_level_pic"
+                android:gravity="center" />
+
+            <com.example.androidapp.view.MyTextView
+                android:id="@+id/myTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imageView10"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="2"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="关卡菜单"
+                android:textColor="#403C5C"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/success_pause_failure_restart_pic" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_failure_restart"
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/success_pause_failure_restart_pic" />
+
+            <com.example.androidapp.view.MyTextView
+                android:id="@+id/myTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imageView10"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="2"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="再来一次"
+                android:textColor="#403C5C"
+                android:textSize="24sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -12,7 +12,7 @@ import com.example.androidapp.utils.LinkUtils;
 import java.util.List;
 
 
-public class XLRelativeLayout extends RelativeLayout {
+public class MyRelativeLayout extends RelativeLayout {
     //点的信息
     private LinkInfo linkInfo;
 
@@ -20,12 +20,12 @@ public class XLRelativeLayout extends RelativeLayout {
     //private Paint paint;
     private CustomPaint customPaint;
 
-    public XLRelativeLayout(Context context) {
+    public MyRelativeLayout(Context context) {
         super(context);
         //让onDraw方法执行
         setWillNotDraw(false);
     }
-    public XLRelativeLayout(Context context, AttributeSet attrs) {
+    public MyRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         //让onDraw方法执行

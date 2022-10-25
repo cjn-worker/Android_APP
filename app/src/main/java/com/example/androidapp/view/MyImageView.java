@@ -5,7 +5,7 @@ import android.content.Context;
 import com.example.androidapp.constant.Enum.LevelState;
 import com.example.androidapp.R;
 
-public class XLImageView extends androidx.appcompat.widget.AppCompatImageView {
+public class MyImageView extends androidx.appcompat.widget.AppCompatImageView {
     //四套显示样式
     public static final int[] resources = {
             R.drawable.levle_undo_pic,      //关卡没有被打开
@@ -19,7 +19,7 @@ public class XLImageView extends androidx.appcompat.widget.AppCompatImageView {
      * 构造方法
      * @param context
      */
-    public XLImageView(Context context, LevelState levelState) {
+    public MyImageView(Context context, LevelState levelState) {
         super(context);
 
         this.changeLevelState(levelState);
