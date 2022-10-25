@@ -46,7 +46,7 @@ public class StoreFragment extends Fragment
         //拦截事件
         inflate.setOnTouchListener((v, event) -> true);
 
-        //处理事件
+
         //查询用户数据
         List<LinkUser> users = LitePal.findAll(LinkUser.class);
         LinkUser user = users.get(0);
