@@ -59,7 +59,7 @@ public class StoreFragment extends Fragment
         {
             if (prop.getP_kind() == PropMode.PROP_TIP.getValue())
             {
-                //拳头道具
+                //提示道具
                 tip_money = prop.getP_price();
                 tip_num = prop.getP_number();
             }
@@ -78,8 +78,8 @@ public class StoreFragment extends Fragment
         }
 
         //找到显示道具数量的文本
-        NumberOfItem prop_fight = inflate.findViewById(R.id.prop_tip);
-        prop_fight.setCount(tip_num);
+        NumberOfItem prop_tip = inflate.findViewById(R.id.prop_tip);
+        prop_tip.setCount(tip_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
         prop_bomb.setCount(bomb_num);
         NumberOfItem prop_refresh = inflate.findViewById(R.id.prop_refresh);
@@ -88,17 +88,17 @@ public class StoreFragment extends Fragment
         //找到显示道具价值的文本
         TextView user_money_text = inflate.findViewById(R.id.store_user_money);
         user_money_text.setText(String.valueOf(user_money));
-        TextView fight_money_text = inflate.findViewById(R.id.store_fight_money);
-        fight_money_text.setText(String.valueOf(tip_money));
+        TextView tip_money_text = inflate.findViewById(R.id.store_tip_money);
+        tip_money_text.setText(String.valueOf(tip_money));
         TextView bomb_money_text = inflate.findViewById(R.id.store_bomb_money);
         bomb_money_text.setText(String.valueOf(bomb_money));
         TextView refresh_money_text = inflate.findViewById(R.id.store_refresh_money);
         refresh_money_text.setText(String.valueOf(refresh_money));
 
-        //购买拳头
-        LinearLayout fight = inflate.findViewById(R.id.store_tip);
+        //购买提示
+        LinearLayout tip = inflate.findViewById(R.id.store_tip);
 
-        fight.setOnClickListener(v -> {
+        tip.setOnClickListener(v -> {
             SoundPlayUtil.getInstance(getContext()).play(6);
             refreshSQLite(PropMode.PROP_TIP, inflate);
         });
@@ -195,8 +195,8 @@ public class StoreFragment extends Fragment
         user_money_text.setText(String.valueOf(user_money));
 
         //找到显示道具数量的文本
-        NumberOfItem prop_fight = inflate.findViewById(R.id.prop_tip);
-        prop_fight.setCount(tip_num);
+        NumberOfItem prop_tip = inflate.findViewById(R.id.prop_tip);
+        prop_tip.setCount(tip_num);
         NumberOfItem prop_bomb = inflate.findViewById(R.id.prop_bomb);
         prop_bomb.setCount(bomb_num);
         NumberOfItem prop_refresh = inflate.findViewById(R.id.prop_refresh);

@@ -14,7 +14,8 @@ public class Kernel {
      * @param SealedLinkInfo
      * @return
      */
-    private static boolean directLink(int[][] LinkBoard, Point src, Point des, LinkInfoList SealedLinkInfo) {
+    private static boolean directLink(int[][] LinkBoard, Point src, Point des,
+                                      LinkInfoList SealedLinkInfo) {
         //两点同一行的情况
         if (src.getX() == des.getX()) {
             int min = Math.min(src.getY(), des.getY());
@@ -49,7 +50,8 @@ public class Kernel {
      * @param SealedLinkInfo
      * @return
      */
-    private static boolean oneBendLink(int[][] LinkBoard, Point src, Point des, LinkInfoList SealedLinkInfo) {
+    private static boolean oneBendLink(int[][] LinkBoard, Point src, Point des,
+                                       LinkInfoList SealedLinkInfo) {
         //拐点一
         Point tmp1 = new Point(des.getX(), src.getY());
         //拐点二
@@ -84,7 +86,8 @@ public class Kernel {
      * @param SealedLinkInfo
      * @return boolean
      */
-    private static boolean twoBendsLink(int[][] LinkBoard, Point src, Point des, LinkInfoList SealedLinkInfo) {
+    private static boolean twoBendsLink(int[][] LinkBoard, Point src, Point des,
+                                        LinkInfoList SealedLinkInfo) {
         int row = LinkBoard.length;
         int col = LinkBoard[0].length;
         //寻找两个拐点
@@ -139,7 +142,8 @@ public class Kernel {
      * @param linkInfoList
      * @return boolean
      */
-    public static boolean findLink(int[][] LinkBoard, Point src, Point des, LinkInfoList linkInfoList)
+    public static boolean findLink(int[][] LinkBoard, Point src, Point des,
+                                   LinkInfoList linkInfoList)
     {
         int x_s = src.getX();int y_s = src.getY();
         int x_d = des.getX();int y_d = des.getY();

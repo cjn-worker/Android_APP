@@ -58,7 +58,8 @@ public class PropUtils {
                     for (int m = 1; m < row && !find; m++) {
                         for (int n = 1; n < col && !find; n++) {
                             Point des = new Point(m, n);
-                            if (!src.isEqual(des)&&Kernel.findLink(LinkBoard, src, des, null)) {
+                            if (!src.isEqual(des)
+                                    &&Kernel.findLink(LinkBoard, src, des, null)) {
                                 points.add(src);
                                 points.add(des);
                                 find = true;

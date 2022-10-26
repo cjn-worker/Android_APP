@@ -138,7 +138,7 @@
 
                     <!--持有的数目-->
                     <com.example.androidapp.view.MyTextView
-                        android:id="@+id/store_fight_money"
+                        android:id="@+id/store_tip_money"
                         style="@style/ShowSimpleMoneyNumText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

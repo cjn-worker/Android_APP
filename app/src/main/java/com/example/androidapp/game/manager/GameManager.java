@@ -306,8 +306,8 @@ public class GameManager
         clearLastGame();
     }
 
-    //拳头道具
-    public void fightGame(Activity link_activity)
+    //提示道具
+    public void tipGame(Activity link_activity)
     {
         //1.产生一对消除的点
 //        Point[] doubleRemove = LinkUtils.getDoubleRemove();

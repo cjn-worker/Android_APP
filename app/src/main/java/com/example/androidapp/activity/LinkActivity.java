@@ -77,15 +77,15 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
     //记录分数的变量
     private int score;
 
-    //拳头道具
+    //提示道具
     NumberOfItem prop_tip;
     //炸弹道具
     NumberOfItem prop_bomb;
     //刷新道具
     NumberOfItem prop_refresh;
 
-    //记录拳头道具的数量
-    int fight_num;
+    //记录提示道具的数量
+    int tip_num;
     //记录炸弹道具的数量
     int bomb_num;
     //记录刷新道具的数量
@@ -139,8 +139,8 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         {
             if (prop.getP_kind() == PropMode.PROP_TIP.getValue())
             {
-                //拳头道具
-                fight_num = prop.getP_number();
+                //提示道具
+                tip_num = prop.getP_number();
             }
             else if (prop.getP_kind() == PropMode.PROP_BOMB.getValue())
             {
@@ -160,7 +160,7 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         prop_bomb.setOnClickListener(this);
         prop_refresh = findViewById(R.id.prop_refresh);
         prop_refresh.setOnClickListener(this);
-        prop_tip.setCount(fight_num);
+        prop_tip.setCount(tip_num);
         prop_bomb.setCount(bomb_num);
         prop_refresh.setCount(refresh_num);
         time_bar = findViewById(R.id.link_time_bar);
@@ -393,17 +393,17 @@ public class LinkActivity extends BaseActivity implements View.OnClickListener
         {
             case R.id.prop_tip:
 
-                if (fight_num > 0)
+                if (tip_num > 0)
                 {
-                    manager.fightGame(LinkActivity.this);
+                    manager.tipGame(LinkActivity.this);
 
                     //数量减1
-                    fight_num--;
-                    prop_tip.setCount(fight_num);
+                    tip_num--;
+                    prop_tip.setCount(tip_num);
 
                     //数据库处理
                     ContentValues values = new ContentValues();
-                    values.put("p_number", fight_num);
+                    values.put("p_number", tip_num);
                     LitePal.update(LinkProp.class, values, 1);
                 }
                 else
